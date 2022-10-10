@@ -1,71 +1,115 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:instagram_clone/app/controller/signin_controller.dart';
 import 'package:instagram_clone/generated/assets.dart';
+import 'package:instagram_clone/ui/app_widgets/action_button_text.dart';
 import 'package:instagram_clone/ui/app_widgets/app_logo.dart';
 import 'package:instagram_clone/ui/app_widgets/sizeBox.dart';
 import 'package:instagram_clone/ui/theme.dart';
 import '../../app_widgets/custom_action_button.dart';
+import '../../app_widgets/input_text_field_decoration.dart';
 import '../../app_widgets/screen_footer.dart';
-import 'component/custom_text.dart';
-import 'component/custom_text_field.dart';
+import '../../app_widgets/custom_text.dart';
+import '../signup/validator/validator.dart';
 
-class SignInScreen extends StatefulWidget {
-  const SignInScreen({Key? key}) : super(key: key);
+class SignInScreen extends StatelessWidget {
+  SignInScreen({Key? key}) : super(key: key);
+  final signInController = Get.put(SignInController());
 
-  @override
-  State<SignInScreen> createState() => _SignInScreenState();
-}
-
-class _SignInScreenState extends State<SignInScreen> {
+  final emailOrPhoneOrUsernameController = TextEditingController();
+  final passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      appBar:null,
-      /*AppBar(
-        actions: [
-          Switch(
-            value: true,
-            onChanged: (value) {
-
-            },
-          ),
-        ],
-      ),*/
       body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            sizeBox(56),
-            mainBody(width),
-            bottomPart(
-              customText('Don\'t Have an Account? ', 'Sign Up'),
-            ),
-          ],
+        child: LayoutBuilder(
+          builder: (context, constraint) {
+            return SingleChildScrollView(
+              child: ConstrainedBox(
+                constraints: BoxConstraints(minHeight: constraint.maxHeight),
+                child: IntrinsicHeight(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      sizeBox(56),
+                      mainBody(width, context, signInController),
+                      bottomPart(
+                        customText('Don\'t Have an Account? ', 'Sign Up'),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            );
+          },
         ),
       ),
     );
   }
 }
 
-Padding mainBody(double width) {
+Padding mainBody(
+  double width,
+  context,
+  SignInController signInController,
+) {
   return Padding(
     padding: const EdgeInsets.all(18),
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        appLogo(),
+        appLogo(context),
         sizeBox(25.0),
-        usernameOrPasswordTextField('Phone Number, email, or username', false),
+        TextField(
+          controller: signInController.emailOrPhoneOrUsernameController,
+          keyboardType: TextInputType.text,
+          decoration:
+              inputTextFieldDecoration('Phone Number, email, or username'),
+          obscureText: false,
+          enableSuggestions: false,
+          autocorrect: false,
+          onChanged: (value) {
+            signInController.updateEmailOrPhoneOrUsername(
+                value,
+                (Validator.validateEmail(value) ||
+                    Validator.validateUserName(value) ||
+                    Validator.validateMobile(value)));
+          },
+        ),
+        sizeBox(15),
+        TextField(
+          controller: signInController.passwordController,
+          keyboardType: TextInputType.visiblePassword,
+          decoration: inputTextFieldDecoration('Password'),
+          obscureText: true,
+          enableSuggestions: false,
+          autocorrect: false,
+          onChanged: (value) {
+            signInController.updatePassword(
+                value, Validator.validatePassword(value));
+          },
+        ),
         sizeBox(15.0),
-        usernameOrPasswordTextField('Password', true),
-        sizeBox(15.0),
-        customActionButton(
-          const Text('Log In'),
-          false,
+        /*customActionButton(
+          actionButtonText('Log In', emptyOrNot),
+          emptyOrNot,
+        ),*/
+        Obx(
+          () {
+            bool empty =
+                (signInController.emailOrPhoneOrUsernameNotEmpty.value &&
+                    signInController.passwordNotEmpty.value);
+            return customActionButton(
+              actionButtonText('Log In', empty),
+              empty,
+            );
+          },
         ),
         sizeBox(15.0),
         customText('Forgot your login details?', ' Get help logging in.'),
@@ -74,7 +118,7 @@ Padding mainBody(double width) {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Container(
-              width: (width*.8)/2,
+              width: (width * .8) / 2,
               height: 0.2,
               color: AppColors.faded,
             ),
@@ -86,7 +130,7 @@ Padding mainBody(double width) {
               ),
             ),
             Container(
-              width: (width*.8)/2,
+              width: (width * .8) / 2,
               height: 0.2,
               color: AppColors.faded,
             )

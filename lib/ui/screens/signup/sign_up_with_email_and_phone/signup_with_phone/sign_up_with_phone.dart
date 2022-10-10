@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:instagram_clone/ui/app_widgets/sizeBox.dart';
+import 'package:instagram_clone/ui/screens/signup/validator/validator.dart';
 import 'package:instagram_clone/ui/theme.dart';
-
+import '../../../../../app/controller/signup_controller.dart';
+import '../../../../../routes/app_routes.dart';
+import '../../../../app_widgets/action_button_text.dart';
 import '../../../../app_widgets/custom_action_button.dart';
 
-class SignUpWithPhone extends StatefulWidget {
-  const SignUpWithPhone({Key? key}) : super(key: key);
+class SignUpWithPhone extends StatelessWidget {
+  SignUpWithPhone({Key? key}) : super(key: key);
+  final signUpController = Get.find<SignUpController>();
 
-  @override
-  State<SignUpWithPhone> createState() => _SignUpWithPhoneState();
-}
-
-class _SignUpWithPhoneState extends State<SignUpWithPhone> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +28,16 @@ class _SignUpWithPhoneState extends State<SignUpWithPhone> {
                 textAlign: TextAlign.center,
               ),
               sizeBox(20),
-              customActionButton(const Text('Next'), false)
+              Obx(
+                () {
+                  bool empty = (signUpController.phoneNumberNotEmpty.value);
+                  return customActionButton(
+                    actionButtonText('Next', empty),
+                    empty,
+                    Routes.OTHERINFORMATION,
+                  );
+                },
+              ),
             ],
           ),
         ),
@@ -57,10 +65,11 @@ class _SignUpWithPhoneState extends State<SignUpWithPhone> {
             color: AppColors.faded,
           ),
           sizeBox(10),
-          const Expanded(
+          Expanded(
             child: TextField(
-              keyboardType: TextInputType.numberWithOptions(),
-              decoration: InputDecoration(
+              controller: signUpController.phoneNumberController,
+              keyboardType: const TextInputType.numberWithOptions(),
+              decoration: const InputDecoration(
                 hintText: 'Phone',
                 hintStyle: TextStyle(fontSize: 14, color: AppColors.faded),
                 border: OutlineInputBorder(
@@ -70,6 +79,10 @@ class _SignUpWithPhoneState extends State<SignUpWithPhone> {
                   ),
                 ),
               ),
+              onChanged: (value) {
+                signUpController.updatePhoneNumber(
+                    value, Validator.validateMobile(value));
+              },
             ),
           )
         ],

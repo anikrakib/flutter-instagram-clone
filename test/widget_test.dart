@@ -8,11 +8,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:instagram_clone/app/instagram_clone_app.dart';
+import 'package:instagram_clone/ui/theme.dart';
 
 void main() {
+  final theme = AppTheme();
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const InstagramCloneApp());
+    await tester.pumpWidget(
+      InstagramCloneApp(
+        appTheme: theme,
+      ),
+    );
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

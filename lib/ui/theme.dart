@@ -42,6 +42,9 @@ abstract class AppTextStyle {
     fontWeight: FontWeight.w600,
   );
 
+  static const textStyleBoldMediumWhiteText =
+      TextStyle(fontWeight: FontWeight.w600, color: AppColors.light);
+
   /// A bold text style.
   static const textStyleBold = TextStyle(
     fontWeight: FontWeight.bold,
@@ -61,11 +64,11 @@ abstract class AppTextStyle {
 
   /// A faded text style. Uses [AppColors.faded].
   static const textStyleFadedSmall = TextStyle(
-      color: AppColors.faded, fontWeight: FontWeight.w400, fontSize: 12);
+      color: AppColors.faded, fontWeight: FontWeight.w400, fontSize: 11);
 
   /// A faded text style. Uses [AppColors.faded].
   static const textStyleFadedSmallBold = TextStyle(
-      color: AppColors.faded, fontWeight: FontWeight.w500, fontSize: 12);
+      color: AppColors.faded, fontWeight: FontWeight.w500, fontSize: 11);
 
   /// Light text style.
   static const textStyleLight = TextStyle(fontWeight: FontWeight.w300);
@@ -76,10 +79,10 @@ abstract class AppTextStyle {
     color: AppColors.secondary,
   );
   static const textStyleActionBlueBig = TextStyle(
-    fontWeight: FontWeight.w700,
-    color: AppColors.secondary,
-    fontSize: 15
-  );
+      fontWeight: FontWeight.w700, color: AppColors.secondary, fontSize: 16);
+
+  static const textStyleBig =
+      TextStyle(fontWeight: FontWeight.w600, fontSize: 16);
 }
 
 /// Global reference to the application theme.
@@ -165,6 +168,7 @@ class AppTheme {
           iconTheme: const IconThemeData(color: AppColors.dark),
           elevation: 0,
         ),
+
         bottomNavigationBarTheme: _lightBase.bottomNavigationBarTheme.copyWith(
           backgroundColor: AppColors.light,
           selectedItemColor: AppColors.dark,

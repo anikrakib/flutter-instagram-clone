@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/ui/theme.dart';
+import 'package:get/get.dart';
+import '../../routes/app_routes.dart';
 
-SizedBox customActionButton(
-  Widget widget,
-  bool disOrAn,
-) {
+SizedBox customActionButton(Widget widget, bool disOrAn,
+    [String? routes,]) {
   return SizedBox(
     width: double.infinity,
     child: ElevatedButton(
-      onPressed: disOrAn == true ? () {} : null,
+      onPressed: disOrAn == true
+          ? () {
+              Get.toNamed(routes!);
+            }
+          : null,
       style: disOrAn == true ? buttonEnableStyle() : buttonDisableStyle(),
       child: Padding(
         padding: const EdgeInsets.all(16.0),

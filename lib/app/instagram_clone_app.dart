@@ -1,16 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/ui/screens/splash_screen/splash_screen.dart';
+import 'package:get/get.dart';
+import '../routes/app_pages.dart';
+import '../ui/theme.dart';
+import 'controller/theme_controller.dart';
 
 class InstagramCloneApp extends StatelessWidget {
-  const InstagramCloneApp({Key? key}) : super(key: key);
+  InstagramCloneApp({Key? key, required this.appTheme}) : super(key: key);
+  /// App's theme data.
+  final AppTheme appTheme;
+  final themeController = Get.put(ThemeController());
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: null,
-      body: SplashScreen(),
+    return GetMaterialApp(
+      title: 'Instagram Clone',
+      theme: AppTheme().lightTheme,
+      darkTheme: AppTheme().darkTheme,
+      debugShowCheckedModeBanner: false,
+      initialRoute: AppPages.INITIAL,
+      getPages: AppPages.routes,
+      themeMode: themeController.theme,
     );
   }
 }
-
-

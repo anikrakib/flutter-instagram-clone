@@ -7,7 +7,7 @@ import 'package:instagram_clone/ui/theme.dart';
 import '../../../routes/app_routes.dart';
 import '../../app_widgets/app_logo.dart';
 import '../../app_widgets/screen_footer.dart';
-import '../signin/component/custom_text.dart';
+import '../../app_widgets/custom_text.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -28,7 +28,7 @@ class SignUpScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  appLogo(),
+                  appLogo(context),
                   sizeBox(80),
                   customActionButton(
                     textWithIcon('Continue as Facebook'),

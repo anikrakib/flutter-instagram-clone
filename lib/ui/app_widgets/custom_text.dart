@@ -1,8 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../routes/app_routes.dart';
-import '../../../theme.dart';
+import '../../routes/app_routes.dart';
+import '../theme.dart';
 
 RichText customText(String text1, String text2) {
   return RichText(

@@ -7,6 +7,7 @@ abstract class Routes {
   static const SIGNUP = Paths.SIGNUP;
   static const SIGNUPWITHBOTH = Paths.SIGNUPWITHBOTH;
   static const EXISTINGACCOUNT = Paths.EXISTINGACCOUNT;
+  static const OTHERINFORMATION = Paths.OTHERINFORMATION;
 }
 
 abstract class Paths {
@@ -17,4 +18,5 @@ abstract class Paths {
   static const SIGNUP = '/signUp';
   static const SIGNUPWITHBOTH = '/signUpWithBoth';
   static const EXISTINGACCOUNT = '/existingAccounts';
+  static const OTHERINFORMATION = '/otherInformation';
 }

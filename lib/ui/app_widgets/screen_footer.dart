@@ -6,7 +6,7 @@ Column bottomPart(Widget textWidget) {
     children: [
       Container(
         width: double.infinity,
-        height: .2,
+        height: .8,
         color: AppColors.faded,
       ),
       SizedBox(

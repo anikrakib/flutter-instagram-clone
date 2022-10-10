@@ -21,8 +21,8 @@ class SplashScreen extends StatelessWidget {
               Align(
                 alignment: Alignment.center,
                 child: SizedBox(
-                  height: 80,
-                  width: 80,
+                  height: 50,
+                  width: 50,
                   child: SvgPicture.asset(
                     Assets.assetsAppIcon,
                   ),
@@ -43,7 +43,7 @@ class SplashScreen extends StatelessWidget {
                       Text(
                         'F A C E B O O K',
                         style: TextStyle(
-                          fontSize: 22.0,
+                          fontSize: 18.0,
                           fontWeight: FontWeight.bold,
                           foreground: Paint()..shader = linearGradientFacebook,
                         ),

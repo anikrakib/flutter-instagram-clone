@@ -8,6 +8,10 @@ import 'package:instagram_clone/ui/screens/signup/sign_up_with_email_and_phone/s
 import 'package:instagram_clone/ui/screens/signup/signup_screen.dart';
 import 'package:instagram_clone/ui/screens/splash_screen/splash_screen.dart';
 
+import '../app/binding/signin_binding.dart';
+import '../app/binding/signup_binding.dart';
+import '../ui/screens/signup/signup_other_information.dart';
+
 class AppPages {
   AppPages._();
 
@@ -25,19 +29,26 @@ class AppPages {
     ),
     GetPage(
       name: Paths.SIGNIN,
-      page: () => const SignInScreen(),
+      page: () => SignInScreen(),
+      binding: SignInBinding(),
     ),
     GetPage(
       name: Paths.SIGNUP,
       page: () => const SignUpScreen(),
+      binding: SignUpBinding(),
     ),
     GetPage(
       name: Paths.SIGNUPWITHBOTH,
       page: () => const SignUpWithEmailAndPhone(),
+      binding: SignUpBinding(),
     ),
     GetPage(
       name: Paths.EXISTINGACCOUNT,
-      page: () => const SignInWithExistingAccount(),
+      page: () => SignInWithExistingAccount(),
+    ),
+    GetPage(
+      name: Paths.OTHERINFORMATION,
+      page: () => OtherInformation(),
     ),
   ];
 }

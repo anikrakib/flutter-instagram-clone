@@ -7,7 +7,7 @@ import '../../../../generated/assets.dart';
 import '../../../app_widgets/app_logo.dart';
 import '../../../app_widgets/screen_footer.dart';
 import '../../../theme.dart';
-import '../../signin/component/custom_text.dart';
+import '../../../app_widgets/custom_text.dart';
 
 class SignUpWithEmailAndPhone extends StatefulWidget {
   const SignUpWithEmailAndPhone({Key? key}) : super(key: key);
@@ -24,7 +24,7 @@ class _SignUpWithEmailAndPhoneState extends State<SignUpWithEmailAndPhone>
     Tab(text: 'EMAIL'),
   ];
 
-  static const List<Widget> tabs = <Widget>[
+  static List<Widget> tabs = <Widget>[
     SignUpWithPhone(),
     SignUpWithEmail()
   ];
@@ -55,7 +55,7 @@ class _SignUpWithEmailAndPhoneState extends State<SignUpWithEmailAndPhone>
                 child: IntrinsicHeight(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
+                    children: [
                       sizeBox(56),
                       Column(
                         children: [
