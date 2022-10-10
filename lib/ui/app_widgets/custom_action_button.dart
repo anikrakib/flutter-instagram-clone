@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import '../../routes/app_routes.dart';
 
-SizedBox customActionButton(Widget widget, bool disOrAn,
-    [String? routes,]) {
+SizedBox customActionButton(Widget widget, bool disOrAn, [Function? action]) {
   return SizedBox(
     width: double.infinity,
     child: ElevatedButton(
       onPressed: disOrAn == true
           ? () {
-              Get.toNamed(routes!);
+              if (action != null) {
+                action();
+              }
             }
           : null,
       style: disOrAn == true ? buttonEnableStyle() : buttonDisableStyle(),

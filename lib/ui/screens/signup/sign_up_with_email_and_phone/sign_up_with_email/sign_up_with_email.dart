@@ -37,9 +37,9 @@ class SignUpWithEmail extends StatelessWidget {
                 () {
                   bool empty = (signUpController.emailNotEmpty.value);
                   return customActionButton(
-                    actionButtonText('Log In', empty),
+                    actionButtonText('Next', empty),
                     empty,
-                    Routes.OTHERINFORMATION,
+                    action,
                   );
                 },
               )
@@ -50,29 +50,7 @@ class SignUpWithEmail extends StatelessWidget {
     );
   }
 
-/*@override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(18.0),
-          child: ValueListenableBuilder(
-            valueListenable: signUpController.emailController,
-            builder: (context, TextEditingValue value, __) {
-              bool emptyOrNot = value.text.isNotEmpty;
-              return Column(
-                children: [
-                  usernameOrPasswordTextField(
-                      'Email', false, signUpController.emailController),
-                  sizeBox(20),
-                  customActionButton(actionButtonText('Next', emptyOrNot),
-                      emptyOrNot, Routes.OTHERINFORMATION,action())
-                ],
-              );
-            },
-          ),
-        ),
-      ),
-    );
-  }*/
+  action() {
+    Get.toNamed(Routes.OTHERINFORMATION);
+  }
 }

@@ -34,7 +34,7 @@ class SignUpWithPhone extends StatelessWidget {
                   return customActionButton(
                     actionButtonText('Next', empty),
                     empty,
-                    Routes.OTHERINFORMATION,
+                    action,
                   );
                 },
               ),
@@ -43,6 +43,10 @@ class SignUpWithPhone extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  action() {
+    Get.toNamed(Routes.OTHERINFORMATION);
   }
 
   Container phoneNumberPart() {

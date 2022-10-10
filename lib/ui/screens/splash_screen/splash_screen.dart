@@ -21,8 +21,8 @@ class SplashScreen extends StatelessWidget {
               Align(
                 alignment: Alignment.center,
                 child: SizedBox(
-                  height: 50,
-                  width: 50,
+                  height: 65,
+                  width: 65,
                   child: SvgPicture.asset(
                     Assets.assetsAppIcon,
                   ),
