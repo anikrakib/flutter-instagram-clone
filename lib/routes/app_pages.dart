@@ -46,7 +46,7 @@ class AppPages {
     ),
     GetPage(
       name: Paths.existingAccount,
-      page: () => SignInWithExistingAccount(),
+      page: () => const SignInWithExistingAccount(),
     ),
     GetPage(
       name: Paths.otherInformation,

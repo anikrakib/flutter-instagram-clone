@@ -6,13 +6,12 @@ import 'package:instagram_clone/ui/app_widgets/svg_image.dart';
 import 'package:instagram_clone/ui/app_widgets/custom_action_button.dart';
 import 'package:instagram_clone/ui/app_widgets/sizeBox.dart';
 import 'package:instagram_clone/utils/constants.dart';
-import '../../../app/controller/theme_controller.dart';
 import '../../../routes/app_routes.dart';
 import '../../app_widgets/screen_footer.dart';
 import '../../theme.dart';
 
 class SignInWithExistingAccount extends StatefulWidget {
-  SignInWithExistingAccount({Key? key}) : super(key: key);
+  const SignInWithExistingAccount({Key? key}) : super(key: key);
 
   @override
   State<SignInWithExistingAccount> createState() =>
@@ -20,8 +19,6 @@ class SignInWithExistingAccount extends StatefulWidget {
 }
 
 class _SignInWithExistingAccountState extends State<SignInWithExistingAccount> {
-  final themeController = Get.find<ThemeController>();
-
   final userInfo = GetStorage();
 
   String userName = '';
