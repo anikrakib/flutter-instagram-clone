@@ -92,6 +92,7 @@ class AppTheme {
 
   /// Dark theme and its settings.
   ThemeData get darkTheme => _darkBase.copyWith(
+        primaryColor: AppColors.light,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         backgroundColor: AppColors.dark,
         scaffoldBackgroundColor: AppColors.dark,
@@ -102,7 +103,6 @@ class AppTheme {
           elevation: 0,
         ),
         bottomNavigationBarTheme: _darkBase.bottomNavigationBarTheme.copyWith(
-          backgroundColor: AppColors.dark,
           selectedItemColor: AppColors.light,
         ),
         outlinedButtonTheme: OutlinedButtonThemeData(
@@ -159,6 +159,7 @@ class AppTheme {
       );
 
   ThemeData get lightTheme => _lightBase.copyWith(
+        primaryColor: AppColors.dark,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         backgroundColor: AppColors.light,
         scaffoldBackgroundColor: AppColors.light,
@@ -168,9 +169,7 @@ class AppTheme {
           iconTheme: const IconThemeData(color: AppColors.dark),
           elevation: 0,
         ),
-
         bottomNavigationBarTheme: _lightBase.bottomNavigationBarTheme.copyWith(
-          backgroundColor: AppColors.light,
           selectedItemColor: AppColors.dark,
         ),
         snackBarTheme:

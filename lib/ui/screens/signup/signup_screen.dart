@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:instagram_clone/generated/assets.dart';
 import 'package:instagram_clone/ui/app_widgets/custom_action_button.dart';
 import 'package:instagram_clone/ui/app_widgets/sizeBox.dart';
 import 'package:instagram_clone/ui/theme.dart';
+import 'package:instagram_clone/utils/constants.dart';
 import '../../../routes/app_routes.dart';
-import '../../app_widgets/app_logo.dart';
+import '../../app_widgets/svg_image.dart';
 import '../../app_widgets/screen_footer.dart';
 import '../../app_widgets/custom_text.dart';
 
@@ -21,9 +21,9 @@ class SignUpScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            sizeBox(56),
+            sizeBox(appBarHeight),
             Padding(
-              padding: const EdgeInsets.all(18.0),
+              padding: const EdgeInsets.all(defaultPadding),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -60,7 +60,7 @@ class SignUpScreen extends StatelessWidget {
                   sizeBox(20.0),
                   MaterialButton(
                     onPressed: () {
-                      Get.toNamed(Routes.SIGNUPWITHBOTH);
+                      Get.toNamed(Routes.signUpWithBoth);
                     },
                     child: const Text(
                       'Sign Up With Email or Phone number',
@@ -99,5 +99,4 @@ class SignUpScreen extends StatelessWidget {
           )
         ],
       );
-
 }

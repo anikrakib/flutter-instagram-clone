@@ -7,9 +7,10 @@ import 'package:instagram_clone/app/controller/signup_controller.dart';
 import 'package:instagram_clone/generated/assets.dart';
 import 'package:instagram_clone/routes/app_routes.dart';
 import 'package:instagram_clone/ui/app_widgets/action_button_text.dart';
-import 'package:instagram_clone/ui/app_widgets/app_logo.dart';
+import 'package:instagram_clone/ui/app_widgets/svg_image.dart';
 import 'package:instagram_clone/ui/app_widgets/sizeBox.dart';
 import 'package:instagram_clone/ui/theme.dart';
+import 'package:instagram_clone/utils/constants.dart';
 import '../../app_widgets/custom_action_button.dart';
 import '../../app_widgets/input_text_field_decoration.dart';
 import '../../app_widgets/screen_footer.dart';
@@ -39,14 +40,14 @@ class _SignInScreenState extends State<SignInScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    if (userInfo.read('userName') != null &&
-        userInfo.read('password') != null &&
-        userInfo.read('phone') != null &&
-        userInfo.read('email') != null) {
-      uName = userInfo.read('userName');
-      password = userInfo.read('password');
-      phone = userInfo.read('phone');
-      email = userInfo.read('email');
+    if (userInfo.read(userNameKey) != null &&
+        userInfo.read(passwordKey) != null &&
+        userInfo.read(phoneKey) != null &&
+        userInfo.read(emailKey) != null) {
+      uName = userInfo.read(userNameKey);
+      password = userInfo.read(passwordKey);
+      phone = userInfo.read(phoneKey);
+      email = userInfo.read(emailKey);
     }
   }
 
@@ -65,7 +66,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      sizeBox(56),
+                      sizeBox(appBarHeight),
                       mainBody(width, context, signInController),
                       bottomPart(
                         customText('Don\'t Have an Account? ', 'Sign Up'),
@@ -87,7 +88,7 @@ class _SignInScreenState extends State<SignInScreen> {
     SignInController signInController,
   ) {
     return Padding(
-      padding: const EdgeInsets.all(18),
+      padding: const EdgeInsets.all(defaultPadding),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -183,7 +184,7 @@ class _SignInScreenState extends State<SignInScreen> {
             phone ==
                 signInController.emailOrPhoneOrUsername.value.toString()) &&
         password == signInController.password.value.toString()) {
-      Get.offNamed(Routes.HOME);
+      Get.offNamed(Routes.navBarScreen);
     }else{
       Get.snackbar('Error', 'Incorrect Credential');
     }

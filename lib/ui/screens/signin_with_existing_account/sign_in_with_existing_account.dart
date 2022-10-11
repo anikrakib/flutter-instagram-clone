@@ -1,11 +1,11 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:instagram_clone/ui/app_widgets/action_button_text.dart';
-import 'package:instagram_clone/ui/app_widgets/app_logo.dart';
+import 'package:instagram_clone/ui/app_widgets/svg_image.dart';
 import 'package:instagram_clone/ui/app_widgets/custom_action_button.dart';
 import 'package:instagram_clone/ui/app_widgets/sizeBox.dart';
+import 'package:instagram_clone/utils/constants.dart';
 import '../../../app/controller/theme_controller.dart';
 import '../../../routes/app_routes.dart';
 import '../../app_widgets/screen_footer.dart';
@@ -42,32 +42,13 @@ class _SignInWithExistingAccountState extends State<SignInWithExistingAccount> {
 
   @override
   Widget build(BuildContext context) {
-    Random random = Random();
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          IconButton(
-            onPressed: () {
-              if (Get.isDarkMode) {
-                themeController.changeTheme(AppTheme().lightTheme);
-                themeController.saveTheme(false);
-              } else {
-                themeController.changeTheme(AppTheme().darkTheme);
-                themeController.saveTheme(true);
-              }
-            },
-            icon: Get.isDarkMode
-                ? const Icon(Icons.light_mode_outlined)
-                : const Icon(Icons.dark_mode_outlined),
-          ),
-        ],
-      ),
       body: SafeArea(
         child: Column(
           children: [
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.all(18.0),
+                padding: const EdgeInsets.all(defaultPadding),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -102,7 +83,7 @@ class _SignInWithExistingAccountState extends State<SignInWithExistingAccount> {
                 children: [
                   Expanded(
                     child: bottomButton(
-                      routes: Routes.SIGNIN,
+                      routes: Routes.signIn,
                       text: 'Switch Accounts',
                     ),
                   ),
@@ -113,7 +94,7 @@ class _SignInWithExistingAccountState extends State<SignInWithExistingAccount> {
                   ),
                   Expanded(
                     child: bottomButton(
-                      routes: Routes.SIGNUP,
+                      routes: Routes.signUp,
                       text: 'Sign Up',
                     ),
                   ),
@@ -129,7 +110,7 @@ class _SignInWithExistingAccountState extends State<SignInWithExistingAccount> {
   action() {
     if (userInfo.read('userName') != null &&
         userInfo.read('password') != null) {
-      Get.offNamed(Routes.HOME);
+      Get.offNamed(Routes.navBarScreen);
     }
   }
 

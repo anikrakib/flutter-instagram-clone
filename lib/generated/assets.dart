@@ -8,13 +8,16 @@ class Assets {
   static const String assetsIgtvLoading = 'assets/igtv_loading.svg';
   static const String assetsMyDayBackground = 'assets/my_day_background.svg';
   static const String assetsProfileVerified = 'assets/profile_verified.svg';
+  static const String bottomNavbarIconBlackShopFill = 'assets/bottom_navbar/icon_black_shop_fill.svg';
   static const String bottomNavbarIconHeart = 'assets/bottom_navbar/icon_heart.svg';
   static const String bottomNavbarIconHeartFill = 'assets/bottom_navbar/icon_heart_fill.svg';
   static const String bottomNavbarIconHome = 'assets/bottom_navbar/icon_home.svg';
   static const String bottomNavbarIconHomeFill = 'assets/bottom_navbar/icon_home_fill.svg';
-  static const String bottomNavbarIconIgtv = 'assets/bottom_navbar/icon_igtv.svg';
+  static const String bottomNavbarIconPost = 'assets/bottom_navbar/icon_post.svg';
   static const String bottomNavbarIconSearch = 'assets/bottom_navbar/icon_search.svg';
   static const String bottomNavbarIconSearchFill = 'assets/bottom_navbar/icon_search_fill.svg';
+  static const String bottomNavbarIconShop = 'assets/bottom_navbar/icon_shop.svg';
+  static const String bottomNavbarIconWhiteShopFill = 'assets/bottom_navbar/icon_white_shop_fill.svg';
   static const String iconsIconAdd = 'assets/icons/icon_add.svg';
   static const String iconsIconArchive = 'assets/icons/icon_archive.svg';
   static const String iconsIconArrowDown = 'assets/icons/icon_arrow_down.svg';

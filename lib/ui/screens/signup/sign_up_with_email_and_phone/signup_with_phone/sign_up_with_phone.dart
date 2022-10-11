@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:instagram_clone/ui/app_widgets/sizeBox.dart';
 import 'package:instagram_clone/ui/screens/signup/validator/validator.dart';
 import 'package:instagram_clone/ui/theme.dart';
+import 'package:instagram_clone/utils/constants.dart';
 import '../../../../../app/controller/signup_controller.dart';
 import '../../../../../routes/app_routes.dart';
 import '../../../../app_widgets/action_button_text.dart';
@@ -17,7 +18,7 @@ class SignUpWithPhone extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(18.0),
+          padding: const EdgeInsets.all(defaultPadding),
           child: Column(
             children: [
               phoneNumberPart(),
@@ -46,7 +47,7 @@ class SignUpWithPhone extends StatelessWidget {
   }
 
   action() {
-    Get.toNamed(Routes.OTHERINFORMATION);
+    Get.toNamed(Routes.otherInformation);
   }
 
   Container phoneNumberPart() {

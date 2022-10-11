@@ -29,3 +29,23 @@ SvgPicture svgImageWithColor(
       height: height,
       color: color,
     );
+
+SvgPicture navigationSVGImageWithoutColor(String imagePath) {
+  return SvgPicture.asset(
+    imagePath,
+    height: 21,
+    width: 21,
+  );
+}
+
+SvgPicture navigationSVGImage(
+  BuildContext context,
+  String imagePath,
+) {
+  return SvgPicture.asset(
+    imagePath,
+    height: 21,
+    width: 21,
+    color: Theme.of(context).primaryColor,
+  );
+}

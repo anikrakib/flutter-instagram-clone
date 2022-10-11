@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:instagram_clone/app/controller/signup_controller.dart';
+import 'package:instagram_clone/utils/constants.dart';
 import '../../../../../routes/app_routes.dart';
 import '../../../../app_widgets/action_button_text.dart';
 import '../../../../app_widgets/custom_action_button.dart';
@@ -17,7 +18,7 @@ class SignUpWithEmail extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(18.0),
+          padding: const EdgeInsets.all(defaultPadding),
           child: Column(
             children: [
               TextField(
@@ -51,6 +52,6 @@ class SignUpWithEmail extends StatelessWidget {
   }
 
   action() {
-    Get.toNamed(Routes.OTHERINFORMATION);
+    Get.toNamed(Routes.otherInformation);
   }
 }

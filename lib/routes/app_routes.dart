@@ -1,22 +1,25 @@
 
 abstract class Routes {
   Routes._();
-  static const SPLASH = Paths.SPLASH;
-  static const HOME = Paths.HOME;
-  static const SIGNIN = Paths.SIGNIN;
-  static const SIGNUP = Paths.SIGNUP;
-  static const SIGNUPWITHBOTH = Paths.SIGNUPWITHBOTH;
-  static const EXISTINGACCOUNT = Paths.EXISTINGACCOUNT;
-  static const OTHERINFORMATION = Paths.OTHERINFORMATION;
+  static const splash = Paths.splash;
+  static const home = Paths.home;
+  static const signIn = Paths.signIn;
+  static const signUp = Paths.signUp;
+  static const signUpWithBoth = Paths.signupWithBoth;
+  static const existingAccount = Paths.existingAccount;
+  static const otherInformation = Paths.otherInformation;
+  static const navBarScreen = Paths.navBarScreen;
 }
 
 abstract class Paths {
   Paths._();
-  static const SPLASH = '/splash';
-  static const HOME = '/home';
-  static const SIGNIN = '/signIn';
-  static const SIGNUP = '/signUp';
-  static const SIGNUPWITHBOTH = '/signUpWithBoth';
-  static const EXISTINGACCOUNT = '/existingAccounts';
-  static const OTHERINFORMATION = '/otherInformation';
+  static const splash = '/splash';
+  static const home = '/home';
+  static const signIn = '/signIn';
+  static const signUp = '/signUp';
+  static const signupWithBoth = '/signUpWithBoth';
+  static const existingAccount = '/existingAccounts';
+  static const otherInformation = '/otherInformation';
+  static const shop = '/shop';
+  static const navBarScreen = '/navBar';
 }

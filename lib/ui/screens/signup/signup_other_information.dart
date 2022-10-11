@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -7,6 +6,7 @@ import 'package:instagram_clone/routes/app_routes.dart';
 import 'package:instagram_clone/ui/app_widgets/sizeBox.dart';
 import 'package:instagram_clone/ui/screens/signup/validator/validator.dart';
 import 'package:instagram_clone/ui/theme.dart';
+import 'package:instagram_clone/utils/constants.dart';
 import '../../../app/controller/signup_controller.dart';
 import '../../app_widgets/action_button_text.dart';
 import '../../app_widgets/custom_action_button.dart';
@@ -23,7 +23,7 @@ class OtherInformation extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(18.0),
+          padding: const EdgeInsets.all(defaultPadding),
           child: SingleChildScrollView(child: buildColumn(signUpController)),
         ),
       ),
@@ -33,7 +33,7 @@ class OtherInformation extends StatelessWidget {
   Column buildColumn(SignUpController signUpController) {
     return Column(
       children: [
-        sizeBox(56),
+        sizeBox(appBarHeight),
         const Text(
           'ENTER CONFIRMATION CODE',
           style: AppTextStyle.textStyleBig,
@@ -122,20 +122,22 @@ class OtherInformation extends StatelessWidget {
 
   action() {
     Random random = Random();
-    String url = 'https://randomuser.me/api/portraits/lego/${random.nextInt(9)}.jpg';
-    userInfo.write("userName", signUpController.userName.value.toString());
-    userInfo.write("password", signUpController.password.value.toString());
-    userInfo.write("email", signUpController.email.value.toString());
-    userInfo.write("phone", signUpController.phoneNumber.value.toString());
-    userInfo.write("userProfilePic", url);
-    userInfo.write("isLoggedIn", true);
+    String url =
+        'https://randomuser.me/api/portraits/lego/${random.nextInt(9)}.jpg';
+    userInfo.write(userNameKey, signUpController.userName.value.toString());
+    userInfo.write(passwordKey, signUpController.password.value.toString());
+    userInfo.write(emailKey, signUpController.email.value.toString());
+    userInfo.write(phoneKey, signUpController.phoneNumber.value.toString());
+    userInfo.write(userProfilePicKey, url);
+    userInfo.write(isLoggedInKey, true);
 
     signUpController.emailController.clear();
     signUpController.phoneNumberController.clear();
     signUpController.confirmPasswordController.clear();
     signUpController.passwordController.clear();
+    signUpController.confirmationCodeController.clear();
     signUpController.userNameController.clear();
 
-    Get.offNamed(Routes.HOME);
+    Get.offNamed(Routes.navBarScreen);
   }
 }

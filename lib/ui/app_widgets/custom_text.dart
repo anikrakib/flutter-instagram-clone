@@ -14,9 +14,9 @@ RichText customText(String text1, String text2) {
           recognizer: TapGestureRecognizer()
             ..onTap = () {
               if (text2 == "Log In") {
-                Get.offNamed(Routes.SIGNIN);
+                Get.offNamed(Routes.signIn);
               } else if (text2 == "Sign Up") {
-                Get.offNamed(Routes.SIGNUP);
+                Get.offNamed(Routes.signUp);
               }
             },
           text: text2,

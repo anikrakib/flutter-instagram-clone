@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import '../../utils/constants.dart';
 import '../theme.dart';
 
-Column bottomPart(Widget textWidget) {
+Column bottomPart(Widget widget) {
   return Column(
     children: [
       Container(
@@ -10,9 +11,9 @@ Column bottomPart(Widget textWidget) {
         color: AppColors.faded,
       ),
       SizedBox(
-        height: 56,
+        height: appBarHeight,
         child: Center(
-          child: textWidget,
+          child: widget,
         ),
       ),
     ],

@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:instagram_clone/routes/app_routes.dart';
+import '../../utils/constants.dart';
 
 class SplashScreenController extends GetxController {
   final userInfo = GetStorage();
@@ -8,17 +9,17 @@ class SplashScreenController extends GetxController {
   @override
   void onReady() {
     super.onReady();
-    if (userInfo.read('isLoggedIn') != null) {
+    if (userInfo.read(isLoggedInKey) != null) {
       Future.delayed(const Duration(milliseconds: 3000), () {
-        Get.offAllNamed(Routes.HOME);
+        Get.offAllNamed(Routes.navBarScreen);
       });
-    } else if (userInfo.read('userName') == null) {
+    } else if (userInfo.read(userNameKey) == null) {
       Future.delayed(const Duration(milliseconds: 3000), () {
-        Get.offAllNamed(Routes.SIGNIN);
+        Get.offAllNamed(Routes.signIn);
       });
     } else {
       Future.delayed(const Duration(milliseconds: 3000), () {
-        Get.offAllNamed(Routes.EXISTINGACCOUNT);
+        Get.offAllNamed(Routes.existingAccount);
       });
     }
   }
