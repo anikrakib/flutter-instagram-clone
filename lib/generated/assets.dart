@@ -19,6 +19,7 @@ class Assets {
   static const String bottomNavbarIconShop = 'assets/bottom_navbar/icon_shop.svg';
   static const String bottomNavbarIconWhiteShopFill = 'assets/bottom_navbar/icon_white_shop_fill.svg';
   static const String iconsIconAdd = 'assets/icons/icon_add.svg';
+  static const String iconsIconAddStory = 'assets/icons/icon_add_story.svg';
   static const String iconsIconArchive = 'assets/icons/icon_archive.svg';
   static const String iconsIconArrowDown = 'assets/icons/icon_arrow_down.svg';
   static const String iconsIconArrowUp = 'assets/icons/icon_arrow_up.svg';

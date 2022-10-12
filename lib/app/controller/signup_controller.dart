@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
-import 'package:instagram_clone/app/model/user_info.dart';
 
 class SignUpController extends GetxController {
 
@@ -23,9 +21,6 @@ class SignUpController extends GetxController {
   final userNameNotEmpty = false.obs;
   final passwordNotEmpty = false.obs;
   final confirmPasswordNotEmpty = false.obs;
-
-  final box = GetStorage();
-  final usersList = <UserInfo>[].obs;
 
   @override
   void onInit() {
@@ -67,21 +62,5 @@ class SignUpController extends GetxController {
   updateCode(String text) {
     confirmationCode(text);
   }
-
-  saveUsers(UserInfo userInfo) {
-    usersList.add(userInfo);
-    box.write('userAccount', usersList.cast<UserInfo>());
-    print('${userInfo.userName} account create');
-  }
-
-  ifExistInUsers(String email) async {
-    bool ifExists = false;
-    List<UserInfo> my = (box.read('userAccount').cast<UserInfo>() ?? []);
-    for (var element in my) {
-      ifExists = element.email.contains(email) ? true : false;
-    }
-    return ifExists;
-  }
-
 
 }

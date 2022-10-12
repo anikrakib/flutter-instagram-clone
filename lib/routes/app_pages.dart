@@ -26,7 +26,7 @@ class AppPages {
     ),
     GetPage(
       name: Paths.home,
-      page: () => const HomeScreen(),
+      page: () => HomeScreen(),
       binding: AuthBinding(),
     ),
     GetPage(

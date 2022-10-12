@@ -14,11 +14,13 @@ const isLoggedInKey = "isLoggedIn";
 
 const defaultPadding = 18.0;
 const appBarHeight = 56.0;
+const myDayPadding = 7.0;
+const myDayProfilePicSize = 60.0;
 
-const screens = [
-  HomeScreen(),
-  SearchScreen(),
-  PostScreen(),
-  ShopScreen(),
-  ProfileScreen()
+ final screens = [
+   HomeScreen(),
+   const SearchScreen(),
+   const PostScreen(),
+   const ShopScreen(),
+   const ProfileScreen()
 ];

@@ -83,6 +83,9 @@ abstract class AppTextStyle {
 
   static const textStyleBig =
       TextStyle(fontWeight: FontWeight.w600, fontSize: 16);
+
+  static const textStyleSmall =
+      TextStyle(fontWeight: FontWeight.w500, fontSize: 12);
 }
 
 /// Global reference to the application theme.

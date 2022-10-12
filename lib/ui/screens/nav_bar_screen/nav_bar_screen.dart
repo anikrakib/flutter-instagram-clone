@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:instagram_clone/app/controller/nav_bar_controller.dart';
 import 'package:instagram_clone/generated/assets.dart';
-import 'package:instagram_clone/ui/app_widgets/svg_image.dart';
+import 'package:instagram_clone/ui/app_widgets/app_image.dart';
 import 'package:instagram_clone/ui/theme.dart';
 import '../../../utils/constants.dart';
 
@@ -45,70 +45,88 @@ class _NavBarScreenState extends State<NavBarScreen> {
         indicatorColor: Colors.transparent,
       ),
       child: Container(
-        height: 65,
+        height: 60,
         color: Get.isDarkMode ? AppColors.light : AppColors.dark,
         child: Obx(
-          () => NavigationBar(
-            height: 60,
-            backgroundColor: Get.isDarkMode
-                ? const Color(0xFF121212)
-                : const Color(0xFFFAFAFA),
-            labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
-            animationDuration: const Duration(seconds: 3),
-            selectedIndex: navBarController.index.value,
-            onDestinationSelected: (index) =>
-                {navBarController.updateIndex(index)},
-            destinations: [
-              NavigationDestination(
-                icon: navigationSVGImage(context, Assets.bottomNavbarIconHome),
-                selectedIcon: navigationSVGImage(
-                    context, Assets.bottomNavbarIconHomeFill),
-                label: 'Home',
+          () => Padding(
+            padding: const EdgeInsets.only(top: 1),
+            child: NavigationBar(
+              backgroundColor: Get.isDarkMode
+                  ? const Color(0xFF121212)
+                  : const Color(0xFFFAFAFA),
+              labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
+              animationDuration: const Duration(
+                seconds: 3,
               ),
-              NavigationDestination(
-                icon:
-                    navigationSVGImage(context, Assets.bottomNavbarIconSearch),
-                selectedIcon: navigationSVGImage(
-                    context, Assets.bottomNavbarIconSearchFill),
-                label: 'Search',
-              ),
-              NavigationDestination(
-                icon: navigationSVGImage(context, Assets.bottomNavbarIconPost),
-                label: 'Post',
-              ),
-              NavigationDestination(
-                icon: navigationSVGImage(context, Assets.bottomNavbarIconShop),
-                selectedIcon: Get.isDarkMode
-                    ? navigationSVGImageWithoutColor(
-                        Assets.bottomNavbarIconWhiteShopFill)
-                    : navigationSVGImageWithoutColor(
-                        Assets.bottomNavbarIconBlackShopFill),
-                label: 'Shop',
-              ),
-              NavigationDestination(
-                icon: profileCircleAvatar(context, 12),
-                label: 'Profile',
-                selectedIcon: CircleAvatar(
-                  radius: 12,
-                  backgroundColor: Theme.of(context).primaryColor,
-                  child: Padding(
-                    padding: const EdgeInsets.all(2), // Border radius
-                    child: ClipOval(child: Image.network(userImage)),
+              selectedIndex: navBarController.index.value,
+              onDestinationSelected: (index) => {
+                navBarController.updateIndex(index),
+              },
+              destinations: [
+                NavigationDestination(
+                  icon: navigationSVGImage(
+                    context,
+                    Assets.bottomNavbarIconHome,
+                  ),
+                  selectedIcon: navigationSVGImage(
+                    context,
+                    Assets.bottomNavbarIconHomeFill,
+                  ),
+                  label: 'Home',
+                ),
+                NavigationDestination(
+                  icon: navigationSVGImage(
+                    context,
+                    Assets.bottomNavbarIconSearch,
+                  ),
+                  selectedIcon: navigationSVGImage(
+                    context,
+                    Assets.bottomNavbarIconSearchFill,
+                  ),
+                  label: 'Search',
+                ),
+                NavigationDestination(
+                  icon: navigationSVGImage(
+                    context,
+                    Assets.bottomNavbarIconPost,
+                  ),
+                  label: 'Post',
+                ),
+                NavigationDestination(
+                  icon: navigationSVGImage(
+                    context,
+                    Assets.bottomNavbarIconShop,
+                  ),
+                  selectedIcon: Get.isDarkMode
+                      ? navigationSVGImageWithoutColor(
+                          Assets.bottomNavbarIconWhiteShopFill,
+                        )
+                      : navigationSVGImageWithoutColor(
+                          Assets.bottomNavbarIconBlackShopFill,
+                        ),
+                  label: 'Shop',
+                ),
+                NavigationDestination(
+                  icon: SizedBox(
+                    height: 22,
+                    width: 22,
+                    child: profileCircleAvatar(
+                      context: context,
+                      imageUrl: userImage,
+                    ),
+                  ),
+                  label: 'Profile',
+                  selectedIcon: profileCircleAvatarWithPadding(
+                    context: context,
+                    imageUrl: userImage,
+                    radius: 12,
+                    padding: 2,
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
-      ),
-    );
-  }
-
-  CircleAvatar profileCircleAvatar(BuildContext context, double size) {
-    return CircleAvatar(
-      radius: (size - 1),
-      backgroundImage: NetworkImage(
-        userImage,
       ),
     );
   }

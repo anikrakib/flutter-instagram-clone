@@ -5,7 +5,7 @@ import 'package:instagram_clone/ui/app_widgets/sizeBox.dart';
 import 'package:instagram_clone/ui/theme.dart';
 import 'package:instagram_clone/utils/constants.dart';
 import '../../../routes/app_routes.dart';
-import '../../app_widgets/svg_image.dart';
+import '../../app_widgets/app_image.dart';
 import '../../app_widgets/screen_footer.dart';
 import '../../app_widgets/custom_text.dart';
 

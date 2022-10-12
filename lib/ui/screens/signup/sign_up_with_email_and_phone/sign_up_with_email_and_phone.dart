@@ -4,7 +4,7 @@ import 'package:instagram_clone/ui/app_widgets/sizeBox.dart';
 import 'package:instagram_clone/ui/screens/signup/sign_up_with_email_and_phone/sign_up_with_email/sign_up_with_email.dart';
 import 'package:instagram_clone/ui/screens/signup/sign_up_with_email_and_phone/signup_with_phone/sign_up_with_phone.dart';
 import '../../../../generated/assets.dart';
-import '../../../app_widgets/svg_image.dart';
+import '../../../app_widgets/app_image.dart';
 import '../../../app_widgets/screen_footer.dart';
 import '../../../theme.dart';
 import '../../../app_widgets/custom_text.dart';
