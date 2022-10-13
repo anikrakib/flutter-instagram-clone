@@ -50,11 +50,6 @@ abstract class AppTextStyle {
     fontWeight: FontWeight.bold,
   );
 
-  static const textStyleSmallBold = TextStyle(
-    fontWeight: FontWeight.bold,
-    fontSize: 11,
-  );
-
   /// A faded text style. Uses [AppColors.faded].
   static const textStyleFaded = TextStyle(
       color: AppColors.faded, fontWeight: FontWeight.w400, fontSize: 20);
@@ -64,11 +59,11 @@ abstract class AppTextStyle {
 
   /// A faded text style. Uses [AppColors.faded].
   static const textStyleFadedSmall = TextStyle(
-      color: AppColors.faded, fontWeight: FontWeight.w400, fontSize: 11);
+      color: AppColors.faded, fontWeight: FontWeight.w400, fontSize: 12);
 
   /// A faded text style. Uses [AppColors.faded].
   static const textStyleFadedSmallBold = TextStyle(
-      color: AppColors.faded, fontWeight: FontWeight.w500, fontSize: 11);
+      color: AppColors.faded, fontWeight: FontWeight.w500, fontSize: 12);
 
   /// Light text style.
   static const textStyleLight = TextStyle(fontWeight: FontWeight.w300);
@@ -86,6 +81,11 @@ abstract class AppTextStyle {
 
   static const textStyleSmall =
       TextStyle(fontWeight: FontWeight.w500, fontSize: 12);
+
+  static const textStyleSmallBold = TextStyle(
+    fontWeight: FontWeight.bold,
+    fontSize: 12,
+  );
 }
 
 /// Global reference to the application theme.
@@ -132,7 +132,7 @@ class AppTheme {
               AppColors.secondary,
             ),
             foregroundColor: MaterialStateProperty.all<Color>(
-              AppColors.primaryText,
+              AppColors.secondary,
             ),
             overlayColor: MaterialStateProperty.all<Color>(
               AppColors.grey,
@@ -201,10 +201,10 @@ class AppTheme {
               AppColors.secondary,
             ),
             foregroundColor: MaterialStateProperty.all<Color>(
-              AppColors.primaryText,
+              AppColors.secondary,
             ),
             overlayColor: MaterialStateProperty.all<Color>(
-              AppColors.lightGrey,
+              AppColors.secondary,
             ),
           ),
         ),

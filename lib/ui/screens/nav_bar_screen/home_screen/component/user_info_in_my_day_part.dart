@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../../../../app/model/user_model.dart';
+import '../../../../app_widgets/sizeBox.dart';
 import '../../../../theme.dart';
 
 class UserInfo extends StatelessWidget {
@@ -23,7 +24,7 @@ class UserInfo extends StatelessWidget {
             user.profileImageUrl,
           ),
         ),
-        const SizedBox(width: 10.0),
+        sizeBox(10.0),
         Expanded(
           child: Text(
             user.userName,

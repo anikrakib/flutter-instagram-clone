@@ -19,6 +19,7 @@ class Assets {
   static const String bottomNavbarIconShop = 'assets/bottom_navbar/icon_shop.svg';
   static const String bottomNavbarIconWhiteShopFill = 'assets/bottom_navbar/icon_white_shop_fill.svg';
   static const String iconsIconAdd = 'assets/icons/icon_add.svg';
+  static const String iconsIconAddCircle = 'assets/icons/icon_add_circle.svg';
   static const String iconsIconAddStory = 'assets/icons/icon_add_story.svg';
   static const String iconsIconArchive = 'assets/icons/icon_archive.svg';
   static const String iconsIconArrowDown = 'assets/icons/icon_arrow_down.svg';
@@ -37,7 +38,8 @@ class Assets {
   static const String iconsIconMenu = 'assets/icons/icon_menu.svg';
   static const String iconsIconMessage = 'assets/icons/icon_message.svg';
   static const String iconsIconMultipleImage = 'assets/icons/icon_multiple_image.svg';
-  static const String iconsIconOption = 'assets/icons/icon_option.svg';
+  static const String iconsIconOptionHorizontal = 'assets/icons/icon_option_horizontal.svg';
+  static const String iconsIconOptionVertical = 'assets/icons/icon_option_vertical.svg';
   static const String iconsIconPause = 'assets/icons/icon_pause.svg';
   static const String iconsIconPerson = 'assets/icons/icon_person.svg';
   static const String iconsIconRedCircle = 'assets/icons/icon_red_circle.svg';

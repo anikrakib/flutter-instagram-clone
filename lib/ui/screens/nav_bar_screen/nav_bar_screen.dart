@@ -45,11 +45,11 @@ class _NavBarScreenState extends State<NavBarScreen> {
         indicatorColor: Colors.transparent,
       ),
       child: Container(
-        height: 60,
+        height: 50,
         color: Get.isDarkMode ? AppColors.light : AppColors.dark,
         child: Obx(
           () => Padding(
-            padding: const EdgeInsets.only(top: 1),
+            padding: const EdgeInsets.only(top: 0.3),
             child: NavigationBar(
               backgroundColor: Get.isDarkMode
                   ? const Color(0xFF121212)

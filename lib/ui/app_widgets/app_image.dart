@@ -81,3 +81,19 @@ CircleAvatar profileCircleAvatar({
     ),
   );
 }
+
+SizedBox postHeaderImage(
+    {double? height, double? width, required String imageUrl}) {
+  return SizedBox(
+    height: height ?? 40,
+    width: width ?? 40,
+    child: CircleAvatar(
+      child: ClipOval(
+        child: CachedNetworkImage(
+          imageUrl: imageUrl,
+          fit: BoxFit.cover,
+        ),
+      ),
+    ),
+  );
+}

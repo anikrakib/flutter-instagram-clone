@@ -8,8 +8,7 @@ import '../../../../theme.dart';
 
 Padding othersUserStory(BuildContext context, User user) {
   return Padding(
-    padding: const EdgeInsets.only(
-        bottom: defaultPadding, right: defaultPadding * .8),
+    padding: const EdgeInsets.only(right: defaultPadding * .8),
     child: Column(
       children: [
         Stack(
@@ -55,10 +54,8 @@ Padding othersUserStory(BuildContext context, User user) {
 
 Padding yourStory(BuildContext context, String userImage) {
   return Padding(
-    padding: const EdgeInsets.only(
-        bottom: defaultPadding,
-        left: defaultPadding,
-        right: defaultPadding * .8),
+    padding:
+        const EdgeInsets.only(left: defaultPadding, right: defaultPadding * .8),
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [

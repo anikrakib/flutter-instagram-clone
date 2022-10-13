@@ -23,7 +23,7 @@ class AnimatedBar extends StatelessWidget {
           builder: (context, constraints) {
             return Stack(
               children: <Widget>[
-                appBarBackground(
+                progressBarBackground(
                   double.infinity,
                   position < currentIndex
                       ? AppColors.light
@@ -31,14 +31,14 @@ class AnimatedBar extends StatelessWidget {
                 ),
                 position == currentIndex
                     ? AnimatedBuilder(
-                  animation: animController,
-                  builder: (context, child) {
-                    return appBarBackground(
-                      constraints.maxWidth * animController.value,
-                      AppColors.light,
-                    );
-                  },
-                )
+                        animation: animController,
+                        builder: (context, child) {
+                          return progressBarBackground(
+                            constraints.maxWidth * animController.value,
+                            AppColors.light,
+                          );
+                        },
+                      )
                     : const SizedBox.shrink(),
               ],
             );

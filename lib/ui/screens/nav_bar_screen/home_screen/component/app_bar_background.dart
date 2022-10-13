@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../theme.dart';
 
-Container appBarBackground(double width, Color color) {
+Container progressBarBackground(double width, Color color) {
   return Container(
     height: 3.0,
     width: width,
