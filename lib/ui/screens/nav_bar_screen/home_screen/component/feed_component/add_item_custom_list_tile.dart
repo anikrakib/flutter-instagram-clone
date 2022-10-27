@@ -6,10 +6,13 @@ import 'package:get_storage/get_storage.dart';
 import 'package:instagram_clone/ui/screens/nav_bar_screen/home_screen/component/feed_component/add_comment_part.dart';
 import 'package:instagram_clone/ui/screens/nav_bar_screen/home_screen/component/feed_component/like_comment_bookmark_parts.dart';
 import 'package:instagram_clone/ui/screens/nav_bar_screen/home_screen/component/feed_component/post_body_text.dart';
+import 'package:instagram_clone/ui/screens/nav_bar_screen/home_screen/component/feed_component/first_comment.dart';
 import 'package:instagram_clone/ui/screens/nav_bar_screen/home_screen/component/feed_component/post_header.dart';
 import 'package:instagram_clone/utils/constants.dart';
 import 'package:palette_generator/palette_generator.dart';
 import '../../../../../../app/model/view_type.dart';
+import '../../../../../../routes/app_routes.dart';
+import '../../../../../../utils/utils_function.dart';
 import '../../../../../theme.dart';
 
 PaletteColor? bgColor;
@@ -65,7 +68,7 @@ SizedBox addItemCustomListTile(AddItem item, BuildContext context,
     child: Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        postHeader(item.addName, true, context),
+        postHeader(name: item.addName ?? '', addOrPost: true, context: context),
         Expanded(
           child: Stack(
             children: [
@@ -125,9 +128,12 @@ SizedBox addItemCustomListTile(AddItem item, BuildContext context,
                 top: defaultPadding / 5,
                 left: defaultPadding,
                 right: defaultPadding),
-            child: postBodyText(
-              item.addName,
-              post: item.addPost.toString(),
+            child: SizedBox(
+              width: double.infinity,
+              child: postBodyText(
+                item.addName,
+                post: item.addPost.toString(),
+              ),
             ),
           ),
         ),
@@ -136,22 +142,48 @@ SizedBox addItemCustomListTile(AddItem item, BuildContext context,
             top: defaultPadding / 5,
             left: defaultPadding,
           ),
-          child: SizedBox(
-            width: double.infinity,
-            child: Text(
-              'View all ${item.comments.length} comments',
-              style: AppTextStyle.textStyleFadedSmall,
+          child: GestureDetector(
+            onTap: () => goTOCommentsPageWithArguments(
+              path: Routes.comments,
+              addItem: item,
+              listItem: item,
+              controller: controller,
+            ),
+            child: SizedBox(
+              width: double.infinity,
+              child: Text(
+                'View all ${item.comments.length} comments',
+                style: AppTextStyle.textStyleFadedSmall,
+              ),
             ),
           ),
         ),
         Padding(
           padding: const EdgeInsets.only(
-              top: defaultPadding / 5, left: defaultPadding, right: defaultPadding),
-          child: postBodyText(item.comments[0].commentOwner.username, post: item.comments[0].comment),
+            top: defaultPadding / 5,
+            left: defaultPadding,
+            right: defaultPadding,
+          ),
+          child: GestureDetector(
+            onTap: () => goTOCommentsPageWithArguments(
+              path: Routes.comments,
+              addItem: item,
+              listItem: item,
+              controller: controller,
+            ),
+            child: showFirstComment(item.comments[0]),
+          ),
         ),
-        AddCommentPart(
-          controller: controller,
-          userImage: userImage,
+        GestureDetector(
+          onTap: () => goTOCommentsPageWithArguments(
+            path: Routes.comments,
+            addItem: item,
+            listItem: item,
+            controller: controller,
+          ),
+          child: AddCommentPart(
+            controller: controller,
+          ),
         ),
       ],
     ),

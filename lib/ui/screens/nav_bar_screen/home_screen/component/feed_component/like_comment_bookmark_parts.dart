@@ -3,6 +3,8 @@ import 'package:instagram_clone/ui/app_widgets/app_image.dart';
 import 'package:instagram_clone/ui/app_widgets/sizeBox.dart';
 import 'package:instagram_clone/utils/constants.dart';
 import '../../../../../../generated/assets.dart';
+import '../../../../../../routes/app_routes.dart';
+import '../../../../../../utils/utils_function.dart';
 
 Padding likeCommentBookmarkParts(BuildContext context) {
   return Padding(
@@ -18,7 +20,9 @@ Padding likeCommentBookmarkParts(BuildContext context) {
           children: [
             navigationSVGImage(context, Assets.bottomNavbarIconHeart),
             sizeBox(10),
-            navigationSVGImage(context, Assets.iconsIconComment),
+            GestureDetector(
+                onTap: () => goTOAnotherPage(Routes.comments),
+                child: navigationSVGImage(context, Assets.iconsIconComment)),
             sizeBox(10),
             navigationSVGImage(context, Assets.iconsIconMessage),
           ],

@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:instagram_clone/app/binding/splash_screen_binding.dart';
 import 'package:instagram_clone/routes/app_routes.dart';
+import 'package:instagram_clone/ui/screens/nav_bar_screen/home_screen/comment_screen/comments_screen.dart';
 import 'package:instagram_clone/ui/screens/nav_bar_screen/nav_bar_screen.dart';
 import 'package:instagram_clone/ui/screens/signin/signin_screen.dart';
 import 'package:instagram_clone/ui/screens/signin_with_existing_account/sign_in_with_existing_account.dart';
@@ -26,7 +27,7 @@ class AppPages {
     ),
     GetPage(
       name: Paths.home,
-      page: () => HomeScreen(),
+      page: () => const HomeScreen(),
       binding: AuthBinding(),
     ),
     GetPage(
@@ -56,6 +57,10 @@ class AppPages {
       name: Paths.navBarScreen,
       page: () => const NavBarScreen(),
       binding: NavBarBinding(),
+    ),
+    GetPage(
+      name: Paths.comments,
+      page: () => const Comments(),
     ),
   ];
 }

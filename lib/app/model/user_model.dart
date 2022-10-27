@@ -7,7 +7,7 @@ class User {
   final String fullName;
   final String bio;
   final List<Story> stories;
-  //final List<PostItem> posts;
+  final bool verified;
 
   const User({
     required this.userName,
@@ -15,6 +15,6 @@ class User {
     required this.fullName,
     required this.bio,
     required this.stories,
-    //required this.posts,
+    required this.verified,
   });
 }

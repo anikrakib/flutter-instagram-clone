@@ -3,21 +3,22 @@ import 'package:instagram_clone/app/model/comment_model.dart';
 abstract class ListItem {}
 
 class AddItem implements ListItem {
-  final String addName;
+  final String? addName;
   final String addImage;
   String? addPost;
   final List<Comment> comments;
 
   AddItem({
     this.addPost,
-    required this.addName,
+    this.addName,
     required this.addImage,
     required this.comments,
   });
 }
 
 class PostItem implements ListItem {
-  final String postUserName;
+  final String? postUserName;
+  final String postUserImage;
   final String postImage;
   String? postBody;
   final List<Comment> comments;
@@ -25,7 +26,8 @@ class PostItem implements ListItem {
 
   PostItem({
     this.postBody,
-    required this.postUserName,
+    this.postUserName,
+    required this.postUserImage,
     required this.postImage,
     required this.comments,
     required this.time,

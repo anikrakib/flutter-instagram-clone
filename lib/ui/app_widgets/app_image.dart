@@ -9,13 +9,19 @@ SvgPicture appLogo(context) => SvgPicture.asset(Assets.assetsAppLogo,
 SvgPicture appLogoForAppBar(context) => SvgPicture.asset(Assets.assetsAppLogo,
     width: 110, height: 30, color: Theme.of(context).primaryColor);
 
-SvgPicture svgImage(double height, double width, String path) =>
+SvgPicture svgImageWithHeightAndWidth(double height, double width, String path) =>
     SvgPicture.asset(
       path,
       width: width,
       height: height,
       //color: Get.isDarkMode ? AppColors.light : AppColors.dark,
     );
+
+SvgPicture svgImage(String path) =>
+    SvgPicture.asset(
+      path,
+    );
+
 
 SvgPicture svgImageWithColor(
         double height, double width, String path, Color color) =>
@@ -85,8 +91,8 @@ CircleAvatar profileCircleAvatar({
 SizedBox postHeaderImage(
     {double? height, double? width, required String imageUrl}) {
   return SizedBox(
-    height: height ?? 40,
-    width: width ?? 40,
+    height: height ?? 35,
+    width: width ?? 35,
     child: CircleAvatar(
       child: ClipOval(
         child: CachedNetworkImage(

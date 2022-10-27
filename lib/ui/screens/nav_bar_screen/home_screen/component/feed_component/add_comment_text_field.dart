@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/ui/screens/nav_bar_screen/home_screen/component/feed_component/comment_post_button.dart';
 
-TextField addCommentTextField(
-    {required TextEditingController textEditingController,required bool enabled}) {
+TextField addCommentTextField({
+  required TextEditingController textEditingController,
+  required bool enabled,
+}) {
   return TextField(
     enabled: enabled,
     controller: textEditingController,

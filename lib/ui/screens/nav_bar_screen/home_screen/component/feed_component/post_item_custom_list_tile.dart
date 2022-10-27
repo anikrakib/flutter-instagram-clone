@@ -5,10 +5,13 @@ import 'package:get_storage/get_storage.dart';
 import 'package:instagram_clone/ui/screens/nav_bar_screen/home_screen/component/feed_component/add_comment_part.dart';
 import 'package:instagram_clone/ui/screens/nav_bar_screen/home_screen/component/feed_component/like_comment_bookmark_parts.dart';
 import 'package:instagram_clone/ui/screens/nav_bar_screen/home_screen/component/feed_component/post_body_text.dart';
+import 'package:instagram_clone/ui/screens/nav_bar_screen/home_screen/component/feed_component/first_comment.dart';
 import 'package:instagram_clone/ui/screens/nav_bar_screen/home_screen/component/feed_component/post_header.dart';
 import 'package:instagram_clone/ui/theme.dart';
 import 'package:instagram_clone/utils/constants.dart';
+import 'package:instagram_clone/utils/utils_function.dart';
 import '../../../../../../app/model/view_type.dart';
+import '../../../../../../routes/app_routes.dart';
 
 // ignore: must_be_immutable
 class PostItemWidget extends StatefulWidget {
@@ -48,7 +51,12 @@ SizedBox postItemCustomListTile(PostItem item, BuildContext context,
     child: Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        postHeader(item.postUserName, false, context),
+        postHeader(
+          name: item.postUserName ?? '',
+          imagePath: item.postUserImage,
+          addOrPost: false,
+          context: context,
+        ),
         Expanded(
           child: SizedBox(
             width: double.infinity,
@@ -77,9 +85,12 @@ SizedBox postItemCustomListTile(PostItem item, BuildContext context,
                 left: defaultPadding,
                 right: defaultPadding,
                 top: defaultPadding / 5),
-            child: postBodyText(
-              item.postUserName,
-              post: item.postBody.toString(),
+            child: SizedBox(
+              width: double.infinity,
+              child: postBodyText(
+                item.postUserName,
+                post: item.postBody.toString(),
+              ),
             ),
           ),
         ),
@@ -88,31 +99,52 @@ SizedBox postItemCustomListTile(PostItem item, BuildContext context,
             top: defaultPadding / 5,
             left: defaultPadding,
           ),
-          child: SizedBox(
-            width: double.infinity,
-            child: Text(
-              'View all ${item.comments.length} comments',
-              style: AppTextStyle.textStyleFadedSmall,
+          child: GestureDetector(
+            onTap: () => goTOCommentsPageWithArguments(
+              path: Routes.comments,
+              postItem: item,
+              listItem: item,
+                controller: controller,
+            ),
+            child: SizedBox(
+              width: double.infinity,
+              child: Text(
+                'View all ${item.comments.length} comments',
+                style: AppTextStyle.textStyleFadedSmall,
+              ),
             ),
           ),
         ),
         Padding(
           padding: const EdgeInsets.only(
-              top: defaultPadding / 5,
-              left: defaultPadding,
-              right: defaultPadding),
-          child: postBodyText(item.comments[0].commentOwner.username,
-              post: item.comments[0].comment),
+            top: defaultPadding / 5,
+            left: defaultPadding,
+            right: defaultPadding,
+          ),
+          child: GestureDetector(
+            onTap: () => goTOCommentsPageWithArguments(
+              path: Routes.comments,
+              postItem: item,
+              listItem: item,
+                controller: controller,
+            ),
+            child: showFirstComment(item.comments[0]),
+          ),
         ),
-        AddCommentPart(
-          controller: controller,
-          userImage: userImage,
+        GestureDetector(
+          onTap:() => goTOCommentsPageWithArguments(
+            path: Routes.comments,
+            postItem: item,
+            listItem: item,
+            controller: controller
+          ),
+          child: AddCommentPart(
+            controller: controller,
+          ),
         ),
         Padding(
           padding: const EdgeInsets.only(
-            left: defaultPadding,
-            right: defaultPadding
-          ),
+              left: defaultPadding, right: defaultPadding),
           child: SizedBox(
             width: double.infinity,
             child: Text(
@@ -121,40 +153,7 @@ SizedBox postItemCustomListTile(PostItem item, BuildContext context,
             ),
           ),
         ),
-
-        /*Padding(
-          padding: const EdgeInsets.only(top: defaultPadding / 3),
-          child: CommentBox(
-            textEditingController: controller,
-            userImage: userImage,
-          ),
-        ),*/
       ],
     ),
   );
-}
-
-String timeAgo(DateTime postTime, bool numericDates) {
-  final date2 = DateTime.now();
-  final difference = date2.difference(postTime);
-
-  if ((difference.inDays / 7).floor() >= 1) {
-    return (numericDates) ? '1 week ago' : 'Last week';
-  } else if (difference.inDays >= 2) {
-    return '${difference.inDays} days ago';
-  } else if (difference.inDays >= 1) {
-    return (numericDates) ? '1 day ago' : 'Yesterday';
-  } else if (difference.inHours >= 2) {
-    return '${difference.inHours} hours ago';
-  } else if (difference.inHours >= 1) {
-    return (numericDates) ? '1 hour ago' : 'An hour ago';
-  } else if (difference.inMinutes >= 2) {
-    return '${difference.inMinutes} minutes ago';
-  } else if (difference.inMinutes >= 1) {
-    return (numericDates) ? '1 minute ago' : 'A minute ago';
-  } else if (difference.inSeconds >= 3) {
-    return '${difference.inSeconds} seconds ago';
-  } else {
-    return 'Just now';
-  }
 }

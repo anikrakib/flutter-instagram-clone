@@ -11,34 +11,11 @@ Padding othersUserStory(BuildContext context, User user) {
     padding: const EdgeInsets.only(right: defaultPadding * .8),
     child: Column(
       children: [
-        Stack(
-          children: [
-            Positioned(
-              child: svgImage(
-                myDayProfilePicSize + 10,
-                myDayProfilePicSize + 10,
-                Assets.assetsMyDayBackground,
-              ),
-            ),
-            Positioned(
-              top: myDayPadding,
-              left: myDayPadding,
-              right: myDayPadding,
-              bottom: myDayPadding,
-              child: Container(
-                height: myDayProfilePicSize,
-                width: myDayProfilePicSize,
-                decoration: BoxDecoration(
-                  color: Theme.of(context).backgroundColor,
-                  shape: BoxShape.circle,
-                ),
-                child: profileCircleAvatar(
-                  context: context,
-                  imageUrl: user.profileImageUrl,
-                ),
-              ),
-            ),
-          ],
+        userMyDayProfileImage(
+          context: context,
+          myDayProfilePicSize: myDayProfilePicSize + 10,
+          padding: myDayPadding,
+          imageUrl: user.profileImageUrl,
         ),
         sizeBox(8),
         Text(
@@ -78,7 +55,7 @@ Padding yourStory(BuildContext context, String userImage) {
                 child: Padding(
                   padding: const EdgeInsets.all(1),
                   // Border radius
-                  child: svgImage(
+                  child: svgImageWithHeightAndWidth(
                     18,
                     18,
                     Assets.iconsIconAddStory,
@@ -93,6 +70,44 @@ Padding yourStory(BuildContext context, String userImage) {
           'Your Story',
           style: AppTextStyle.textStyleSmall,
         )
+      ],
+    ),
+  );
+}
+
+Widget userMyDayProfileImage({
+  required BuildContext context,
+  required double myDayProfilePicSize,
+  required double padding,
+  required String imageUrl,
+}) {
+  return SizedBox(
+    height: myDayProfilePicSize,
+    width: myDayProfilePicSize,
+    child: Stack(
+      children: [
+        Positioned(
+          top: 1,
+          bottom: 1,
+          right: 1,
+          left: 1,
+          child: svgImage(
+            Assets.assetsMyDayBackground,
+          ),
+        ),
+        Positioned(
+          top: padding,
+          left: padding,
+          right: padding,
+          bottom: padding,
+          child: Container(
+            decoration: BoxDecoration(
+              color: Theme.of(context).backgroundColor,
+              shape: BoxShape.circle,
+            ),
+            child: postHeaderImage(imageUrl: imageUrl),
+          ),
+        ),
       ],
     ),
   );

@@ -1,8 +1,8 @@
-import 'package:instagram_clone/app/model/comment_owner.dart';
+import 'package:instagram_clone/app/model/user_model.dart';
 
 class Comment {
   final String createdTime;
-  final CommentOwner commentOwner;
+  final User commentOwner;
   final String comment;
 
   Comment({

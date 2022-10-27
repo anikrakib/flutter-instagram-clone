@@ -102,7 +102,7 @@ CircleAvatar userIconPart() {
     child: CircleAvatar(
       radius: 78,
       backgroundColor: Get.isDarkMode ? AppColors.dark : AppColors.light,
-      child: svgImage(90, 90, Assets.iconsIconPerson),
+      child: svgImageWithHeightAndWidth(90, 90, Assets.iconsIconPerson),
     ),
   );
 }

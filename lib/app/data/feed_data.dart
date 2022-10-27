@@ -1,13 +1,12 @@
 import 'dart:math';
 import 'package:faker/faker.dart';
 import 'package:instagram_clone/app/data/comment_data.dart';
-import 'package:intl/intl.dart';
 import '../model/view_type.dart';
 
 var faker = Faker();
 
 var postList = List<ListItem>.generate(
-  50,
+  20,
   (index) {
     var random = Random();
     if ((index) % 6 == 0 && index != 0) {
@@ -43,16 +42,21 @@ var postList = List<ListItem>.generate(
               comments: generateComments(),
             );
     }
+    String menOrWomen = random.nextBool() == true ? 'women' : 'men';
     return random.nextBool() == true
         ? PostItem(
             postUserName: faker.internet.userName(),
-            postImage: 'https://source.unsplash.com/random?sig=$index',
+            postUserImage:
+                'https://randomuser.me/api/portraits/$menOrWomen/${random.nextInt(85)}.jpg',
+            postImage: 'https://source.unsplash.com/random?sig=${random.nextInt(85)}',
             comments: generateComments(),
             time: DateTime.now(),
           )
         : PostItem(
             postUserName: faker.internet.userName(),
-            postImage: 'https://source.unsplash.com/random?sig=$index',
+            postUserImage:
+                'https://randomuser.me/api/portraits/$menOrWomen/${random.nextInt(85)}.jpg',
+            postImage: 'https://source.unsplash.com/random?sig=${random.nextInt(85)}',
             postBody: faker.lorem.sentence(),
             comments: generateComments(),
             time: DateTime.now(),

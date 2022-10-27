@@ -11,9 +11,9 @@ var userList = List<User>.generate(
   20,
   (userIndex) {
     String menOrWomen = random.nextBool() == true ? 'women' : 'men';
-    var postLength = (random.nextInt(9) + 1);
 
     return User(
+      verified: random.nextBool(),
       userName: faker.internet.userName(),
       profileImageUrl:
           'https://randomuser.me/api/portraits/$menOrWomen/$userIndex.jpg',
@@ -37,25 +37,6 @@ var userList = List<User>.generate(
           }
         },
       ),
-      /*posts: List<PostItem>.generate(
-        postLength,
-        (index) {
-          List<int> randList = generateRandomList(postLength,userIndex);
-          print('User $userIndex --->> ${randList.toString()}');
-          return random.nextBool() == true
-              ? PostItem(
-                  postUserName: faker.internet.userName(),
-                  postImage:
-                      'https://source.unsplash.com/random?sig=${random.nextInt(100)}',
-                )
-              : PostItem(
-                  postUserName: faker.internet.userName(),
-                  postImage:
-                      'https://source.unsplash.com/random?sig=${random.nextInt(100)}',
-                  postBody: faker.lorem.sentence(),
-                );
-        },
-      ),*/
     );
   },
 );
