@@ -10,11 +10,11 @@ var random = Random();
 
 List<Comment> generateComments() {
   return List<Comment>.generate(
-    random.nextInt(50),
+    random.nextInt(30),
     (index) {
       String menOrWomen = random.nextBool() == true ? 'women' : 'men';
       return Comment(
-        createdTime: '${random.nextInt(11)+1}h',
+        createdTime: '${random.nextInt(11) + 1}h',
         commentOwner: User(
           verified: random.nextBool(),
           userName: faker.internet.userName(),

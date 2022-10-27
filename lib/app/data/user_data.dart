@@ -9,7 +9,7 @@ var random = Random();
 
 List<User> generateUsers() {
   return List<User>.generate(
-    20,
+    30,
     (userIndex) {
       String menOrWomen = random.nextBool() == true ? 'women' : 'men';
 

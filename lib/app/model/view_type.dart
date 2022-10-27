@@ -18,7 +18,6 @@ class AddItem implements ListItem {
 }
 
 class PostItem implements ListItem {
-  final String? postUserName;
   final String postUserImage;
   final String postImage;
   String? postBody;
@@ -28,7 +27,6 @@ class PostItem implements ListItem {
 
   PostItem({
     this.postBody,
-    this.postUserName,
     required this.postUserImage,
     required this.postImage,
     required this.comments,

@@ -45,6 +45,7 @@ class _PostItemWidgetState extends State<PostItemWidget> {
 
 SizedBox postItemCustomListTile(PostItem item, BuildContext context,
     TextEditingController controller, String userImage) {
+  bool commentNotEmpty = item.comments.isNotEmpty;
   return SizedBox(
     width: double.infinity,
     height: 550,
@@ -83,11 +84,11 @@ SizedBox postItemCustomListTile(PostItem item, BuildContext context,
             padding: const EdgeInsets.only(
                 left: defaultPadding,
                 right: defaultPadding,
-                top: defaultPadding / 5),
+                top: defaultPadding / 5,),
             child: SizedBox(
               width: double.infinity,
               child: postBodyText(
-                item.postUserName,
+                item.user.userName,
                 post: item.postBody.toString(),
               ),
             ),
@@ -103,13 +104,16 @@ SizedBox postItemCustomListTile(PostItem item, BuildContext context,
               path: Routes.comments,
               postItem: item,
               listItem: item,
-                controller: controller,
+              controller: controller,
             ),
-            child: SizedBox(
-              width: double.infinity,
-              child: Text(
-                'View all ${item.comments.length} comments',
-                style: AppTextStyle.textStyleFadedSmall,
+            child: Visibility(
+              visible: commentNotEmpty,
+              child: SizedBox(
+                width: double.infinity,
+                child: Text(
+                  'View all ${item.comments.length} comments',
+                  style: AppTextStyle.textStyleFadedSmall,
+                ),
               ),
             ),
           ),
@@ -125,18 +129,20 @@ SizedBox postItemCustomListTile(PostItem item, BuildContext context,
               path: Routes.comments,
               postItem: item,
               listItem: item,
-                controller: controller,
+              controller: controller,
             ),
-            child: showFirstComment(item.comments[0]),
+            child: Visibility(
+              visible: commentNotEmpty,
+              child: comment(item),
+            ),
           ),
         ),
         GestureDetector(
-          onTap:() => goTOCommentsPageWithArguments(
-            path: Routes.comments,
-            postItem: item,
-            listItem: item,
-            controller: controller
-          ),
+          onTap: () => goTOCommentsPageWithArguments(
+              path: Routes.comments,
+              postItem: item,
+              listItem: item,
+              controller: controller),
           child: AddCommentPart(
             controller: controller,
           ),
@@ -155,4 +161,12 @@ SizedBox postItemCustomListTile(PostItem item, BuildContext context,
       ],
     ),
   );
+}
+
+Widget comment(PostItem item){
+  if(item.comments.isNotEmpty){
+    return showFirstComment(item.comments[0]);
+  }else{
+    return Container();
+  }
 }

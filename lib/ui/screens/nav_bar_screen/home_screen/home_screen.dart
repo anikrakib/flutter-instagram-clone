@@ -3,6 +3,7 @@ import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:instagram_clone/ui/app_widgets/sizeBox.dart';
 import 'package:instagram_clone/ui/screens/nav_bar_screen/home_screen/component/feed_component/suggest_user_custom_list.dart';
 import 'package:instagram_clone/ui/screens/nav_bar_screen/home_screen/story_screen/story_screen.dart';
 import 'package:instagram_clone/utils/constants.dart';
@@ -76,12 +77,18 @@ class _HomeScreenState extends State<HomeScreen> {
                   itemCount: items.length,
                   itemBuilder: (context, index) {
                     final item = items[index];
-                    if (item is AddItem) {
-                      return AddItemWidget(item: item);
-                    } else if (item is PostItem) {
-                      return PostItemWidget(postItem: item);
-                    } else if (item is SuggestUsers) {
-                      return SuggestUserWidget(suggestUser: item.suggestUsers);
+                    if (index == items.length) {
+                      //items.addAll(postList);
+                      return sizeBox(50);
+                    } else {
+                      if (item is AddItem) {
+                        return AddItemWidget(item: item);
+                      } else if (item is PostItem) {
+                        return PostItemWidget(postItem: item);
+                      } else if (item is SuggestUsers) {
+                        return SuggestUserWidget(
+                            suggestUser: item.suggestUsers);
+                      }
                     }
                     return const ListTile(
                       title: Text('Cant Find Anything'),

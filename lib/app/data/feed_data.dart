@@ -39,7 +39,6 @@ var postList = List<ListItem>.generate(
     }
     String menOrWomen = random.nextBool() == true ? 'women' : 'men';
     return PostItem(
-      postUserName: faker.internet.userName(),
       user: generateUser(),
       postUserImage:
           'https://randomuser.me/api/portraits/$menOrWomen/${random.nextInt(85)}.jpg',

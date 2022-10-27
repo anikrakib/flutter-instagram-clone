@@ -38,7 +38,6 @@ class _CommentsState extends State<Comments> {
     super.initState();
     postItem = arguments[0] ??
         PostItem(
-          postUserName: '',
           user: const User(
               userName: '',
               profileImageUrl: '',
@@ -61,7 +60,6 @@ class _CommentsState extends State<Comments> {
     controller = arguments[3];
 
     if (listItem is PostItem) {
-      name = postItem.postUserName ?? '';
       post = postItem.postBody ?? '';
       image = postItem.postUserImage;
       comments.addAll(postItem.comments);

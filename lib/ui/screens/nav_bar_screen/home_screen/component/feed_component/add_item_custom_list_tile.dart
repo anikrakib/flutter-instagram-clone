@@ -62,6 +62,7 @@ class _AddItemWidgetState extends State<AddItemWidget> {
 
 SizedBox addItemCustomListTile(AddItem item, BuildContext context,
     TextEditingController controller, userImage) {
+  bool commentNotEmpty = item.comments.isNotEmpty;
   return SizedBox(
     width: double.infinity,
     height: 500,
@@ -149,11 +150,14 @@ SizedBox addItemCustomListTile(AddItem item, BuildContext context,
               listItem: item,
               controller: controller,
             ),
-            child: SizedBox(
-              width: double.infinity,
-              child: Text(
-                'View all ${item.comments.length} comments',
-                style: AppTextStyle.textStyleFadedSmall,
+            child: Visibility(
+              visible: commentNotEmpty,
+              child: SizedBox(
+                width: double.infinity,
+                child: Text(
+                  'View all ${item.comments.length} comments',
+                  style: AppTextStyle.textStyleFadedSmall,
+                ),
               ),
             ),
           ),
@@ -171,7 +175,10 @@ SizedBox addItemCustomListTile(AddItem item, BuildContext context,
               listItem: item,
               controller: controller,
             ),
-            child: showFirstComment(item.comments[0]),
+            child: Visibility(
+              visible: commentNotEmpty,
+              child: comment(item),
+            ),
           ),
         ),
         GestureDetector(
@@ -188,4 +195,12 @@ SizedBox addItemCustomListTile(AddItem item, BuildContext context,
       ],
     ),
   );
+}
+
+Widget comment(AddItem item) {
+  if (item.comments.isNotEmpty) {
+    return showFirstComment(item.comments[0]);
+  } else {
+    return Container();
+  }
 }
