@@ -1,4 +1,5 @@
 import 'package:instagram_clone/app/model/comment_model.dart';
+import 'package:instagram_clone/app/model/user_model.dart';
 
 abstract class ListItem {}
 
@@ -23,6 +24,7 @@ class PostItem implements ListItem {
   String? postBody;
   final List<Comment> comments;
   final DateTime time;
+  final User user;
 
   PostItem({
     this.postBody,
@@ -31,6 +33,7 @@ class PostItem implements ListItem {
     required this.postImage,
     required this.comments,
     required this.time,
+    required this.user,
   });
 }
 

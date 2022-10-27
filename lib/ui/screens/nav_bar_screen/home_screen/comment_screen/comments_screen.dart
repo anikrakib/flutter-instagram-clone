@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:instagram_clone/app/model/user_model.dart';
 import 'package:instagram_clone/ui/app_widgets/app_image.dart';
 import 'package:instagram_clone/ui/app_widgets/sizeBox.dart';
 import 'package:instagram_clone/ui/screens/nav_bar_screen/home_screen/component/feed_component/comment_box.dart';
@@ -38,6 +39,13 @@ class _CommentsState extends State<Comments> {
     postItem = arguments[0] ??
         PostItem(
           postUserName: '',
+          user: const User(
+              userName: '',
+              profileImageUrl: '',
+              fullName: '',
+              bio: '',
+              stories: [],
+              verified: false),
           postUserImage: '',
           postImage: '',
           comments: [],

@@ -7,39 +7,71 @@ import 'package:instagram_clone/app/model/user_model.dart';
 var faker = Faker();
 var random = Random();
 
-var userList = List<User>.generate(
-  20,
-  (userIndex) {
-    String menOrWomen = random.nextBool() == true ? 'women' : 'men';
+List<User> generateUsers() {
+  return List<User>.generate(
+    20,
+    (userIndex) {
+      String menOrWomen = random.nextBool() == true ? 'women' : 'men';
 
-    return User(
-      verified: random.nextBool(),
-      userName: faker.internet.userName(),
-      profileImageUrl:
-          'https://randomuser.me/api/portraits/$menOrWomen/$userIndex.jpg',
-      bio: faker.lorem.sentence(),
-      fullName: '${faker.person.firstName()} ${faker.person.lastName()}',
-      stories: List<Story>.generate(
-        (random.nextInt(9) + 1),
-        (storyIndex) {
-          if (random.nextBool() == true) {
-            return Story(
-              url: videoStories[storyIndex].url,
-              media: MediaType.video,
-              duration: videoStories[storyIndex].duration,
-            );
-          } else {
-            return Story(
-              url: 'https://source.unsplash.com/random?sig=$storyIndex',
-              media: MediaType.image,
-              duration: const Duration(seconds: 10),
-            );
-          }
-        },
-      ),
-    );
-  },
-);
+      return User(
+        verified: random.nextBool(),
+        userName: faker.internet.userName(),
+        profileImageUrl:
+            'https://randomuser.me/api/portraits/$menOrWomen/$userIndex.jpg',
+        bio: faker.lorem.sentence(),
+        fullName: '${faker.person.firstName()} ${faker.person.lastName()}',
+        stories: List<Story>.generate(
+          (random.nextInt(9) + 1),
+          (storyIndex) {
+            if (random.nextBool() == true) {
+              return Story(
+                url: videoStories[storyIndex].url,
+                media: MediaType.video,
+                duration: videoStories[storyIndex].duration,
+              );
+            } else {
+              return Story(
+                url: 'https://source.unsplash.com/random?sig=$storyIndex',
+                media: MediaType.image,
+                duration: const Duration(seconds: 10),
+              );
+            }
+          },
+        ),
+      );
+    },
+  );
+}
+
+User generateUser() {
+  String menOrWomen = random.nextBool() == true ? 'women' : 'men';
+  return User(
+    verified: random.nextBool(),
+    userName: faker.internet.userName(),
+    profileImageUrl:
+        'https://randomuser.me/api/portraits/$menOrWomen/${random.nextInt(85)}.jpg',
+    bio: faker.lorem.sentence(),
+    fullName: '${faker.person.firstName()} ${faker.person.lastName()}',
+    stories: List<Story>.generate(
+      (random.nextInt(9) + 1),
+      (storyIndex) {
+        if (random.nextBool() == true) {
+          return Story(
+            url: videoStories[storyIndex].url,
+            media: MediaType.video,
+            duration: videoStories[storyIndex].duration,
+          );
+        } else {
+          return Story(
+            url: 'https://source.unsplash.com/random?sig=$storyIndex',
+            media: MediaType.image,
+            duration: const Duration(seconds: 10),
+          );
+        }
+      },
+    ),
+  );
+}
 
 List<int> generateRandomList(int postLength, int userIndex) {
   int randomCount = postLength;

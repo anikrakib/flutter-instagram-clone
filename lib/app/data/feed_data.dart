@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:faker/faker.dart';
 import 'package:instagram_clone/app/data/comment_data.dart';
+import 'package:instagram_clone/app/data/user_data.dart';
 import '../model/view_type.dart';
 
 var faker = Faker();
@@ -29,37 +30,23 @@ var postList = List<ListItem>.generate(
         }),
       );
     } else if ((index) % 2 == 0 && index != 0) {
-      return random.nextBool() == true
-          ? AddItem(
-              addName: faker.company.name(),
-              addImage: 'https://source.unsplash.com/random?sig=$index',
-              comments: generateComments(),
-            )
-          : AddItem(
-              addName: faker.company.name(),
-              addImage: 'https://source.unsplash.com/random?sig=$index',
-              addPost: faker.lorem.sentence(),
-              comments: generateComments(),
-            );
+      return AddItem(
+        addName: faker.company.name(),
+        addImage: 'https://source.unsplash.com/random?sig=$index',
+        addPost: random.nextBool() == true ? faker.lorem.sentence() : '',
+        comments: generateComments(),
+      );
     }
     String menOrWomen = random.nextBool() == true ? 'women' : 'men';
-    return random.nextBool() == true
-        ? PostItem(
-            postUserName: faker.internet.userName(),
-            postUserImage:
-                'https://randomuser.me/api/portraits/$menOrWomen/${random.nextInt(85)}.jpg',
-            postImage: 'https://source.unsplash.com/random?sig=${random.nextInt(85)}',
-            comments: generateComments(),
-            time: DateTime.now(),
-          )
-        : PostItem(
-            postUserName: faker.internet.userName(),
-            postUserImage:
-                'https://randomuser.me/api/portraits/$menOrWomen/${random.nextInt(85)}.jpg',
-            postImage: 'https://source.unsplash.com/random?sig=${random.nextInt(85)}',
-            postBody: faker.lorem.sentence(),
-            comments: generateComments(),
-            time: DateTime.now(),
-          );
+    return PostItem(
+      postUserName: faker.internet.userName(),
+      user: generateUser(),
+      postUserImage:
+          'https://randomuser.me/api/portraits/$menOrWomen/${random.nextInt(85)}.jpg',
+      postImage: 'https://source.unsplash.com/random?sig=${random.nextInt(85)}',
+      postBody: random.nextBool() == true ? faker.lorem.sentence() : '',
+      comments: generateComments(),
+      time: DateTime.now(),
+    );
   },
 );

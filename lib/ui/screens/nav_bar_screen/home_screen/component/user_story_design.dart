@@ -12,6 +12,7 @@ Padding othersUserStory(BuildContext context, User user) {
     child: Column(
       children: [
         userMyDayProfileImage(
+          storyAvailable: user.stories.isNotEmpty,
           context: context,
           myDayProfilePicSize: myDayProfilePicSize + 10,
           padding: myDayPadding,
@@ -76,6 +77,7 @@ Padding yourStory(BuildContext context, String userImage) {
 }
 
 Widget userMyDayProfileImage({
+  bool storyAvailable = false,
   required BuildContext context,
   required double myDayProfilePicSize,
   required double padding,
@@ -86,13 +88,16 @@ Widget userMyDayProfileImage({
     width: myDayProfilePicSize,
     child: Stack(
       children: [
-        Positioned(
-          top: 1,
-          bottom: 1,
-          right: 1,
-          left: 1,
-          child: svgImage(
-            Assets.assetsMyDayBackground,
+        Visibility(
+          visible: storyAvailable,
+          child: Positioned(
+            top: 1,
+            bottom: 1,
+            right: 1,
+            left: 1,
+            child: svgImage(
+              Assets.assetsMyDayBackground,
+            ),
           ),
         ),
         Positioned(

@@ -5,14 +5,14 @@ import '../../../../../../generated/assets.dart';
 import '../../../../../app_widgets/app_image.dart';
 import '../../../../../theme.dart';
 
-Row showFirstComment(Comment comment) {
+Row showFirstComment(Comment? comment) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceAround,
     children: [
       Expanded(
         child: postBodyText(
-          comment.commentOwner.userName,
-          post: comment.comment,
+          comment?.commentOwner.userName,
+          post: comment?.comment ?? '',
         ),
       ),
       svgImageWithColor(12, 12, Assets.bottomNavbarIconHeart, AppColors.faded),

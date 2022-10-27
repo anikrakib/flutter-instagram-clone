@@ -34,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    users = userList;
+    users = generateUsers();
     items = postList;
     if (users.isNotEmpty && items.isNotEmpty) {
       users.shuffle();

@@ -52,8 +52,7 @@ SizedBox postItemCustomListTile(PostItem item, BuildContext context,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         postHeader(
-          name: item.postUserName ?? '',
-          imagePath: item.postUserImage,
+          user: item.user,
           addOrPost: false,
           context: context,
         ),
