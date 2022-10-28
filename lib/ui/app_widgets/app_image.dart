@@ -9,7 +9,8 @@ SvgPicture appLogo(context) => SvgPicture.asset(Assets.assetsAppLogo,
 SvgPicture appLogoForAppBar(context) => SvgPicture.asset(Assets.assetsAppLogo,
     width: 110, height: 30, color: Theme.of(context).primaryColor);
 
-SvgPicture svgImageWithHeightAndWidth(double height, double width, String path) =>
+SvgPicture svgImageWithHeightAndWidth(
+        double height, double width, String path) =>
     SvgPicture.asset(
       path,
       width: width,
@@ -17,11 +18,9 @@ SvgPicture svgImageWithHeightAndWidth(double height, double width, String path) 
       //color: Get.isDarkMode ? AppColors.light : AppColors.dark,
     );
 
-SvgPicture svgImage(String path) =>
-    SvgPicture.asset(
+SvgPicture svgImage(String path) => SvgPicture.asset(
       path,
     );
-
 
 SvgPicture svgImageWithColor(
         double height, double width, String path, Color color) =>
@@ -40,15 +39,13 @@ SvgPicture navigationSVGImageWithoutColor(String imagePath) {
   );
 }
 
-SvgPicture navigationSVGImage(
-  BuildContext context,
-  String imagePath,
-) {
+SvgPicture navigationSVGImage(BuildContext context, String imagePath,
+    [double? height,Color? color]) {
   return SvgPicture.asset(
     imagePath,
-    height: 22,
-    width: 22,
-    color: Theme.of(context).primaryColor,
+    height: height ?? 22,
+    width: height ?? 22,
+    color: color ?? Theme.of(context).primaryColor,
   );
 }
 

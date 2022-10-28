@@ -24,10 +24,7 @@ class _SignUpWithEmailAndPhoneState extends State<SignUpWithEmailAndPhone>
     Tab(text: 'EMAIL'),
   ];
 
-  static List<Widget> tabs = <Widget>[
-    SignUpWithPhone(),
-    SignUpWithEmail()
-  ];
+  static List<Widget> tabs = <Widget>[SignUpWithPhone(), SignUpWithEmail()];
 
   late TabController _tabController;
 
@@ -102,7 +99,12 @@ CircleAvatar userIconPart() {
     child: CircleAvatar(
       radius: 78,
       backgroundColor: Get.isDarkMode ? AppColors.dark : AppColors.light,
-      child: svgImageWithHeightAndWidth(90, 90, Assets.iconsIconPerson),
+      child: svgImageWithColor(
+        90,
+        90,
+        Assets.iconsIconPerson,
+        Get.isDarkMode ? AppColors.light : AppColors.dark,
+      ),
     ),
   );
 }

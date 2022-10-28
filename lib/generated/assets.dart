@@ -44,6 +44,7 @@ class Assets {
   static const String iconsIconPerson = 'assets/icons/icon_person.svg';
   static const String iconsIconRedCircle = 'assets/icons/icon_red_circle.svg';
   static const String iconsIconReels = 'assets/icons/icon_reels.svg';
+  static const String iconsIconReelsFill = 'assets/icons/icon_reels_fill.svg';
   static const String iconsIconScanner = 'assets/icons/icon_scanner.svg';
   static const String iconsIconSettings = 'assets/icons/icon_settings.svg';
   static const String iconsIconShop = 'assets/icons/icon_shop.svg';

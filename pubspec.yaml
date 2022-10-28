@@ -11,8 +11,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-
   cupertino_icons: ^1.0.2
   #  GetX is an extra-light and powerful solution for Flutter. It combines high-performance state management,
   #  intelligent dependency injection, and route management quickly and practically.
@@ -30,12 +28,16 @@ dependencies:
   video_player: ^2.4.7
   #A Flutter package to extract prominent colors from an Image, typically used to find colors for a user interface.
   palette_generator: ^0.3.3+2
+  #Provides a collection of Flutter grids layouts.
+  flutter_staggered_grid_view: ^0.4.0
+
   #Provides internationalization and localization facilities, including message translation, plurals and genders,
   #date/number formatting and parsing, and bidirectional text.
   intl: ^0.17.0
   #A flutter list that allows scrolling to a specific item in the list.
   #Also allows determining what items are currently visible.
   #scrollable_positioned_list: ^0.3.5
+
 
 dev_dependencies:
   flutter_test:

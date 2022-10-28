@@ -27,8 +27,9 @@ final List<VideoStory> videoStories = [
     duration: Duration(seconds: 10),
   ),
   const VideoStory(
-    url: 'https://media2.giphy.com/media/M8PxVICV5KlezP1pGE/giphy.gif',
-    duration: Duration(seconds: 8),
+    url:
+        'https://player.vimeo.com/external/517077677.sd.mp4?s=6159f94e03ba45bd01955e179145cf3692864e34&profile_id=165&oauth2_token_id=57447761',
+    duration: Duration(seconds: 7),
   ),
   const VideoStory(
     url:
@@ -62,13 +63,13 @@ final List<VideoStory> videoStories = [
   ),
   const VideoStory(
     url:
-        'https://vod-progressive.akamaized.net/exp=1665574049~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F1038%2F19%2F480194375%2F2146579034.mp4~hmac=ad7d29fd887d56753a82f7f38860c2497e60345a3866278fdc733782c77a10d1/vimeo-prod-skyfire-std-us/01/1038/19/480194375/2146579034.mp4',
-    duration: Duration(seconds: 12),
+        'https://player.vimeo.com/external/485680818.hd.mp4?s=e067f562011821e60b20bbbd3c81ef3bcaec5c7d&profile_id=174&oauth2_token_id=57447761',
+    duration: Duration(seconds: 4),
   ),
   const VideoStory(
     url:
-        'https://vod-progressive.akamaized.net/exp=1665574079~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F2780%2F18%2F463900599%2F2056076585.mp4~hmac=4d7b329d98bfcc1f3efd5c5c3f21ff937c322d55b15a04c374d4d6d2ff9c3970/vimeo-prod-skyfire-std-us/01/2780/18/463900599/2056076585.mp4',
-    duration: Duration(seconds: 59),
+        'https://player.vimeo.com/external/650794183.sd.mp4?s=030cf06bd0f329f6bc586b46cf99b4fa1ea98652&profile_id=165&oauth_token_id=57447761',
+    duration: Duration(seconds: 10),
   ),
   const VideoStory(
     url:
@@ -130,4 +131,48 @@ final List<VideoStory> videoStories = [
         'https://player.vimeo.com/progressive_redirect/playback/753085759/rendition/540p/file.mp4?loc=external&oauth2_token_id=57447761&signature=af720f5beea7392e2085c696d84fc59695f3ca5ff56274ec1a75f2fa1f7956d2',
     duration: Duration(seconds: 41),
   ),
+  const VideoStory(
+    url: 'https://player.vimeo.com/external/578886411.hd.mp4?s=4fbcecaaf7bd804521deb836e9e0f9a83a101070&profile_id=174&oauth2_token_id=57447761',
+    duration: Duration(seconds: 28),
+  ),
+  const VideoStory(
+    url: 'https://player.vimeo.com/external/567895334.sd.mp4?s=76fd23e202945091fa43cd94215fda4e886e9e7f&profile_id=165&oauth2_token_id=57447761',
+    duration: Duration(seconds: 10),
+  ),
+  const VideoStory(
+    url: 'https://player.vimeo.com/external/644814604.hd.mp4?s=3e96583356aeb376e8de8c4aff116c249f703c47&profile_id=174&oauth_token_id=57447761',
+    duration: Duration(seconds: 23),
+  ),
+  const VideoStory(
+    url: 'https://player.vimeo.com/external/555378005.hd.mp4?s=025f8ef4ee804b5548cb92cb6a6e034b9214801a&profile_id=174&oauth2_token_id=57447761',
+    duration: Duration(seconds: 23),
+  ),
+  const VideoStory(
+    url: 'https://player.vimeo.com/external/390171832.hd.mp4?s=4b2b4d9f16b05a184df34d392414bc2ce988a40a&profile_id=174&oauth2_token_id=57447761',
+    duration: Duration(seconds: 9),
+  ),const VideoStory(
+    url: 'https://player.vimeo.com/external/558164649.sd.mp4?s=0b96b8f3fba5b015e6cd4011240a0e1951c4b8f7&profile_id=165&oauth2_token_id=57447761',
+    duration: Duration(seconds: 12),
+  ),
+  const VideoStory(
+    url: 'https://player.vimeo.com/external/581202863.sd.mp4?s=8ffd21d6c1f2b52669a85a610c8d318aa546befc&profile_id=165&oauth2_token_id=57447761',
+    duration: Duration(seconds: 11),
+  ),
+  const VideoStory(
+    url: 'https://player.vimeo.com/external/559869841.sd.mp4?s=964fd6060a7971512673fe719e94496d35bb16aa&profile_id=165&oauth2_token_id=57447761',
+    duration: Duration(seconds: 12),
+  ),
+  const VideoStory(
+    url: 'https://player.vimeo.com/external/472355995.sd.mp4?s=1f02d2b924c4260b00f6d6daea2a2957571af0da&profile_id=165&oauth2_token_id=57447761',
+    duration: Duration(seconds: 18),
+  ),
+  const VideoStory(
+    url: 'https://player.vimeo.com/external/546479365.sd.mp4?s=ac63e860b4991ae906838e66e916a687af6705b8&profile_id=165&oauth2_token_id=57447761',
+    duration: Duration(seconds: 12),
+  ),
+  const VideoStory(
+    url: 'https://player.vimeo.com/external/435674383.sd.mp4?s=387eebf753e27ee5447490912b69a119ac42d6f1&profile_id=165&oauth2_token_id=57447761',
+    duration: Duration(seconds: 13),
+  ),
+
 ];
