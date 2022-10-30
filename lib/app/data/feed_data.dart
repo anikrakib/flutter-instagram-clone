@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:faker/faker.dart';
 import 'package:instagram_clone/app/data/comment_data.dart';
 import 'package:instagram_clone/app/data/user_data.dart';
+import '../../utils/utils_function.dart';
 import '../model/view_type.dart';
 
 var faker = Faker();
@@ -32,7 +33,7 @@ var postList = List<ListItem>.generate(
     } else if ((index) % 2 == 0 && index != 0) {
       return AddItem(
         addName: faker.company.name(),
-        addImage: 'https://source.unsplash.com/random?sig=$index',
+        images: generateImages(),
         addPost: random.nextBool() == true ? faker.lorem.sentence() : '',
         comments: generateComments(),
       );
@@ -42,7 +43,7 @@ var postList = List<ListItem>.generate(
       user: generateUser(),
       postUserImage:
           'https://randomuser.me/api/portraits/$menOrWomen/${random.nextInt(85)}.jpg',
-      postImage: 'https://source.unsplash.com/random?sig=${random.nextInt(85)}',
+      images: generateImages(),
       postBody: random.nextBool() == true ? faker.lorem.sentence() : '',
       comments: generateComments(),
       time: DateTime.now(),

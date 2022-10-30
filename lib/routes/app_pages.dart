@@ -11,6 +11,7 @@ import 'package:instagram_clone/ui/screens/splash_screen/splash_screen.dart';
 import '../app/binding/auth_binding.dart';
 import '../app/binding/nav_bar_binding.dart';
 import '../app/binding/signup_binding.dart';
+import '../ui/screens/explore_screen/explore_screen.dart';
 import '../ui/screens/nav_bar_screen/home_screen/home_screen.dart';
 import '../ui/screens/signup/signup_other_information.dart';
 
@@ -61,6 +62,10 @@ class AppPages {
     GetPage(
       name: Paths.comments,
       page: () => const Comments(),
+    ),
+    GetPage(
+      name: Paths.explore,
+      page: () => const ExploreScreen(),
     ),
   ];
 }

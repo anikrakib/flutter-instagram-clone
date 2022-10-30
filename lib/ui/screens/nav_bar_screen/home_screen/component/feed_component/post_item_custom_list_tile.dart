@@ -26,6 +26,8 @@ class PostItemWidget extends StatefulWidget {
 
 class _PostItemWidgetState extends State<PostItemWidget> {
   final controller = TextEditingController();
+  PageController pageController = PageController(initialPage: 0);
+  int activePage = 0;
 
   @override
   void initState() {
@@ -38,130 +40,136 @@ class _PostItemWidgetState extends State<PostItemWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return postItemCustomListTile(
-        widget.postItem, context, controller, widget.userImage);
-  }
-}
-
-SizedBox postItemCustomListTile(PostItem item, BuildContext context,
-    TextEditingController controller, String userImage) {
-  bool commentNotEmpty = item.comments.isNotEmpty;
-  return SizedBox(
-    width: double.infinity,
-    height: 550,
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        postHeader(
-          user: item.user,
-          addOrPost: false,
-          context: context,
-        ),
-        Expanded(
-          child: SizedBox(
-            width: double.infinity,
-            child: CachedNetworkImage(
-              imageUrl: item.postImage,
-              fit: BoxFit.cover,
+    return SizedBox(
+      width: double.infinity,
+      height: 550,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          postHeader(
+            user: widget.postItem.user,
+            addOrPost: false,
+            context: context,
+          ),
+          Expanded(
+            child: PageView.builder(
+              itemCount: widget.postItem.images.length,
+              pageSnapping: true,
+              controller: pageController,
+              onPageChanged: (page) {
+                setState(() {
+                  activePage = page;
+                });
+              },
+              itemBuilder: (context, index) {
+                return SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  child: CachedNetworkImage(
+                    imageUrl: widget.postItem.images[index],
+                    fit: BoxFit.cover,
+                  ),
+                );
+              },
             ),
           ),
-        ),
-        likeCommentBookmarkParts(context),
-        Container(
-          width: double.infinity,
-          padding: const EdgeInsets.only(
-            top: 8.0,
-            left: defaultPadding,
-          ),
-          child: Text(
-            '${Random().nextInt(1000 + 100)} likes',
-            style: AppTextStyle.textStyleSmall,
-          ),
-        ),
-        Visibility(
-          visible: item.postBody?.isNotEmpty ?? false,
-          child: Padding(
+          likeCommentBookmarkParts(context, widget.postItem.images, activePage),
+          Container(
+            width: double.infinity,
             padding: const EdgeInsets.only(
+              top: 8.0,
+              left: defaultPadding,
+            ),
+            child: Text(
+              '${Random().nextInt(1000 + 100)} likes',
+              style: AppTextStyle.textStyleSmall,
+            ),
+          ),
+          Visibility(
+            visible: widget.postItem.postBody?.isNotEmpty ?? false,
+            child: Padding(
+              padding: const EdgeInsets.only(
                 left: defaultPadding,
                 right: defaultPadding,
                 top: defaultPadding / 5,),
-            child: SizedBox(
-              width: double.infinity,
-              child: postBodyText(
-                item.user.userName,
-                post: item.postBody.toString(),
-              ),
-            ),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(
-            top: defaultPadding / 5,
-            left: defaultPadding,
-          ),
-          child: GestureDetector(
-            onTap: () => goTOCommentsPageWithArguments(
-              path: Routes.comments,
-              postItem: item,
-              listItem: item,
-              controller: controller,
-            ),
-            child: Visibility(
-              visible: commentNotEmpty,
               child: SizedBox(
                 width: double.infinity,
-                child: Text(
-                  'View all ${item.comments.length} comments',
-                  style: AppTextStyle.textStyleFadedSmall,
+                child: postBodyText(
+                  widget.postItem.user.userName,
+                  post: widget.postItem.postBody.toString(),
                 ),
               ),
             ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(
-            top: defaultPadding / 5,
-            left: defaultPadding,
-            right: defaultPadding,
+          Padding(
+            padding: const EdgeInsets.only(
+              top: defaultPadding / 5,
+              left: defaultPadding,
+            ),
+            child: GestureDetector(
+              onTap: () => goTOCommentsPageWithArguments(
+                path: Routes.comments,
+                postItem: widget.postItem,
+                listItem: widget.postItem,
+                controller: controller,
+              ),
+              child: Visibility(
+                visible: widget.postItem.comments.isNotEmpty,
+                child: SizedBox(
+                  width: double.infinity,
+                  child: Text(
+                    'View all ${widget.postItem.comments.length} comments',
+                    style: AppTextStyle.textStyleFadedSmall,
+                  ),
+                ),
+              ),
+            ),
           ),
-          child: GestureDetector(
+          Padding(
+            padding: const EdgeInsets.only(
+              top: defaultPadding / 5,
+              left: defaultPadding,
+              right: defaultPadding,
+            ),
+            child: GestureDetector(
+              onTap: () => goTOCommentsPageWithArguments(
+                path: Routes.comments,
+                postItem: widget.postItem,
+                listItem: widget.postItem,
+                controller: controller,
+              ),
+              child: Visibility(
+                visible: widget.postItem.comments.isNotEmpty,
+                child: comment(widget.postItem),
+              ),
+            ),
+          ),
+          GestureDetector(
             onTap: () => goTOCommentsPageWithArguments(
-              path: Routes.comments,
-              postItem: item,
-              listItem: item,
+                path: Routes.comments,
+                postItem:  widget.postItem,
+                listItem:  widget.postItem,
+                controller: controller),
+            child: AddCommentPart(
               controller: controller,
             ),
-            child: Visibility(
-              visible: commentNotEmpty,
-              child: comment(item),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+                left: defaultPadding, right: defaultPadding,top: defaultPadding/4),
+            child: SizedBox(
+              width: double.infinity,
+              child: Text(
+                timeAgo( widget.postItem.time, true),
+                style: const TextStyle(color: AppColors.faded, fontSize: 10),
+              ),
             ),
           ),
-        ),
-        GestureDetector(
-          onTap: () => goTOCommentsPageWithArguments(
-              path: Routes.comments,
-              postItem: item,
-              listItem: item,
-              controller: controller),
-          child: AddCommentPart(
-            controller: controller,
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(
-              left: defaultPadding, right: defaultPadding),
-          child: SizedBox(
-            width: double.infinity,
-            child: Text(
-              timeAgo(item.time, true),
-              style: const TextStyle(color: AppColors.faded, fontSize: 10),
-            ),
-          ),
-        ),
-      ],
-    ),
-  );
+        ],
+      ),
+    );
+  }
 }
+
 
 Widget comment(PostItem item){
   if(item.comments.isNotEmpty){

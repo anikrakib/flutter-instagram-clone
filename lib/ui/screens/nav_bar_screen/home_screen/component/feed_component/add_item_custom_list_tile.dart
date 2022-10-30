@@ -31,6 +31,8 @@ class AddItemWidget extends StatefulWidget {
 
 class _AddItemWidgetState extends State<AddItemWidget> {
   final controller = TextEditingController();
+  PageController pageController = PageController(initialPage: 0);
+  int activePage = 0;
 
   @override
   void initState() {
@@ -43,7 +45,7 @@ class _AddItemWidgetState extends State<AddItemWidget> {
 
   _updatePalette() async {
     PaletteGenerator palette = await PaletteGenerator.fromImageProvider(
-      NetworkImage(widget.item.addImage),
+      NetworkImage(widget.item.images.first),
       size: const Size(200, 100),
     );
     setState(() {
@@ -55,146 +57,150 @@ class _AddItemWidgetState extends State<AddItemWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return addItemCustomListTile(
-        widget.item, context, controller, widget.userImage);
-  }
-}
-
-SizedBox addItemCustomListTile(AddItem item, BuildContext context,
-    TextEditingController controller, userImage) {
-  bool commentNotEmpty = item.comments.isNotEmpty;
-  return SizedBox(
-    width: double.infinity,
-    height: 500,
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        postHeader(name: item.addName ?? '', addOrPost: true, context: context),
-        Expanded(
-          child: Stack(
-            children: [
-              SizedBox(
-                width: double.infinity,
-                height: double.infinity,
-                child: CachedNetworkImage(
-                  imageUrl: item.addImage,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              Positioned(
-                bottom: -1,
-                right: -1,
-                left: -1,
-                child: Container(
-                  padding: const EdgeInsets.only(
-                      left: defaultPadding, right: defaultPadding),
-                  width: double.infinity,
-                  height: 45,
-                  color: bgColor?.color,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
-                      Text(
-                        'Learn More',
-                        style: TextStyle(color: Colors.white),
+    return SizedBox(
+      width: double.infinity,
+      height: 500,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          postHeader(name: widget.item.addName ?? '', addOrPost: true, context: context),
+          Expanded(
+            child: Stack(
+              children: [
+                PageView.builder(
+                  itemCount: widget.item.images.length,
+                  pageSnapping: true,
+                  controller: pageController,
+                  onPageChanged: (page) {
+                    setState(() {
+                      activePage = page;
+                    });
+                  },
+                  itemBuilder: (context, index) {
+                    return SizedBox(
+                      width: MediaQuery.of(context).size.width,
+                      child: CachedNetworkImage(
+                        imageUrl: widget.item.images[index],
+                        fit: BoxFit.cover,
                       ),
-                      Icon(
-                        CupertinoIcons.forward,
-                        size: 18,
-                        color: AppColors.light,
-                      )
-                    ],
-                  ),
+                    );
+                  },
                 ),
-              )
-            ],
+                Positioned(
+                  bottom: -1,
+                  right: -1,
+                  left: -1,
+                  child: Container(
+                    padding: const EdgeInsets.only(
+                        left: defaultPadding, right: defaultPadding),
+                    width: double.infinity,
+                    height: 45,
+                    color: bgColor?.color,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: const [
+                        Text(
+                          'Learn More',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        Icon(
+                          CupertinoIcons.forward,
+                          size: 18,
+                          color: AppColors.light,
+                        )
+                      ],
+                    ),
+                  ),
+                )
+              ],
+            ),
           ),
-        ),
-        likeCommentBookmarkParts(context),
-        Container(
-          width: double.infinity,
-          padding: const EdgeInsets.only(
-            top: defaultPadding / 2,
-            left: defaultPadding,
-          ),
-          child: Text(
-            '${random.nextInt(1000 + 100)} likes',
-            style: AppTextStyle.textStyleSmall,
-          ),
-        ),
-        Visibility(
-          visible: item.addPost?.isNotEmpty ?? false,
-          child: Padding(
+          likeCommentBookmarkParts(context, widget.item.images, activePage),
+          Container(
+            width: double.infinity,
             padding: const EdgeInsets.only(
-                top: defaultPadding / 5,
-                left: defaultPadding,
-                right: defaultPadding),
-            child: SizedBox(
-              width: double.infinity,
-              child: postBodyText(
-                item.addName,
-                post: item.addPost.toString(),
-              ),
+              top: defaultPadding / 2,
+              left: defaultPadding,
+            ),
+            child: Text(
+              '${random.nextInt(1000 + 100)} likes',
+              style: AppTextStyle.textStyleSmall,
             ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(
-            top: defaultPadding / 5,
-            left: defaultPadding,
-          ),
-          child: GestureDetector(
-            onTap: () => goTOCommentsPageWithArguments(
-              path: Routes.comments,
-              addItem: item,
-              listItem: item,
-              controller: controller,
-            ),
-            child: Visibility(
-              visible: commentNotEmpty,
+          Visibility(
+            visible: widget.item.addPost?.isNotEmpty ?? false,
+            child: Padding(
+              padding: const EdgeInsets.only(
+                  top: defaultPadding / 5,
+                  left: defaultPadding,
+                  right: defaultPadding),
               child: SizedBox(
                 width: double.infinity,
-                child: Text(
-                  'View all ${item.comments.length} comments',
-                  style: AppTextStyle.textStyleFadedSmall,
+                child: postBodyText(
+                  widget.item.addName,
+                  post: widget.item.addPost.toString(),
                 ),
               ),
             ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(
-            top: defaultPadding / 5,
-            left: defaultPadding,
-            right: defaultPadding,
+          Padding(
+            padding: const EdgeInsets.only(
+              top: defaultPadding / 5,
+              left: defaultPadding,
+            ),
+            child: GestureDetector(
+              onTap: () => goTOCommentsPageWithArguments(
+                path: Routes.comments,
+                addItem: widget.item,
+                listItem: widget.item,
+                controller: controller,
+              ),
+              child: Visibility(
+                visible: widget.item.comments.isNotEmpty,
+                child: SizedBox(
+                  width: double.infinity,
+                  child: Text(
+                    'View all ${widget.item.comments.length} comments',
+                    style: AppTextStyle.textStyleFadedSmall,
+                  ),
+                ),
+              ),
+            ),
           ),
-          child: GestureDetector(
+          Padding(
+            padding: const EdgeInsets.only(
+              top: defaultPadding / 5,
+              left: defaultPadding,
+              right: defaultPadding,
+            ),
+            child: GestureDetector(
+              onTap: () => goTOCommentsPageWithArguments(
+                path: Routes.comments,
+                addItem: widget.item,
+                listItem: widget.item,
+                controller: controller,
+              ),
+              child: Visibility(
+                visible: widget.item.comments.isNotEmpty,
+                child: comment(widget.item),
+              ),
+            ),
+          ),
+          GestureDetector(
             onTap: () => goTOCommentsPageWithArguments(
               path: Routes.comments,
-              addItem: item,
-              listItem: item,
+              addItem: widget.item,
+              listItem: widget.item,
               controller: controller,
             ),
-            child: Visibility(
-              visible: commentNotEmpty,
-              child: comment(item),
+            child: AddCommentPart(
+              controller: controller,
             ),
           ),
-        ),
-        GestureDetector(
-          onTap: () => goTOCommentsPageWithArguments(
-            path: Routes.comments,
-            addItem: item,
-            listItem: item,
-            controller: controller,
-          ),
-          child: AddCommentPart(
-            controller: controller,
-          ),
-        ),
-      ],
-    ),
-  );
+        ],
+      ),
+    );
+  }
 }
 
 Widget comment(AddItem item) {

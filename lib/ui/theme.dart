@@ -80,7 +80,7 @@ abstract class AppTextStyle {
       TextStyle(fontWeight: FontWeight.w600, fontSize: 16);
 
   static const textStyleSmall =
-      TextStyle(fontWeight: FontWeight.w500, fontSize: 12);
+      TextStyle(fontWeight: FontWeight.w500, fontSize: 13);
 
   static const textStyleSmallBold = TextStyle(
     fontWeight: FontWeight.bold,

@@ -53,11 +53,7 @@ class _ReelsCardState extends State<ReelsCard> {
                 height: _controller.value.size.height,
                 child: AspectRatio(
                   aspectRatio: _controller.value.aspectRatio,
-                  child: SizedBox(
-                    width: _controller.value.size.width,
-                    height: _controller.value.size.height,
-                    child: VideoPlayer(_controller),
-                  ),
+                  child: VideoPlayer(_controller),
                 ),
               )
             : Container(),

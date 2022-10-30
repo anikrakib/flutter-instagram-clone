@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../../../generated/assets.dart';
 import '../../../../app_widgets/app_image.dart';
 import '../../../../theme.dart';

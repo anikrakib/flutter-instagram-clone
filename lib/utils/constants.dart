@@ -15,6 +15,7 @@ const defaultPadding = 18.0;
 const appBarHeight = 56.0;
 const myDayPadding = 7.0;
 const myDayProfilePicSize = 60.0;
+const videoSize = 650.0;
 
 final screens = [
   const HomeScreen(),

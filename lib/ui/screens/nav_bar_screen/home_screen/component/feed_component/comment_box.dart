@@ -65,21 +65,23 @@ class _CommentBoxState extends State<CommentBox> {
             thickness: 0.1,
             color: Theme.of(context).primaryColor,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            //crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(right: defaultPadding,left: defaultPadding,bottom: defaultPadding,),
-                child: postHeaderImage(imageUrl: userImage),
-              ),
-              Expanded(
-                child: addCommentTextField(textEditingController: widget.textEditingController,enabled: true),
-              ),
-              const SizedBox(
-                width: defaultPadding/2,
-              ),
-            ],
+          Padding(
+            padding: const EdgeInsets.only(bottom: defaultPadding/2),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(right: defaultPadding,left: defaultPadding,),
+                  child: postHeaderImage(imageUrl: userImage),
+                ),
+                Expanded(
+                  child: addCommentTextField(textEditingController: widget.textEditingController,enabled: true),
+                ),
+                const SizedBox(
+                  width: defaultPadding/2,
+                ),
+              ],
+            ),
           ),
         ],
       ),

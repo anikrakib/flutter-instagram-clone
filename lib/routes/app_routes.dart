@@ -10,6 +10,7 @@ abstract class Routes {
   static const otherInformation = Paths.otherInformation;
   static const navBarScreen = Paths.navBarScreen;
   static const comments = Paths.comments;
+  static const explore = Paths.explore;
 }
 
 abstract class Paths {
@@ -24,4 +25,5 @@ abstract class Paths {
   static const shop = '/shop';
   static const navBarScreen = '/navBar';
   static const comments = '/comments';
+  static const explore = '/explore';
 }

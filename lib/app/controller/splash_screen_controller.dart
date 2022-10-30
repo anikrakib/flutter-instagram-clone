@@ -10,15 +10,15 @@ class SplashScreenController extends GetxController {
   void onReady() {
     super.onReady();
     if (userInfo.read(isLoggedInKey) != null) {
-      Future.delayed(const Duration(milliseconds: 3000), () {
+      Future.delayed(const Duration(milliseconds: 1500), () {
         Get.offAllNamed(Routes.navBarScreen);
       });
     } else if (userInfo.read(userNameKey) == null) {
-      Future.delayed(const Duration(milliseconds: 3000), () {
+      Future.delayed(const Duration(milliseconds: 1500), () {
         Get.offAllNamed(Routes.signIn);
       });
     } else {
-      Future.delayed(const Duration(milliseconds: 3000), () {
+      Future.delayed(const Duration(milliseconds: 1500), () {
         Get.offAllNamed(Routes.existingAccount);
       });
     }

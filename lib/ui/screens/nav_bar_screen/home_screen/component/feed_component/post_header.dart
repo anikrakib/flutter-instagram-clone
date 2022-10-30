@@ -1,5 +1,4 @@
 import 'dart:math';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:instagram_clone/generated/assets.dart';
@@ -17,13 +16,15 @@ Padding postHeader({
   User? user,
   String? imagePath,
   String? name,
+  Color? verifiedIconColor,
   required bool addOrPost,
   required BuildContext context,
 }) {
   User users = user ??
-      const User(
+      User(
         userName: '',
-        profileImageUrl: '',
+        profileImageUrl:
+            'https://randomuser.me/api/portraits/women/${random.nextInt(100)}.jpg',
         fullName: '',
         bio: '',
         stories: [],
@@ -37,35 +38,54 @@ Padding postHeader({
       top: defaultPadding * .5,
       bottom: defaultPadding * .5,
     ),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Row(
-          children: [
-            GestureDetector(
-              onTap: () {
-                if (storyAvailable) {
-                  Get.to(
-                    IndividualStoryScreen(users: users),
-                  );
-                }
-              },
-              child: userMyDayProfileImage(
-                storyAvailable: storyAvailable,
-                context: context,
-                myDayProfilePicSize: myDayProfilePicSize - 20,
-                padding: myDayPadding / 1.5,
-                imageUrl: imagePath ??
-                    'https://randomuser.me/api/portraits/women/${random.nextInt(100)}.jpg',
-              ),
+    child: SizedBox(
+      height: 40,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          GestureDetector(
+            onTap: () {
+              if (storyAvailable) {
+                Get.to(
+                  IndividualStoryScreen(users: users),
+                );
+              }
+            },
+            child: userMyDayProfileImage(
+              storyAvailable: storyAvailable,
+              context: context,
+              myDayProfilePicSize: myDayProfilePicSize - 20,
+              padding: myDayPadding / 1.5,
+              imageUrl: users.profileImageUrl,
             ),
-            sizeBox(10),
-            Column(
+          ),
+          sizeBox(10),
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  addOrPost ? name ?? '' : user?.userName ?? '',
-                  style: AppTextStyle.textStyleSmall,
+                Row(
+                  children: [
+                    Text(
+                      addOrPost ? name ?? '' : user?.userName ?? '',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 13,
+                        color: verifiedIconColor ?? Theme.of(context).primaryColor
+                      ),
+                    ),
+                    sizeBox(10),
+                    Visibility(
+                      visible: user?.verified ?? false,
+                      child: svgImageWithColor(
+                          14,
+                          14,
+                          Assets.assetsProfileVerified,
+                          verifiedIconColor ?? AppColors.secondary),
+                    ),
+                  ],
                 ),
                 Visibility(
                   visible: addOrPost,
@@ -76,10 +96,11 @@ Padding postHeader({
                 ),
               ],
             ),
-          ],
-        ),
-        navigationSVGImage(context, Assets.iconsIconOptionVertical),
-      ],
+          ),
+          sizeBox(10),
+          svgImageWithColor(15, 15, Assets.iconsIconOptionVertical, verifiedIconColor ?? Theme.of(context).primaryColor)
+        ],
+      ),
     ),
   );
 }

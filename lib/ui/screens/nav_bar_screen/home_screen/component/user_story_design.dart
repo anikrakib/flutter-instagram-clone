@@ -4,17 +4,16 @@ import '../../../../../generated/assets.dart';
 import '../../../../../utils/constants.dart';
 import '../../../../app_widgets/app_image.dart';
 import '../../../../app_widgets/sizeBox.dart';
-import '../../../../theme.dart';
 
 Padding othersUserStory(BuildContext context, User user) {
   return Padding(
-    padding: const EdgeInsets.only(right: defaultPadding * .8),
+    padding: const EdgeInsets.only(right: defaultPadding /1.6),
     child: Column(
       children: [
         userMyDayProfileImage(
           storyAvailable: user.stories.isNotEmpty,
           context: context,
-          myDayProfilePicSize: myDayProfilePicSize + 10,
+          myDayProfilePicSize: myDayProfilePicSize + 15,
           padding: myDayPadding,
           imageUrl: user.profileImageUrl,
         ),
@@ -23,7 +22,7 @@ Padding othersUserStory(BuildContext context, User user) {
           user.userName.length > 13
               ? '${user.userName.substring(0, 10)}...'
               : user.userName,
-          style: AppTextStyle.textStyleSmall,
+          style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 12),
         ),
       ],
     ),
@@ -33,7 +32,7 @@ Padding othersUserStory(BuildContext context, User user) {
 Padding yourStory(BuildContext context, String userImage) {
   return Padding(
     padding:
-        const EdgeInsets.only(left: defaultPadding, right: defaultPadding * .8),
+        const EdgeInsets.only(left: defaultPadding, right: defaultPadding),
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -66,10 +65,10 @@ Padding yourStory(BuildContext context, String userImage) {
             )
           ],
         ),
-        sizeBox(15),
+        sizeBox(18),
         const Text(
           'Your Story',
-          style: AppTextStyle.textStyleSmall,
+          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 11),
         )
       ],
     ),

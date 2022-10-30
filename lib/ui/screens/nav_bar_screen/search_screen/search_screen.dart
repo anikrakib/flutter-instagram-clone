@@ -7,8 +7,6 @@ import 'component/reels_card.dart';
 import 'component/search_screen_app_bar.dart';
 import 'component/video_card.dart';
 
-var lst = [2, 11, 24, 33, 46, 55, 68, 77, 90, 99, 112];
-
 class SearchScreen extends StatelessWidget {
   const SearchScreen({Key? key}) : super(key: key);
 
@@ -23,52 +21,56 @@ class SearchScreen extends StatelessWidget {
   }
 
   Widget explorerGridView() {
-    return StaggeredGridView.countBuilder(
-      crossAxisCount: 3,
-      itemCount: explorerList.length,
-      itemBuilder: (context, index) {
-        final item = explorerList[index];
-        if (item is ImageItem) {
-          return ImageCard(
-            images: item.images,
-            index: index,
+    var pointer = 2;
+    var increment = 9;
+
+    return NotificationListener<OverscrollIndicatorNotification>(
+      onNotification: (overscroll) {
+        overscroll.disallowIndicator();
+        return true;
+      },
+      child: StaggeredGridView.countBuilder(
+        crossAxisCount: 3,
+        itemCount: explorerList.length,
+        itemBuilder: (context, index) {
+          final item = explorerList[index];
+          if (item is ImageItem) {
+            return ImageCard(
+              imageItem: item,
+              index: index,
+            );
+          } else if (item is ReelItem) {
+            return ReelsCard(reelsUrl: item.reelUrl);
+          } else if (item is VideoItem) {
+            return VideoCard(
+              videoItem: item,
+              currentPosition: index,
+            );
+          }
+          return const ListTile(
+            title: Text('Cant Find Anything'),
           );
-        } else if (item is ReelItem) {
-          return ReelsCard(reelsUrl: item.reelUrl);
-        }
-        else if (item is VideoItem) {
-          return VideoCard(videoUrl: item.videoUrl);
-        }
-        return const ListTile(
-          title: Text('Cant Find Anything'),
-        );
-      },
-      /*staggeredTileBuilder: (index) => StaggeredTile.count(
-          (index % 2 == 0) ? 1 : 1,
-          (index % 11 == 0) ? 2 : 1),*/
-      staggeredTileBuilder: (index) {
-        /*if (index != 0 && ((index % 2 == 0) || (index % 11 == 0))) {
-            if ((((index - value) == 9 && right) ||
-                ((index - value) == 13 && left)) ||
-                index == 2) {
-              value = index;
-              */ /*right = !right;
-              left = !left;*/ /*
-              return const StaggeredTile.count(1, 2);
-            }else{
-              return const StaggeredTile.count(1, 1);
+        },
+        staggeredTileBuilder: (index) {
+          if (index == 0) {
+            pointer = 2;
+            increment = 9;
+          }
+          if (index == pointer) {
+            pointer += increment;
+            if (increment == 9) {
+              increment = 13;
+            } else if (increment == 13) {
+              increment = 9;
             }
-          }else{
+            return const StaggeredTile.count(1, 2);
+          } else {
             return const StaggeredTile.count(1, 1);
-          }*/
-        if (lst.contains(index)) {
-          return const StaggeredTile.count(1, 2);
-        } else {
-          return const StaggeredTile.count(1, 1);
-        }
-      },
-      mainAxisSpacing: 2.0,
-      crossAxisSpacing: 2.0,
+          }
+        },
+        mainAxisSpacing: 2.0,
+        crossAxisSpacing: 2.0,
+      ),
     );
   }
 }

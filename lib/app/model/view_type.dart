@@ -5,21 +5,21 @@ abstract class ListItem {}
 
 class AddItem implements ListItem {
   final String? addName;
-  final String addImage;
+  final List<String> images;
   String? addPost;
   final List<Comment> comments;
 
   AddItem({
     this.addPost,
     this.addName,
-    required this.addImage,
+    required this.images,
     required this.comments,
   });
 }
 
 class PostItem implements ListItem {
   final String postUserImage;
-  final String postImage;
+  final List<String> images;
   String? postBody;
   final List<Comment> comments;
   final DateTime time;
@@ -28,7 +28,7 @@ class PostItem implements ListItem {
   PostItem({
     this.postBody,
     required this.postUserImage,
-    required this.postImage,
+    required this.images,
     required this.comments,
     required this.time,
     required this.user,

@@ -46,14 +46,14 @@ class _CommentsState extends State<Comments> {
               stories: [],
               verified: false),
           postUserImage: '',
-          postImage: '',
+          images: [],
           comments: [],
           time: DateTime.now(),
         );
     addItem = arguments[1] ??
         AddItem(
           addName: '',
-          addImage: '',
+          images: [],
           comments: [],
         );
     listItem = arguments[2];
@@ -66,7 +66,7 @@ class _CommentsState extends State<Comments> {
     } else if (listItem is AddItem) {
       name = addItem.addName ?? '';
       post = addItem.addPost ?? '';
-      image = addItem.addImage;
+      image = addItem.images.first;
       comments.addAll(addItem.comments);
     }
   }

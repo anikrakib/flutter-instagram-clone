@@ -33,13 +33,13 @@ final List<VideoStory> videoStories = [
   ),
   const VideoStory(
     url:
-        'https://media.istockphoto.com/id/1360340680/video/portrait-of-friendly-caucasian-male-technical-customer-support-specialist-talking-on-a.mp4?s=mp4-640x640-is&k=20&c=tFxZxnIVTq0Xfkvgha6DIxLh8NYAuB8X0HDdekLv9CQ=',
-    duration: Duration(seconds: 18),
+        'https://player.vimeo.com/external/498640236.sd.mp4?s=f13239956e344bd6832bcb7670d6efb1bd3aab29&profile_id=165&oauth2_token_id=57447761',
+    duration: Duration(seconds: 15),
   ),
   const VideoStory(
     url:
-        'https://media.istockphoto.com/id/1360087650/video/vertical-screen-call-center-office-portrait-of-friendly-caucasian-female-technical-customer.mp4?s=mp4-640x640-is&k=20&c=ekJ5a2hAQAwTvGrNQjRVAidTjgpesPWDzn5zOU2rY84=',
-    duration: Duration(seconds: 16),
+        'https://player.vimeo.com/external/492222927.hd.mp4?s=ca1d57bc6a9da3a9192d3d0a73eb082037940a1c&profile_id=174&oauth2_token_id=57447761',
+    duration: Duration(seconds: 18),
   ),
   const VideoStory(
     url:
@@ -58,8 +58,8 @@ final List<VideoStory> videoStories = [
   ),
   const VideoStory(
     url:
-        'https://media.istockphoto.com/id/1368337733/video/young-caucasian-man-standing-and-talking-to-camera-on-blue-background.mp4?s=mp4-640x640-is&k=20&c=pBqeozR2moqThnRLGMEvwW8K-IkANkL9PNQVYhgeUxA=',
-    duration: Duration(seconds: 18),
+        'https://player.vimeo.com/progressive_redirect/playback/760885327/rendition/540p/file.mp4?loc=external&oauth2_token_id=57447761&signature=0f6ba70d1999831cc5c5a0167c7cfb6d305529b5c5aedc4882fb5034f413dc56',
+    duration: Duration(seconds: 16),
   ),
   const VideoStory(
     url:
@@ -93,13 +93,13 @@ final List<VideoStory> videoStories = [
   ),
   const VideoStory(
     url:
-        'https://player.vimeo.com/progressive_redirect/playback/732740640/rendition/540p/file.mp4?loc=external&oauth2_token_id=57447761&signature=7047110105803318c0f05e3ddd35a709ce07ade122b1fe9f3b1cb3fb4761f8dc',
-    duration: Duration(seconds: 9),
+        'https://player.vimeo.com/external/530226773.hd.mp4?s=6af06bea9c9c944a57cfb306bdc6e7d157210b91&profile_id=174&oauth2_token_id=57447761',
+    duration: Duration(seconds: 44),
   ),
   const VideoStory(
     url:
-        'https://player.vimeo.com/progressive_redirect/playback/677299276/rendition/540p?loc=external&oauth2_token_id=57447761&signature=d9a2e9c44ddfe29bcd241309267dbe1ffac33ad3589d1276d152d6ef28688e45',
-    duration: Duration(seconds: 7),
+        'https://player.vimeo.com/external/530885837.sd.mp4?s=8672a66b1c4a2f7908fd38b28d5eed13902bcea5&profile_id=165&oauth2_token_id=57447761',
+    duration: Duration(seconds: 21),
   ),
   const VideoStory(
     url:
@@ -123,56 +123,71 @@ final List<VideoStory> videoStories = [
   ),
   const VideoStory(
     url:
-        'https://player.vimeo.com/progressive_redirect/playback/734294954/rendition/540p/file.mp4?loc=external&oauth2_token_id=57447761&signature=2dff5b49484576b2dbbd36a4d47b6f1e0bb19c484f3b245b4490589827557761',
-    duration: Duration(seconds: 7),
+        'https://player.vimeo.com/external/543761012.hd.mp4?s=9e04b56dae7b97a27a295e2b11fee58540263b1b&profile_id=174&oauth2_token_id=57447761',
+    duration: Duration(seconds: 12),
   ),
   const VideoStory(
     url:
-        'https://player.vimeo.com/progressive_redirect/playback/753085759/rendition/540p/file.mp4?loc=external&oauth2_token_id=57447761&signature=af720f5beea7392e2085c696d84fc59695f3ca5ff56274ec1a75f2fa1f7956d2',
-    duration: Duration(seconds: 41),
+        'https://player.vimeo.com/external/554694786.sd.mp4?s=5f80f9ae8fadb42c153b28eaf8ecf4ee66a05370&profile_id=165&oauth2_token_id=57447761',
+    duration: Duration(seconds: 29),
   ),
   const VideoStory(
-    url: 'https://player.vimeo.com/external/578886411.hd.mp4?s=4fbcecaaf7bd804521deb836e9e0f9a83a101070&profile_id=174&oauth2_token_id=57447761',
+    url:
+        'https://player.vimeo.com/external/578886411.hd.mp4?s=4fbcecaaf7bd804521deb836e9e0f9a83a101070&profile_id=174&oauth2_token_id=57447761',
     duration: Duration(seconds: 28),
   ),
   const VideoStory(
-    url: 'https://player.vimeo.com/external/567895334.sd.mp4?s=76fd23e202945091fa43cd94215fda4e886e9e7f&profile_id=165&oauth2_token_id=57447761',
+    url:
+        'https://player.vimeo.com/external/567895334.sd.mp4?s=76fd23e202945091fa43cd94215fda4e886e9e7f&profile_id=165&oauth2_token_id=57447761',
     duration: Duration(seconds: 10),
   ),
   const VideoStory(
-    url: 'https://player.vimeo.com/external/644814604.hd.mp4?s=3e96583356aeb376e8de8c4aff116c249f703c47&profile_id=174&oauth_token_id=57447761',
+    url:
+        'https://player.vimeo.com/external/644814604.hd.mp4?s=3e96583356aeb376e8de8c4aff116c249f703c47&profile_id=174&oauth_token_id=57447761',
     duration: Duration(seconds: 23),
   ),
   const VideoStory(
-    url: 'https://player.vimeo.com/external/555378005.hd.mp4?s=025f8ef4ee804b5548cb92cb6a6e034b9214801a&profile_id=174&oauth2_token_id=57447761',
+    url:
+        'https://player.vimeo.com/external/555378005.hd.mp4?s=025f8ef4ee804b5548cb92cb6a6e034b9214801a&profile_id=174&oauth2_token_id=57447761',
     duration: Duration(seconds: 23),
   ),
   const VideoStory(
-    url: 'https://player.vimeo.com/external/390171832.hd.mp4?s=4b2b4d9f16b05a184df34d392414bc2ce988a40a&profile_id=174&oauth2_token_id=57447761',
+    url:
+        'https://player.vimeo.com/external/390171832.hd.mp4?s=4b2b4d9f16b05a184df34d392414bc2ce988a40a&profile_id=174&oauth2_token_id=57447761',
     duration: Duration(seconds: 9),
-  ),const VideoStory(
-    url: 'https://player.vimeo.com/external/558164649.sd.mp4?s=0b96b8f3fba5b015e6cd4011240a0e1951c4b8f7&profile_id=165&oauth2_token_id=57447761',
+  ),
+  const VideoStory(
+    url:
+        'https://player.vimeo.com/external/558164649.sd.mp4?s=0b96b8f3fba5b015e6cd4011240a0e1951c4b8f7&profile_id=165&oauth2_token_id=57447761',
     duration: Duration(seconds: 12),
   ),
   const VideoStory(
-    url: 'https://player.vimeo.com/external/581202863.sd.mp4?s=8ffd21d6c1f2b52669a85a610c8d318aa546befc&profile_id=165&oauth2_token_id=57447761',
+    url:
+        'https://player.vimeo.com/external/581202863.sd.mp4?s=8ffd21d6c1f2b52669a85a610c8d318aa546befc&profile_id=165&oauth2_token_id=57447761',
     duration: Duration(seconds: 11),
   ),
   const VideoStory(
-    url: 'https://player.vimeo.com/external/559869841.sd.mp4?s=964fd6060a7971512673fe719e94496d35bb16aa&profile_id=165&oauth2_token_id=57447761',
+    url:
+        'https://player.vimeo.com/external/559869841.sd.mp4?s=964fd6060a7971512673fe719e94496d35bb16aa&profile_id=165&oauth2_token_id=57447761',
     duration: Duration(seconds: 12),
   ),
   const VideoStory(
-    url: 'https://player.vimeo.com/external/472355995.sd.mp4?s=1f02d2b924c4260b00f6d6daea2a2957571af0da&profile_id=165&oauth2_token_id=57447761',
+    url:
+        'https://player.vimeo.com/external/472355995.sd.mp4?s=1f02d2b924c4260b00f6d6daea2a2957571af0da&profile_id=165&oauth2_token_id=57447761',
     duration: Duration(seconds: 18),
   ),
   const VideoStory(
-    url: 'https://player.vimeo.com/external/546479365.sd.mp4?s=ac63e860b4991ae906838e66e916a687af6705b8&profile_id=165&oauth2_token_id=57447761',
+    url:
+        'https://player.vimeo.com/external/546479365.sd.mp4?s=ac63e860b4991ae906838e66e916a687af6705b8&profile_id=165&oauth2_token_id=57447761',
     duration: Duration(seconds: 12),
   ),
   const VideoStory(
-    url: 'https://player.vimeo.com/external/435674383.sd.mp4?s=387eebf753e27ee5447490912b69a119ac42d6f1&profile_id=165&oauth2_token_id=57447761',
+    url:
+        'https://player.vimeo.com/external/435674383.sd.mp4?s=387eebf753e27ee5447490912b69a119ac42d6f1&profile_id=165&oauth2_token_id=57447761',
     duration: Duration(seconds: 13),
   ),
-
+  const VideoStory(
+    url: 'https://www.tiktok.com/@_ahmed_rafi/video/7085614824616414491',
+    duration: Duration(seconds: 12),
+  ),
 ];

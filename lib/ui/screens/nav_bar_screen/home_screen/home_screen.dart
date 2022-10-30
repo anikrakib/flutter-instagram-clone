@@ -111,7 +111,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           yourStory(context, userImage),
           SizedBox(
-            height: 95,
+            height: 100,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               shrinkWrap: true,
