@@ -40,3 +40,16 @@ var explorerList = List<SearchListItem>.generate(
     }
   },
 );
+
+var reelsList = List<ReelItem>.generate(
+  videoStories.length,
+  (index) {
+    return ReelItem(
+      reelUser: generateUser(),
+      reelUrl: videoStories[index].url,
+      reelMusicName: faker.lorem.sentence(),
+      comments: generateComments(),
+      reelPostBody: Random().nextBool() == true ? faker.lorem.sentence() : '',
+    );
+  },
+);

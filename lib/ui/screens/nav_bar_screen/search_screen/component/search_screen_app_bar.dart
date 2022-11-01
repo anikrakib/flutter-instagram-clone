@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../../generated/assets.dart';
 import '../../../../app_widgets/app_image.dart';
+import '../../../../app_widgets/custom_action_button.dart';
 import '../../../../theme.dart';
 
 AppBar searchScreenAppBar(BuildContext context) {
@@ -43,9 +44,9 @@ AppBar searchScreenAppBar(BuildContext context) {
       ),
     ),
     actions: [
-      IconButton(
-        onPressed: () {},
-        icon: navigationSVGImage(context, Assets.iconsIconScanner),
+      iconButtonWidget(
+        function: () {},
+        iconPath: Assets.iconsIconScanner,
       ),
     ],
   );

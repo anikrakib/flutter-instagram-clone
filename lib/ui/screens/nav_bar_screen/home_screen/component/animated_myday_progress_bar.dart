@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import '../../../../theme.dart';
 import 'app_bar_background.dart';
 
-class AnimatedBar extends StatelessWidget {
+class AnimatedProgressBar extends StatelessWidget {
   final AnimationController animController;
   final int position;
   final int currentIndex;
 
-  const AnimatedBar({
+  const AnimatedProgressBar({
     Key? key,
     required this.animController,
     required this.position,
@@ -27,7 +27,7 @@ class AnimatedBar extends StatelessWidget {
                   double.infinity,
                   position < currentIndex
                       ? AppColors.light
-                      : AppColors.faded.withOpacity(0.5),
+                      : AppColors.light.withOpacity(0.5),
                 ),
                 position == currentIndex
                     ? AnimatedBuilder(

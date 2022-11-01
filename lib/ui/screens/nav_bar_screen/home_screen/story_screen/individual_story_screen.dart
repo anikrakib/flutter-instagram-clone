@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 import '../../../../../app/model/story_model.dart';
 import '../../../../../app/model/user_model.dart';
-import '../component/animated_app_bar.dart';
+import '../component/animated_myday_progress_bar.dart';
 import '../component/user_info_in_my_day_part.dart';
 
 class IndividualStoryScreen extends StatefulWidget {
@@ -21,17 +21,17 @@ class IndividualStoryScreen extends StatefulWidget {
 
 class _IndividualStoryScreenState extends State<IndividualStoryScreen>
     with SingleTickerProviderStateMixin {
-  late PageController _pageController;
-  late AnimationController _animController;
-  late VideoPlayerController _videoController;
-  int _currentIndex = 0;
+  late PageController pageController;
+  late AnimationController animController;
+  late VideoPlayerController videoController;
+  int currentIndex = 0;
 
   @override
   void initState() {
     super.initState();
-    _pageController = PageController();
-    _animController = AnimationController(vsync: this);
-    _videoController = VideoPlayerController.network('')
+    pageController = PageController();
+    animController = AnimationController(vsync: this);
+    videoController = VideoPlayerController.network('')
       ..initialize().then((_) {
         setState(() {});
       });
@@ -39,17 +39,17 @@ class _IndividualStoryScreenState extends State<IndividualStoryScreen>
     final Story firstStory = widget.users.stories.first;
     _loadStory(story: firstStory, animateToPage: false);
 
-    _animController.addStatusListener((status) {
+    animController.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
-        _animController.stop();
-        _animController.reset();
+        animController.stop();
+        animController.reset();
         setState(() {
-          if (_currentIndex + 1 < widget.users.stories.length) {
-            _currentIndex += 1;
-            _loadStory(story: widget.users.stories[_currentIndex]);
+          if (currentIndex + 1 < widget.users.stories.length) {
+            currentIndex += 1;
+            _loadStory(story: widget.users.stories[currentIndex]);
           } else {
-            _currentIndex = 0;
-            _loadStory(story: widget.users.stories[_currentIndex]);
+            currentIndex = 0;
+            _loadStory(story: widget.users.stories[currentIndex]);
           }
         });
       }
@@ -58,15 +58,15 @@ class _IndividualStoryScreenState extends State<IndividualStoryScreen>
 
   @override
   void dispose() {
-    _pageController.dispose();
-    _animController.dispose();
-    _videoController.dispose();
+    pageController.dispose();
+    animController.dispose();
+    videoController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final Story story = widget.users.stories[_currentIndex];
+    final Story story = widget.users.stories[currentIndex];
     return Scaffold(
       backgroundColor: Colors.black,
       body: GestureDetector(
@@ -74,7 +74,7 @@ class _IndividualStoryScreenState extends State<IndividualStoryScreen>
         child: Stack(
           children: <Widget>[
             PageView.builder(
-              controller: _pageController,
+              controller: pageController,
               physics: const NeverScrollableScrollPhysics(),
               itemCount: widget.users.stories.length,
               itemBuilder: (context, i) {
@@ -86,13 +86,13 @@ class _IndividualStoryScreenState extends State<IndividualStoryScreen>
                       fit: BoxFit.cover,
                     );
                   case MediaType.video:
-                    if (_videoController.value.isInitialized) {
+                    if (videoController.value.isInitialized) {
                       return FittedBox(
                         fit: BoxFit.cover,
                         child: SizedBox(
-                          width: _videoController.value.size.width,
-                          height: _videoController.value.size.height,
-                          child: VideoPlayer(_videoController),
+                          width: videoController.value.size.width,
+                          height: videoController.value.size.height,
+                          child: VideoPlayer(videoController),
                         ),
                       );
                     }
@@ -112,10 +112,10 @@ class _IndividualStoryScreenState extends State<IndividualStoryScreen>
                         .map((i, e) {
                           return MapEntry(
                             i,
-                            AnimatedBar(
-                              animController: _animController,
+                            AnimatedProgressBar(
+                              animController: animController,
                               position: i,
-                              currentIndex: _currentIndex,
+                              currentIndex: currentIndex,
                             ),
                           );
                         })
@@ -143,61 +143,61 @@ class _IndividualStoryScreenState extends State<IndividualStoryScreen>
     final double dx = details.globalPosition.dx;
     if (dx < screenWidth / 3) {
       setState(() {
-        if (_currentIndex - 1 >= 0) {
-          _currentIndex -= 1;
-          _loadStory(story: widget.users.stories[_currentIndex]);
+        if (currentIndex - 1 >= 0) {
+          currentIndex -= 1;
+          _loadStory(story: widget.users.stories[currentIndex]);
         }
       });
     } else if (dx > 2 * screenWidth / 3) {
       setState(() {
-        if (_currentIndex + 1 < widget.users.stories.length) {
-          _currentIndex += 1;
-          _loadStory(story: widget.users.stories[_currentIndex]);
+        if (currentIndex + 1 < widget.users.stories.length) {
+          currentIndex += 1;
+          _loadStory(story: widget.users.stories[currentIndex]);
         } else {
           // Out of bounds - loop story
           // You can also Navigator.of(context).pop() here
-          _currentIndex = 0;
-          _loadStory(story: widget.users.stories[_currentIndex]);
+          currentIndex = 0;
+          _loadStory(story: widget.users.stories[currentIndex]);
         }
       });
     } else {
       if (story.media == MediaType.video) {
-        if (_videoController.value.isPlaying) {
-          _videoController.pause();
-          _animController.stop();
+        if (videoController.value.isPlaying) {
+          videoController.pause();
+          animController.stop();
         } else {
-          _videoController.play();
-          _animController.forward();
+          videoController.play();
+          animController.forward();
         }
       }
     }
   }
 
   void _loadStory({required Story story, bool animateToPage = true}) {
-    _animController.stop();
-    _animController.reset();
+    animController.stop();
+    animController.reset();
     switch (story.media) {
       case MediaType.image:
-        _animController.duration = story.duration;
-        _animController.forward();
+        animController.duration = story.duration;
+        animController.forward();
         break;
       case MediaType.video:
         //_videoController = null;
-        _videoController.dispose();
-        _videoController = VideoPlayerController.network(story.url)
+        videoController.dispose();
+        videoController = VideoPlayerController.network(story.url)
           ..initialize().then((_) {
             setState(() {});
-            if (_videoController.value.isInitialized) {
-              _animController.duration = _videoController.value.duration;
-              _videoController.play();
-              _animController.forward();
+            if (videoController.value.isInitialized) {
+              animController.duration = videoController.value.duration;
+              videoController.play();
+              animController.forward();
             }
           });
         break;
     }
     if (animateToPage) {
-      _pageController.animateToPage(
-        _currentIndex,
+      pageController.animateToPage(
+        currentIndex,
         duration: const Duration(milliseconds: 1),
         curve: Curves.easeInOut,
       );

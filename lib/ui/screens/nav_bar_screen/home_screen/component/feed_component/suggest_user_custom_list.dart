@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../../../../../app/model/view_type.dart';
+import '../../../../../app_widgets/follow_button.dart';
 import '../../../../../theme.dart';
 
 class SuggestUserWidget extends StatelessWidget {
@@ -79,29 +80,7 @@ class SuggestUserWidget extends StatelessWidget {
                 SizedBox(
                   height: 25,
                   width: 120,
-                  child: ElevatedButton(
-                    style: ButtonStyle(
-                      foregroundColor: MaterialStateProperty.all<Color>(
-                        AppColors.light,
-                      ),
-                      backgroundColor: MaterialStateProperty.all<Color>(
-                        AppColors.secondary,
-                      ),
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8.0),
-                          side: const BorderSide(
-                            color: AppColors.secondary,
-                          ),
-                        ),
-                      ),
-                    ),
-                    onPressed: () => {},
-                    child: Text(
-                      "Follow".toUpperCase(),
-                      style: const TextStyle(fontSize: 12),
-                    ),
-                  ),
+                  child: followButton(),
                 )
               ],
             ),

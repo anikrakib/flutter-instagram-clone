@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 SizedBox customActionButton(Widget widget, bool disOrAn, [Function? action]) {
   return SizedBox(
@@ -16,6 +17,18 @@ SizedBox customActionButton(Widget widget, bool disOrAn, [Function? action]) {
         padding: const EdgeInsets.all(16.0),
         child: widget,
       ),
+    ),
+  );
+}
+
+IconButton iconButtonWidget({required VoidCallback  function, Color? color, required String iconPath}) {
+  return IconButton(
+    onPressed: function,
+    icon: SvgPicture.asset(
+      iconPath,
+      height: 22,
+      width: 22,
+      color: color,
     ),
   );
 }

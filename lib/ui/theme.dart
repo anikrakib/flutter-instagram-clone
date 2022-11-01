@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 /// Global reference to application colors.
 abstract class AppColors {
   /// Dark color.
-  static const dark = Color(0xFF000000);
+  //static const dark = Color(0xFF000000);
+  static const dark = Color(0xFF010001);
 
   static const light = Color(0xFFFFFFFF);
 
@@ -49,6 +50,9 @@ abstract class AppTextStyle {
   static const textStyleBold = TextStyle(
     fontWeight: FontWeight.bold,
   );
+
+  static const reelsTextStyle = TextStyle(
+      fontSize: 13, color: AppColors.light, fontWeight: FontWeight.w400);
 
   /// A faded text style. Uses [AppColors.faded].
   static const textStyleFaded = TextStyle(

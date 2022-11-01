@@ -40,7 +40,7 @@ class SearchScreen extends StatelessWidget {
               index: index,
             );
           } else if (item is ReelItem) {
-            return ReelsCard(reelsUrl: item.reelUrl);
+            return ReelsCard(reelItem: item);
           } else if (item is VideoItem) {
             return VideoCard(
               videoItem: item,

@@ -40,12 +40,12 @@ SvgPicture navigationSVGImageWithoutColor(String imagePath) {
 }
 
 SvgPicture navigationSVGImage(BuildContext context, String imagePath,
-    [double? height,Color? color]) {
+    [double? size, Color? iconColor]) {
   return SvgPicture.asset(
     imagePath,
-    height: height ?? 22,
-    width: height ?? 22,
-    color: color ?? Theme.of(context).primaryColor,
+    height: size ?? 22,
+    width: size ?? 22,
+    color: iconColor ?? Theme.of(context).primaryColor,
   );
 }
 

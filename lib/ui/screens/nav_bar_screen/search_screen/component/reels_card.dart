@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:instagram_clone/app/model/explore_data_model.dart';
 import 'package:video_player/video_player.dart';
 import '../../../../../generated/assets.dart';
+import '../../../../../routes/app_routes.dart';
 import '../../../../app_widgets/app_image.dart';
 import '../../../../theme.dart';
+import '../../../reels_screen/reels_screen.dart';
 
 class ReelsCard extends StatefulWidget {
-  const ReelsCard({Key? key, required this.reelsUrl}) : super(key: key);
-  final String reelsUrl;
+  const ReelsCard({Key? key, required this.reelItem}) : super(key: key);
+  final ReelItem reelItem;
 
   @override
   State<ReelsCard> createState() => _ReelsCardState();
@@ -18,11 +22,11 @@ class _ReelsCardState extends State<ReelsCard> {
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.network(widget.reelsUrl)
+    _controller = VideoPlayerController.network('')
       ..initialize().then((_) {
         setState(() {});
       });
-    _loadStory(url: widget.reelsUrl);
+    _loadStory(url: widget.reelItem.reelUrl);
   }
 
   @override
@@ -33,41 +37,34 @@ class _ReelsCardState extends State<ReelsCard> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        /*_controller.value.isInitialized
-            ? SizedBox.expand(
-                child: FittedBox(
-                  fit: BoxFit.cover,
-                  child: SizedBox(
-                    width: _controller.value.size.width,
-                    height: _controller.value.size.height,
+    return GestureDetector(
+      onTap: () {
+        Get.to(ReelsScreen(reelItem: widget.reelItem,));
+      },
+      child: Stack(
+        children: [
+          _controller.value.isInitialized
+              ? SizedBox(
+                  width: _controller.value.size.width,
+                  height: _controller.value.size.height,
+                  child: AspectRatio(
+                    aspectRatio: _controller.value.aspectRatio,
                     child: VideoPlayer(_controller),
                   ),
-                ),
-              )
-            : Container(),*/
-        _controller.value.isInitialized
-            ? SizedBox(
-                width: _controller.value.size.width,
-                height: _controller.value.size.height,
-                child: AspectRatio(
-                  aspectRatio: _controller.value.aspectRatio,
-                  child: VideoPlayer(_controller),
-                ),
-              )
-            : Container(),
-        Positioned(
-          bottom: 8,
-          left: 8,
-          child: navigationSVGImage(
-            context,
-            Assets.iconsIconReelsFill,
-            22,
-            AppColors.light,
+                )
+              : Container(),
+          Positioned(
+            bottom: 8,
+            left: 8,
+            child: navigationSVGImage(
+              context,
+              Assets.iconsIconReelsFill,
+              22,
+              AppColors.light,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 

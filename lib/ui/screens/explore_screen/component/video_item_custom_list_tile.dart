@@ -96,6 +96,25 @@ class _VideoItemWidgetState extends State<VideoItemWidget> {
                   context: context,
                   verifiedIconColor: AppColors.light,
                 ),
+                Positioned(
+                  bottom: defaultPadding/1,
+                  right: defaultPadding/1,
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: AppColors.grey,
+                    ),
+                    child: const Padding(
+                      padding: EdgeInsets.all(4),
+                      child: Icon(
+                        //CupertinoIcons.volume_up,
+                        Icons.volume_up_rounded,
+                        size: 18,
+                        color: AppColors.light,
+                      ),
+                    ),
+                  ),
+                )
               ],
             ),
           ),
