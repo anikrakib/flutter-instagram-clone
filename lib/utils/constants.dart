@@ -1,8 +1,15 @@
+import 'package:flutter/material.dart';
 import 'package:instagram_clone/ui/screens/nav_bar_screen/home_screen/home_screen.dart';
-import 'package:instagram_clone/ui/screens/nav_bar_screen/post_screen/post_screen.dart';
+import 'package:instagram_clone/ui/screens/nav_bar_screen/new_post_screen/new_post_screen.dart';
 import 'package:instagram_clone/ui/screens/nav_bar_screen/profile_screen/profile_screen.dart';
 import 'package:instagram_clone/ui/screens/nav_bar_screen/search_screen/search_screen.dart';
 import 'package:instagram_clone/ui/screens/nav_bar_screen/shop%20screen/shop_screen.dart';
+
+import '../ui/screens/nav_bar_screen/new_post_screen/component/screen/live_post_screen/live_post_screen.dart';
+import '../ui/screens/nav_bar_screen/new_post_screen/component/screen/reel_post_screen/reel_post_screen.dart';
+import '../ui/screens/nav_bar_screen/new_post_screen/component/screen/story_post_screen/story_post_screen.dart';
+import '../ui/screens/nav_bar_screen/new_post_screen/component/screen/user_post_screen/user_post_screen.dart';
+
 
 const userNameKey = "userName";
 const passwordKey = "password";
@@ -23,4 +30,12 @@ final screens = [
   const PostScreen(),
   const ShopScreen(),
   const ProfileScreen()
+];
+
+final List<String> lists = ['POST', 'STORY', 'REEL', 'LIVE'];
+final List<Widget> newPostPages = [
+  const UserPostScreen(),
+  const StoryPostScreen(),
+  const ReelPostScreen(),
+  const LivePostScreen()
 ];

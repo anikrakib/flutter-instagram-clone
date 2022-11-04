@@ -21,6 +21,8 @@ var explorerList = List<SearchListItem>.generate(
         reelMusicName: faker.lorem.sentence(),
         comments: generateComments(),
         reelPostBody: random.nextBool() == true ? faker.lorem.sentence() : '',
+        like: Random().nextInt(99)+1,
+        location: Faker().address.city(),
       );
     } else {
       return random.nextBool()
@@ -50,6 +52,8 @@ var reelsList = List<ReelItem>.generate(
       reelMusicName: faker.lorem.sentence(),
       comments: generateComments(),
       reelPostBody: Random().nextBool() == true ? faker.lorem.sentence() : '',
+      like: Random().nextInt(99)+1,
+      location: Faker().address.city(),
     );
   },
 );

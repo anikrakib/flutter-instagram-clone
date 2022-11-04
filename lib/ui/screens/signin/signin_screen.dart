@@ -18,8 +18,7 @@ import '../../app_widgets/custom_text.dart';
 import '../signup/validator/validator.dart';
 
 class SignInScreen extends StatefulWidget {
-  SignInScreen({Key? key}) : super(key: key);
-
+  const SignInScreen({Key? key}) : super(key: key);
   @override
   State<SignInScreen> createState() => _SignInScreenState();
 }
@@ -38,7 +37,6 @@ class _SignInScreenState extends State<SignInScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     if (userInfo.read(userNameKey) != null &&
         userInfo.read(passwordKey) != null &&

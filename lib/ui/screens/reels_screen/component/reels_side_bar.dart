@@ -1,7 +1,4 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-
 import '../../../../generated/assets.dart';
 import '../../../app_widgets/custom_action_button.dart';
 import '../../../app_widgets/sizeBox.dart';
@@ -24,10 +21,10 @@ class ReelSideBar extends StatelessWidget {
         iconButtonWidget(
           function: () {},
           color: AppColors.light,
-          iconPath: Assets.bottomNavbarIconHeart,
+          iconPath: Assets.iconsIconHeart,
         ),
         Text(
-          '${Random().nextInt(99) + 1}k',
+          '${widget.reelItem.like}k',
           style: AppTextStyle.reelsTextStyle,
         ),
         sizeBox(10),
@@ -37,7 +34,7 @@ class ReelSideBar extends StatelessWidget {
           iconPath: Assets.iconsIconComment,
         ),
         Text(
-          '${Random().nextInt(999) + 1}',
+          '${widget.reelItem.comments.length}',
           style: AppTextStyle.reelsTextStyle,
         ),
         sizeBox(10),

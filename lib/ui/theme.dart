@@ -11,6 +11,15 @@ abstract class AppColors {
   /// Grey background accent.
   static const grey = Color(0xFF262626);
 
+  /// postImagePreviewBackgroundDArkMode
+  static const postImagePreviewBackgroundDarkMode = Color(0xFF363737);
+
+  /// postImagePreviewBackgroundDArkMode
+  static const postImagePreviewBackgroundLightMode = Color(0xFFefefef);
+
+  ///  Light Grey color
+  static const lightBlackGrey = Color(0xFF363737);
+
   /// Primary text color
   static const primaryText = Colors.white;
 

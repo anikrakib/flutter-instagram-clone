@@ -17,7 +17,7 @@ AppBar homeScreenAppBar(BuildContext context) {
     actions: [
       IconButton(
         onPressed: () {},
-        icon: navigationSVGImage(context, Assets.bottomNavbarIconHeart),
+        icon: navigationSVGImage(context, Assets.iconsIconHeart),
       ),
       //sizeBox(defaultPadding),
       IconButton(

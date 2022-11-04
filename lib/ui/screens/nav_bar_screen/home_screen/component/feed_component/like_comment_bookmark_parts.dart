@@ -23,7 +23,7 @@ Padding likeCommentBookmarkParts(BuildContext context,
           children: [
             Row(
               children: [
-                navigationSVGImage(context, Assets.bottomNavbarIconHeart),
+                navigationSVGImage(context, Assets.iconsIconHeart),
                 sizeBox(10),
                 GestureDetector(
                     onTap: () => goTOAnotherPage(Routes.comments),

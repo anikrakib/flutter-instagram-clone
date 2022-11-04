@@ -1,5 +1,4 @@
 import 'package:expandable_text/expandable_text.dart';
-import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/app/model/explore_data_model.dart';
 import 'package:instagram_clone/ui/screens/reels_screen/component/reels_side_bar.dart';
@@ -47,11 +46,11 @@ class _IndividualReelItemState extends State<IndividualReelItem> {
         Center(
           child: SizedBox(
             height: (videoController.value.size.height <
-                    MediaQuery.of(context).size.height)
+                MediaQuery.of(context).size.height)
                 ? videoController.value.size.height
                 : MediaQuery.of(context).size.height,
             width: (videoController.value.size.width <
-                    MediaQuery.of(context).size.width)
+                MediaQuery.of(context).size.width)
                 ? videoController.value.size.width
                 : MediaQuery.of(context).size.width,
             child: (videoController.value.isInitialized)
@@ -158,11 +157,10 @@ class _IndividualReelItemState extends State<IndividualReelItem> {
                 ),
                 child: ExpandableText(
                   '😍🍁🍂 Calm water pool with autumn leaves hidden away as the season begins to change! Filmed a few weeks ago up near Glennallen Alaska.'
-                  '\n.\n.\n.\n.\n.\n.\n.\nMore @${widget.reelItem.reelUser.userName}.'
-                  '\n.\n.\nFor more info visit www.xyz.com'
-                  '\n.\n.\n.\n#reels #calm #alaska #sunset #alaska #winter #snow #womanlifefreedom #زن_زندگی_آزادی #mahsa_amini #iraniangirl',
-                  expandText: '...more',
-                  collapseText: '...hide',
+                      '\n.\n.\n.\n.\n.\n.\n.\nMore @${widget.reelItem.reelUser.userName}.'
+                      '\n.\n.\nFor more info visit www.xyz.com'
+                      '\n.\n.\n.\n#reels #calm #alaska #sunset #alaska #winter #snow #womanlifefreedom #زن_زندگی_آزادی #mahsa_amini #iraniangirl',
+                  expandText: '...',
                   collapseOnTextTap: true,
                   expandOnTextTap: true,
                   linkColor: const Color(0xFF00376B),
@@ -220,7 +218,7 @@ class _IndividualReelItemState extends State<IndividualReelItem> {
                         color: AppColors.light,
                       ),
                       Text(
-                        Faker().person.lastName(),
+                        widget.reelItem.location,
                         style: AppTextStyle.reelsTextStyle,
                       ),
                     ],

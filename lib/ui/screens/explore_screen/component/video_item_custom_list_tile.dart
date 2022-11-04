@@ -97,8 +97,8 @@ class _VideoItemWidgetState extends State<VideoItemWidget> {
                   verifiedIconColor: AppColors.light,
                 ),
                 Positioned(
-                  bottom: defaultPadding/1,
-                  right: defaultPadding/1,
+                  bottom: defaultPadding,
+                  right: defaultPadding,
                   child: Container(
                     decoration: const BoxDecoration(
                       shape: BoxShape.circle,

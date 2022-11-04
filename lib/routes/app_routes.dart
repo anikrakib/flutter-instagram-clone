@@ -11,7 +11,8 @@ abstract class Routes {
   static const navBarScreen = Paths.navBarScreen;
   static const comments = Paths.comments;
   static const explore = Paths.explore;
-  static const reels = Paths.reels;
+  static const post = Paths.post;
+  static const userPost = Paths.userPost;
 }
 
 abstract class Paths {
@@ -27,5 +28,6 @@ abstract class Paths {
   static const navBarScreen = '/navBar';
   static const comments = '/comments';
   static const explore = '/explore';
-  static const reels = '/reels';
+  static const post = '/post';
+  static const userPost = '/userPost';
 }

@@ -3,6 +3,8 @@ import 'package:instagram_clone/app/binding/splash_screen_binding.dart';
 import 'package:instagram_clone/routes/app_routes.dart';
 import 'package:instagram_clone/ui/screens/nav_bar_screen/home_screen/comment_screen/comments_screen.dart';
 import 'package:instagram_clone/ui/screens/nav_bar_screen/nav_bar_screen.dart';
+import 'package:instagram_clone/ui/screens/nav_bar_screen/new_post_screen/component/screen/user_post_screen/user_post_screen.dart';
+import 'package:instagram_clone/ui/screens/nav_bar_screen/new_post_screen/new_post_screen.dart';
 import 'package:instagram_clone/ui/screens/signin/signin_screen.dart';
 import 'package:instagram_clone/ui/screens/signin_with_existing_account/sign_in_with_existing_account.dart';
 import 'package:instagram_clone/ui/screens/signup/sign_up_with_email_and_phone/sign_up_with_email_and_phone.dart';
@@ -11,6 +13,7 @@ import 'package:instagram_clone/ui/screens/splash_screen/splash_screen.dart';
 import '../app/binding/auth_binding.dart';
 import '../app/binding/nav_bar_binding.dart';
 import '../app/binding/signup_binding.dart';
+import '../app/binding/user_post_binding.dart';
 import '../ui/screens/explore_screen/explore_screen.dart';
 import '../ui/screens/nav_bar_screen/home_screen/home_screen.dart';
 import '../ui/screens/signup/signup_other_information.dart';
@@ -33,7 +36,7 @@ class AppPages {
     ),
     GetPage(
       name: Paths.signIn,
-      page: () => SignInScreen(),
+      page: () => const SignInScreen(),
       binding: AuthBinding(),
     ),
     GetPage(
@@ -66,6 +69,15 @@ class AppPages {
     GetPage(
       name: Paths.explore,
       page: () => const ExploreScreen(),
+    ),
+    GetPage(
+      name: Paths.post,
+      page: () => const PostScreen(),
+    ),
+    GetPage(
+      name: Paths.userPost,
+      page: () => const UserPostScreen(),
+      binding: UserPostBinding(),
     ),
   ];
 }

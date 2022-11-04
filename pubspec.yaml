@@ -20,20 +20,26 @@ dependencies:
   get_storage: ^2.0.3
   #  Draw SVG (and some Android VectorDrawable (XML)) files on a Flutter Widget.
   flutter_svg: ^1.1.5
-  #A library for Dart that generates fake data.
+  # A library for Dart that generates fake data.
   faker: ^2.0.0
-  #A flutter library to show images from the internet and keep them in the cache directory.
+  # A flutter library to show images from the internet and keep them in the cache directory.
   cached_network_image: ^3.2.2
-  #A Flutter plugin for iOS, Android and Web for playing back video on a Widget surface.
+  # A Flutter plugin for iOS, Android and Web for playing back video on a Widget surface.
   video_player: ^2.4.7
-  #A Flutter package to extract prominent colors from an Image, typically used to find colors for a user interface.
+  # A Flutter package to extract prominent colors from an Image, typically used to find colors for a user interface.
   palette_generator: ^0.3.3+2
-  #Provides a collection of Flutter grids layouts.
+  # Provides a collection of Flutter grids layouts.
   flutter_staggered_grid_view: ^0.4.0
-  #This Flutter package includes the widget ExpandableText which you can use to initially only show a defined number of lines of a probably long text.
+  # This Flutter package includes the widget ExpandableText which you can use to initially only show a defined number of lines of a probably long text.
   expandable_text: ^2.3.0
-  #A Flutter widget that scrolls text infinitely. Provides many customizations including custom scroll directions, durations, curves as well as pauses after every round.
+  # A Flutter widget that scrolls text infinitely. Provides many customizations including custom scroll directions, durations, curves as well as pauses after every round.
   marquee: ^2.2.3
+  # A Flutter plugin that provides assets abstraction management APIs without UI integration, you can get assets (image/video/audio) on Android, iOS and macOS.
+  photo_manager: ^2.4.1
+#  # A flutter plugin to get all images, audios, videos and files location path in json format.
+#  storage_path: ^0.2.0
+  flutter_storage_path: ^1.0.4
+
 
   #Provides internationalization and localization facilities, including message translation, plurals and genders,
   #date/number formatting and parsing, and bidirectional text.

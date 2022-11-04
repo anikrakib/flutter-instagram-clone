@@ -23,6 +23,8 @@ class ReelItem implements SearchListItem {
   final String reelUrl;
   final String reelMusicName;
   final List<Comment> comments;
+  final int like;
+  final String location;
 
   ReelItem({
     this.reelPostBody,
@@ -30,6 +32,8 @@ class ReelItem implements SearchListItem {
     required this.reelUrl,
     required this.reelMusicName,
     required this.comments,
+    required this.like,
+    required this.location,
   });
 }
 

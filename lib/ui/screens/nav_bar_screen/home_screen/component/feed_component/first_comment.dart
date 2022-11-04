@@ -15,7 +15,7 @@ Row showFirstComment(Comment? comment) {
           post: comment?.comment ?? '',
         ),
       ),
-      svgImageWithColor(12, 12, Assets.bottomNavbarIconHeart, AppColors.faded),
+      svgImageWithColor(12, 12, Assets.iconsIconHeart, AppColors.faded),
     ],
   );
 }

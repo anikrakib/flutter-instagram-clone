@@ -34,9 +34,9 @@ class _ReelsScreenState extends State<ReelsScreen> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-          iconTheme: const IconThemeData(
-            color: AppColors.light, //change your color here
-          ),
+        iconTheme: const IconThemeData(
+          color: AppColors.light, //change your color here
+        ),
         title: const Text(
           'Reels',
           style: TextStyle(color: AppColors.light),

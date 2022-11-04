@@ -9,8 +9,6 @@ class Assets {
   static const String assetsMyDayBackground = 'assets/my_day_background.svg';
   static const String assetsProfileVerified = 'assets/profile_verified.svg';
   static const String bottomNavbarIconBlackShopFill = 'assets/bottom_navbar/icon_black_shop_fill.svg';
-  static const String bottomNavbarIconHeart = 'assets/bottom_navbar/icon_heart.svg';
-  static const String bottomNavbarIconHeartFill = 'assets/bottom_navbar/icon_heart_fill.svg';
   static const String bottomNavbarIconHome = 'assets/bottom_navbar/icon_home.svg';
   static const String bottomNavbarIconHomeFill = 'assets/bottom_navbar/icon_home_fill.svg';
   static const String bottomNavbarIconPost = 'assets/bottom_navbar/icon_post.svg';
@@ -29,10 +27,15 @@ class Assets {
   static const String iconsIconCamera = 'assets/icons/icon_camera.svg';
   static const String iconsIconCloseFriends = 'assets/icons/icon_close_friends.svg';
   static const String iconsIconComment = 'assets/icons/icon_comment.svg';
+  static const String iconsIconCross = 'assets/icons/icon_cross.svg';
   static const String iconsIconDiscoverPeople = 'assets/icons/icon_discover_people.svg';
+  static const String iconsIconExpand = 'assets/icons/icon_expand.svg';
   static const String iconsIconFacebook = 'assets/icons/Icon_facebook.svg';
   static const String iconsIconFacebookBlack = 'assets/icons/Icon_facebook_black.svg';
+  static const String iconsIconForward = 'assets/icons/icon_forward.svg';
   static const String iconsIconGrid = 'assets/icons/icon_grid.svg';
+  static const String iconsIconHeart = 'assets/icons/icon_heart.svg';
+  static const String iconsIconHeartFill = 'assets/icons/icon_heart_fill.svg';
   static const String iconsIconIgtvFill = 'assets/icons/icon_igtv_fill.svg';
   static const String iconsIconLock = 'assets/icons/icon_lock.svg';
   static const String iconsIconMenu = 'assets/icons/icon_menu.svg';
@@ -46,6 +49,7 @@ class Assets {
   static const String iconsIconReels = 'assets/icons/icon_reels.svg';
   static const String iconsIconReelsFill = 'assets/icons/icon_reels_fill.svg';
   static const String iconsIconScanner = 'assets/icons/icon_scanner.svg';
+  static const String iconsIconSelectMultiple = 'assets/icons/icon_select_multiple.svg';
   static const String iconsIconSettings = 'assets/icons/icon_settings.svg';
   static const String iconsIconShop = 'assets/icons/icon_shop.svg';
   static const String iconsIconTag = 'assets/icons/icon_tag.svg';

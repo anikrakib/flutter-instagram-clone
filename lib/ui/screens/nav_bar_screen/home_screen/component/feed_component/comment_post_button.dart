@@ -39,13 +39,9 @@ class _PostButtonState extends State<PostButton> {
       onTap: () {
         //widget.onSubmitted(widget.textEditingController.text);
       },
-      child: Positioned(
-        top: 1,
-        bottom: 1,
-        child: Text(
-          'Post',
-          style: textStyle,
-        ),
+      child: Text(
+        'Post',
+        style: textStyle,
       ),
     );
   }

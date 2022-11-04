@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:instagram_clone/app/controller/nav_bar_controller.dart';
 import 'package:instagram_clone/generated/assets.dart';
+import 'package:instagram_clone/routes/app_routes.dart';
 import 'package:instagram_clone/ui/app_widgets/app_image.dart';
 import 'package:instagram_clone/ui/theme.dart';
 import '../../../utils/constants.dart';
@@ -60,7 +61,10 @@ class _NavBarScreenState extends State<NavBarScreen> {
               ),
               selectedIndex: navBarController.index.value,
               onDestinationSelected: (index) => {
-                navBarController.updateIndex(index),
+                if (index == 2)
+                  Get.toNamed(Routes.post)
+                else
+                  navBarController.updateIndex(index)
               },
               destinations: [
                 NavigationDestination(
