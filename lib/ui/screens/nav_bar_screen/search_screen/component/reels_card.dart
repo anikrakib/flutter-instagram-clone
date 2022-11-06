@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:instagram_clone/app/model/explore_data_model.dart';
 import 'package:video_player/video_player.dart';
 import '../../../../../generated/assets.dart';
-import '../../../../../routes/app_routes.dart';
 import '../../../../app_widgets/app_image.dart';
 import '../../../../theme.dart';
 import '../../../reels_screen/reels_screen.dart';
@@ -78,5 +77,7 @@ class _ReelsCardState extends State<ReelsCard> {
         }
       });
     _controller.setLooping(true);
+    _controller.setVolume(0.0);
+    _controller.setPlaybackSpeed(2);
   }
 }

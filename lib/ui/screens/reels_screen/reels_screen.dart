@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/app/data/explorer_data.dart';
-import 'package:instagram_clone/ui/app_widgets/sizeBox.dart';
+import 'package:instagram_clone/ui/app_widgets/widgets.dart';
 import 'package:instagram_clone/ui/theme.dart';
 import 'package:instagram_clone/utils/constants.dart';
 import '../../../app/model/explore_data_model.dart';

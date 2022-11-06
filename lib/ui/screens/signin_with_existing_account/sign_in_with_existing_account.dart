@@ -4,7 +4,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:instagram_clone/ui/app_widgets/action_button_text.dart';
 import 'package:instagram_clone/ui/app_widgets/app_image.dart';
 import 'package:instagram_clone/ui/app_widgets/custom_action_button.dart';
-import 'package:instagram_clone/ui/app_widgets/sizeBox.dart';
+import 'package:instagram_clone/ui/app_widgets/widgets.dart';
 import 'package:instagram_clone/utils/constants.dart';
 import '../../../routes/app_routes.dart';
 import '../../app_widgets/screen_footer.dart';

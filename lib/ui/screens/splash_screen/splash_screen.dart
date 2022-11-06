@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:instagram_clone/ui/theme.dart';
 import 'package:instagram_clone/generated/assets.dart';
-import 'package:instagram_clone/ui/app_widgets/sizeBox.dart';
+import 'package:instagram_clone/ui/app_widgets/widgets.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);

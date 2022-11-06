@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:instagram_clone/ui/app_widgets/custom_action_button.dart';
-import 'package:instagram_clone/ui/app_widgets/sizeBox.dart';
+import 'package:instagram_clone/ui/app_widgets/widgets.dart';
 import 'package:instagram_clone/ui/theme.dart';
 import 'package:instagram_clone/utils/constants.dart';
 import '../../../routes/app_routes.dart';

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:instagram_clone/generated/assets.dart';
 import 'package:instagram_clone/ui/app_widgets/app_image.dart';
-import 'package:instagram_clone/ui/app_widgets/sizeBox.dart';
+import 'package:instagram_clone/ui/app_widgets/widgets.dart';
 import 'package:instagram_clone/ui/screens/nav_bar_screen/home_screen/story_screen/individual_story_screen.dart';
 import 'package:instagram_clone/ui/theme.dart';
 import 'package:instagram_clone/utils/constants.dart';

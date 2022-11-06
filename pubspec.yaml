@@ -34,11 +34,12 @@ dependencies:
   expandable_text: ^2.3.0
   # A Flutter widget that scrolls text infinitely. Provides many customizations including custom scroll directions, durations, curves as well as pauses after every round.
   marquee: ^2.2.3
-  # A Flutter plugin that provides assets abstraction management APIs without UI integration, you can get assets (image/video/audio) on Android, iOS and macOS.
-  photo_manager: ^2.4.1
-#  # A flutter plugin to get all images, audios, videos and files location path in json format.
-#  storage_path: ^0.2.0
+  # A flutter plugin to get all images, audios, videos and files location path in json format.
   flutter_storage_path: ^1.0.4
+  # A Flutter plugin for iOS, Android and Web allowing access to the device cameras.
+  camera: ^0.10.0+4
+
+
 
 
   #Provides internationalization and localization facilities, including message translation, plurals and genders,

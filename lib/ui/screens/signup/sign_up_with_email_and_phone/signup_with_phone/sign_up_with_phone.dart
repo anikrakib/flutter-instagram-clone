@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:instagram_clone/ui/app_widgets/sizeBox.dart';
+import 'package:instagram_clone/ui/app_widgets/widgets.dart';
 import 'package:instagram_clone/ui/screens/signup/validator/validator.dart';
 import 'package:instagram_clone/ui/theme.dart';
 import 'package:instagram_clone/utils/constants.dart';

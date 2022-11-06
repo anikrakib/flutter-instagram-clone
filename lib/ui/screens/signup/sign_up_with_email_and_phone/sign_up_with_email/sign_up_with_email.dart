@@ -6,7 +6,7 @@ import '../../../../../routes/app_routes.dart';
 import '../../../../app_widgets/action_button_text.dart';
 import '../../../../app_widgets/custom_action_button.dart';
 import '../../../../app_widgets/input_text_field_decoration.dart';
-import '../../../../app_widgets/sizeBox.dart';
+import '../../../../app_widgets/widgets.dart';
 import '../../validator/validator.dart';
 
 class SignUpWithEmail extends StatelessWidget {

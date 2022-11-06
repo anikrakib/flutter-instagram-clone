@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import '../../../../../../../generated/assets.dart';
+import '../../../../../../../utils/constants.dart';
+import '../../../../../../app_widgets/custom_camera.dart';
+import '../../../../../../app_widgets/widgets.dart';
 import '../../../../../../theme.dart';
 
 class LivePostScreen extends StatelessWidget {
@@ -8,17 +12,29 @@ class LivePostScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: AppColors.dark,
-      child: Column(
+      child: Stack(
         children: [
-          const Center(
-            child: Text('Live Screen'),
-          ),
-          AnimatedContainer (
-            duration: Duration (seconds: 1),
-            width: 40,
-            height: 40,
-            color: Colors.red,
-          ),
+          CameraScreen(isLiveStream: true,),
+          Positioned(
+            left: defaultPadding,
+            top: 0,
+            bottom: 0,
+            child: SizedBox(
+              width: 250,
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    buildFeaturesRow(path: Assets.iconsIconLiveMenu,text: 'Title'),
+                    sizeBox(defaultPadding),
+                    buildFeaturesRow(path: Assets.iconsIconHalfEye,text: 'Audience'),
+                    sizeBox(defaultPadding),
+                    buildFeaturesRow(path: Assets.iconsIconCalender,text: 'Schedule'),
+                  ],
+                ),
+              ),
+            ),
+          )
         ],
       ),
     );

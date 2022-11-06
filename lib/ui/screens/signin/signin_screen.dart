@@ -8,7 +8,7 @@ import 'package:instagram_clone/generated/assets.dart';
 import 'package:instagram_clone/routes/app_routes.dart';
 import 'package:instagram_clone/ui/app_widgets/action_button_text.dart';
 import 'package:instagram_clone/ui/app_widgets/app_image.dart';
-import 'package:instagram_clone/ui/app_widgets/sizeBox.dart';
+import 'package:instagram_clone/ui/app_widgets/widgets.dart';
 import 'package:instagram_clone/ui/theme.dart';
 import 'package:instagram_clone/utils/constants.dart';
 import '../../app_widgets/custom_action_button.dart';

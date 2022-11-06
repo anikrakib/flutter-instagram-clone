@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:instagram_clone/ui/app_widgets/sizeBox.dart';
+import 'package:instagram_clone/ui/app_widgets/widgets.dart';
 import 'package:instagram_clone/ui/screens/signup/sign_up_with_email_and_phone/sign_up_with_email/sign_up_with_email.dart';
 import 'package:instagram_clone/ui/screens/signup/sign_up_with_email_and_phone/signup_with_phone/sign_up_with_phone.dart';
 import '../../../../generated/assets.dart';

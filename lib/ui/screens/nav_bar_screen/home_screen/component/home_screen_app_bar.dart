@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../../generated/assets.dart';
 import '../../../../../utils/constants.dart';
-import '../../../../app_widgets/sizeBox.dart';
+import '../../../../app_widgets/widgets.dart';
 import '../../../../app_widgets/app_image.dart';
 
 AppBar homeScreenAppBar(BuildContext context) {

@@ -6,7 +6,7 @@ import 'package:instagram_clone/ui/screens/nav_bar_screen/home_screen/component/
 import 'package:instagram_clone/ui/theme.dart';
 import '../../../../../../utils/constants.dart';
 import '../../../../../app_widgets/app_image.dart';
-import '../../../../../app_widgets/sizeBox.dart';
+import '../../../../../app_widgets/widgets.dart';
 
 class AddCommentPart extends StatefulWidget {
   const AddCommentPart({Key? key, required this.controller,}) : super(key: key);

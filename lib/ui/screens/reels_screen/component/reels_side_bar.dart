@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../generated/assets.dart';
 import '../../../app_widgets/custom_action_button.dart';
-import '../../../app_widgets/sizeBox.dart';
+import '../../../app_widgets/widgets.dart';
 import '../../../theme.dart';
 import 'individual_reels_item.dart';
 

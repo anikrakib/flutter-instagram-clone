@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:instagram_clone/app/model/user_model.dart';
 import 'package:instagram_clone/ui/app_widgets/app_image.dart';
-import 'package:instagram_clone/ui/app_widgets/sizeBox.dart';
+import 'package:instagram_clone/ui/app_widgets/widgets.dart';
 import 'package:instagram_clone/ui/screens/nav_bar_screen/home_screen/component/feed_component/comment_box.dart';
 import '../../../../../app/model/comment_model.dart';
 import '../../../../../app/model/view_type.dart';

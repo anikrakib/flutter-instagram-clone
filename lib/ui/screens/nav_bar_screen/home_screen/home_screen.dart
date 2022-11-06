@@ -3,7 +3,7 @@ import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:instagram_clone/ui/app_widgets/sizeBox.dart';
+import 'package:instagram_clone/ui/app_widgets/widgets.dart';
 import 'package:instagram_clone/ui/screens/nav_bar_screen/home_screen/component/feed_component/suggest_user_custom_list.dart';
 import 'package:instagram_clone/ui/screens/nav_bar_screen/home_screen/story_screen/story_screen.dart';
 import 'package:instagram_clone/utils/constants.dart';

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:instagram_clone/generated/assets.dart';
-import 'package:instagram_clone/ui/app_widgets/custom_action_button.dart';
-import 'package:instagram_clone/ui/theme.dart';
+import '../../../../app/controller/user_post_controller.dart';
 import '../../../../utils/constants.dart';
 
 class PostScreen extends StatefulWidget {
@@ -13,116 +11,113 @@ class PostScreen extends StatefulWidget {
 }
 
 class _PostScreenState extends State<PostScreen> {
+  final userPostController = Get.put(UserPostController());
   late String currentState;
-  late int currentIndex;
+  Color customBoxColor = Colors.black.withOpacity(0.7);
+  Color textColor = Colors.white;
 
   @override
   void initState() {
     currentState = "POST";
-    currentIndex = 0;
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('New post'),
-        leading: iconButtonWidget(
-          function: () {
-            Get.back();
-          },
-          iconPath: Assets.iconsIconCross,
-          color: Theme.of(context).primaryColor,
-        ),
-        actions: [
-          iconButtonWidget(
-            function: () {},
-            iconPath: Assets.iconsIconForward,
-            color: AppColors.secondary,
-          )
-        ],
-      ),
       body: SafeArea(
-        child: Stack(
-          children: [
-            SizedBox(
-              height: double.infinity,
-              width: double.infinity,
-              child: newPostPages[currentIndex],
-            ),
-            Positioned(
-              bottom: 10,
-              right: 0,
-              left: MediaQuery.of(context).size.width * 0.4,
-              child: Container(
-                height: 45,
-                decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.7),
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(25),
-                    bottomLeft: Radius.circular(25),
-                  ),
-                ),
+        child: Obx(
+          () => Stack(
+            children: [
+              SizedBox(
+                height: double.infinity,
+                width: double.infinity,
+                child: newPostPages[userPostController.currentIndex.value],
               ),
-            ),
-            Positioned(
-              bottom: 15,
-              right: 0,
-              left: 0,
-              child: SizedBox(
-                height: 35,
-                child: RotatedBox(
-                  quarterTurns: -1,
-                  child: ListWheelScrollView.useDelegate(
-                    itemExtent: 60,
-                    diameterRatio: 5,
-                    /*useMagnifier: true,
-                    magnification: 1.5,*/
-                    //* selected state is magnified
-                    onSelectedItemChanged: (index) {
-                      setState(
-                        () {
-                          currentState = lists[index];
-                          if (currentState == 'POST') {
-                            currentIndex = 0;
-                          } else if (currentState == 'STORY') {
-                            currentIndex = 1;
-                          } else if (currentState == 'REEL') {
-                            currentIndex = 2;
-                          } else if (currentState == 'LIVE') {
-                            currentIndex = 3;
-                          }
-                        },
-                      );
-                    },
-                    childDelegate: ListWheelChildBuilderDelegate(
-                      childCount: lists.length,
-                      builder: (context, index) {
-                        return RotatedBox(
-                          quarterTurns: 1,
-                          child: WheelTile(
-                            lists[index],
-                            currentState == lists[index]
-                                ? const TextStyle(
-                                    fontSize: 15,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                  )
-                                : const TextStyle(
-                                    fontSize: 15,
-                                    color: Colors.white60,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                          ),
-                        );
-                      },
+              Positioned(
+                bottom: 10,
+                right: 0,
+                left: MediaQuery.of(context).size.width * 0.4,
+                child: Container(
+                  height: 45,
+                  decoration: BoxDecoration(
+                    color: customBoxColor,
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(25),
+                      bottomLeft: Radius.circular(25),
                     ),
                   ),
                 ),
               ),
-            ),
-          ],
+              Positioned(
+                bottom: 15,
+                right: userPostController.listWheelPosition.value,
+                left: userPostController.listWheelPosition.value,
+                child: SizedBox(
+                  height: 35,
+                  child: Visibility(
+                    visible: userPostController.showAddToStoryPage.value,
+                    child: RotatedBox(
+                      quarterTurns: -1,
+                      child: ListWheelScrollView.useDelegate(
+                        itemExtent: 60,
+                        diameterRatio: userPostController.diameterRatio.value,
+                        /*useMagnifier: true,
+                        magnification: 1.5,*/
+                        //* selected state is magnified
+                        onSelectedItemChanged: (index) {
+                          currentState = lists[index];
+                          if (lists[index] == 'POST') {
+                            userPostController.updateIndex(0);
+                            userPostController.updateDiameterRatio(5);
+                            userPostController.updateListWheelPosition(0);
+                            customBoxColor = Colors.black.withOpacity(0.7);
+                          } else if (lists[index] == 'STORY') {
+                            userPostController.updateIndex(1);
+                            userPostController.updateDiameterRatio(2);
+                            userPostController.updateListWheelPosition(60);
+                            customBoxColor = Colors.black.withOpacity(0);
+                          } else if (lists[index] == 'REEL') {
+                            userPostController.updateIndex(2);
+                            userPostController.updateDiameterRatio(2);
+                            userPostController.updateListWheelPosition(60);
+                            customBoxColor = Colors.black.withOpacity(0);
+                          } else if (lists[index] == 'LIVE') {
+                            userPostController.updateIndex(3);
+                            userPostController.updateDiameterRatio(2);
+                            userPostController.updateListWheelPosition(60);
+                            customBoxColor = Colors.black.withOpacity(0);
+                          }
+                        },
+                        childDelegate: ListWheelChildBuilderDelegate(
+                          childCount: lists.length,
+                          builder: (context, index) {
+                            return RotatedBox(
+                              quarterTurns: 1,
+                              child: WheelTile(
+                                lists[index],
+                                currentState == lists[index]
+                                    ? const TextStyle(
+                                        fontSize: 15,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                      )
+                                    : TextStyle(
+                                        fontSize: 15,
+                                        color: Colors.white.withOpacity(0.4),
+                                        fontWeight: FontWeight.normal,
+                                      ),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

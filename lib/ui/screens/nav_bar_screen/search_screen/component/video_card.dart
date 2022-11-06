@@ -26,7 +26,6 @@ class _VideoCardState extends State<VideoCard> {
       ..initialize().then((_) {
         setState(() {});
       });
-    _loadStory(url: widget.videoItem.videoUrl);
   }
 
   @override
@@ -66,17 +65,5 @@ class _VideoCardState extends State<VideoCard> {
         ],
       ),
     );
-  }
-
-  void _loadStory({required String url}) {
-    _controller.dispose();
-    _controller = VideoPlayerController.network(url)
-      ..initialize().then((_) {
-        setState(() {});
-        if (_controller.value.isInitialized) {
-          _controller.pause();
-        }
-      });
-    _controller.setLooping(true);
   }
 }

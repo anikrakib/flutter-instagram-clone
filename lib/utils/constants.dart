@@ -4,9 +4,10 @@ import 'package:instagram_clone/ui/screens/nav_bar_screen/new_post_screen/new_po
 import 'package:instagram_clone/ui/screens/nav_bar_screen/profile_screen/profile_screen.dart';
 import 'package:instagram_clone/ui/screens/nav_bar_screen/search_screen/search_screen.dart';
 import 'package:instagram_clone/ui/screens/nav_bar_screen/shop%20screen/shop_screen.dart';
-
 import '../ui/screens/nav_bar_screen/new_post_screen/component/screen/live_post_screen/live_post_screen.dart';
 import '../ui/screens/nav_bar_screen/new_post_screen/component/screen/reel_post_screen/reel_post_screen.dart';
+import '../ui/screens/nav_bar_screen/new_post_screen/component/screen/story_post_screen/component/camera_section.dart';
+import '../ui/screens/nav_bar_screen/new_post_screen/component/screen/story_post_screen/component/image_section.dart';
 import '../ui/screens/nav_bar_screen/new_post_screen/component/screen/story_post_screen/story_post_screen.dart';
 import '../ui/screens/nav_bar_screen/new_post_screen/component/screen/user_post_screen/user_post_screen.dart';
 
@@ -33,9 +34,12 @@ final screens = [
 ];
 
 final List<String> lists = ['POST', 'STORY', 'REEL', 'LIVE'];
+
+final listStoryPostScreenPage = [CameraSection(), ImageSection()];
+
 final List<Widget> newPostPages = [
   const UserPostScreen(),
-  const StoryPostScreen(),
+  StoryPostScreen(),
   const ReelPostScreen(),
   const LivePostScreen()
 ];

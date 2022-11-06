@@ -15,7 +15,6 @@ SvgPicture svgImageWithHeightAndWidth(
       path,
       width: width,
       height: height,
-      //color: Get.isDarkMode ? AppColors.light : AppColors.dark,
     );
 
 SvgPicture svgImage(String path) => SvgPicture.asset(

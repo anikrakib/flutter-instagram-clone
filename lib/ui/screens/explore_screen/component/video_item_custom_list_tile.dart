@@ -2,7 +2,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/app/model/explore_data_model.dart';
 import 'package:instagram_clone/app/model/user_model.dart';
-import 'package:instagram_clone/ui/app_widgets/sizeBox.dart';
+import 'package:instagram_clone/ui/app_widgets/widgets.dart';
 import 'package:video_player/video_player.dart';
 import '../../../../utils/constants.dart';
 import '../../../../utils/utils_function.dart';

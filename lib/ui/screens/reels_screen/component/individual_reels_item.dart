@@ -8,7 +8,7 @@ import 'package:video_player/video_player.dart';
 import '../../../../utils/constants.dart';
 import '../../../app_widgets/app_image.dart';
 import '../../../app_widgets/follow_button.dart';
-import '../../../app_widgets/sizeBox.dart';
+import '../../../app_widgets/widgets.dart';
 
 class IndividualReelItem extends StatefulWidget {
   const IndividualReelItem({Key? key, required this.reelItem})
@@ -58,19 +58,7 @@ class _IndividualReelItemState extends State<IndividualReelItem> {
                 : Container(),
           ),
         ),
-        Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Colors.black.withOpacity(0.3),
-                Colors.transparent,
-              ],
-              begin: FractionalOffset.topCenter,
-              end: FractionalOffset.bottomCenter,
-              tileMode: TileMode.repeated,
-            ),
-          ),
-        ),
+        shadowFullScreen(),
         Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(

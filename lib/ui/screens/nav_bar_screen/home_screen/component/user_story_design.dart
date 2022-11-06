@@ -3,7 +3,7 @@ import '../../../../../app/model/user_model.dart';
 import '../../../../../generated/assets.dart';
 import '../../../../../utils/constants.dart';
 import '../../../../app_widgets/app_image.dart';
-import '../../../../app_widgets/sizeBox.dart';
+import '../../../../app_widgets/widgets.dart';
 
 Padding othersUserStory(BuildContext context, User user) {
   return Padding(
@@ -29,7 +29,7 @@ Padding othersUserStory(BuildContext context, User user) {
   );
 }
 
-Padding yourStory(BuildContext context, String userImage) {
+Widget yourStory(BuildContext context, String userImage) {
   return Padding(
     padding:
         const EdgeInsets.only(left: defaultPadding, right: defaultPadding),
