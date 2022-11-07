@@ -70,6 +70,7 @@ class Assets {
   static const String iconsIconTag = 'assets/icons/icon_tag.svg';
   static const String iconsIconText = 'assets/icons/icon_text.svg';
   static const String iconsIconVideo = 'assets/icons/icon_video.svg';
+  static const String iconsIconWishlist = 'assets/icons/icon_wishlist.svg';
   static const String iconsIconYourActivity = 'assets/icons/icon_your_activity.svg';
 
 }

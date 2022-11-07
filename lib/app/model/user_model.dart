@@ -1,5 +1,4 @@
 import 'package:instagram_clone/app/model/story_model.dart';
-import 'package:instagram_clone/app/model/view_type.dart';
 
 class User {
   final String userName;

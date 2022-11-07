@@ -12,7 +12,8 @@ abstract class Routes {
   static const comments = Paths.comments;
   static const explore = Paths.explore;
   static const post = Paths.post;
-  static const userPost = Paths.userPost;
+  static const shop = Paths.shop;
+  static const searchProduct = Paths.searchProduct;
 }
 
 abstract class Paths {
@@ -30,4 +31,5 @@ abstract class Paths {
   static const explore = '/explore';
   static const post = '/post';
   static const userPost = '/userPost';
+  static const searchProduct = '/searchProduct';
 }

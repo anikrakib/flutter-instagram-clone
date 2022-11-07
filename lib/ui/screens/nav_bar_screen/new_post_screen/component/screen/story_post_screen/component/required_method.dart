@@ -1,9 +1,7 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:instagram_clone/app/controller/user_post_controller.dart';
-
 import '../../../../../../../../generated/assets.dart';
 import '../../../../../../../app_widgets/custom_action_button.dart';
 import '../../../../../../../theme.dart';
