@@ -21,6 +21,7 @@ class ImageItemWidget extends StatefulWidget {
 class _ImageItemWidgetState extends State<ImageItemWidget> {
   PageController pageController = PageController(initialPage: 0);
   int activePage = 0;
+  TextEditingController controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +57,16 @@ class _ImageItemWidgetState extends State<ImageItemWidget> {
               },
             ),
           ),
-          likeCommentBookmarkParts(context, widget.imageItem.images, activePage),
+          likeCommentBookmarkParts(
+            context: context,
+            allComments: widget.imageItem.comments,
+            bodyText: widget.imageItem.postBody,
+            name: widget.imageItem.user.userName,
+            profileImage: widget.imageItem.user.profileImageUrl,
+            controller: controller,
+            images: widget.imageItem.images,
+            activePage: activePage,
+          ),
           Container(
             width: double.infinity,
             padding: const EdgeInsets.only(
@@ -87,7 +97,9 @@ class _ImageItemWidgetState extends State<ImageItemWidget> {
           ),
           Padding(
             padding: const EdgeInsets.only(
-                left: defaultPadding, right: defaultPadding,top: defaultPadding/4),
+                left: defaultPadding,
+                right: defaultPadding,
+                top: defaultPadding / 4),
             child: SizedBox(
               width: double.infinity,
               child: Text(

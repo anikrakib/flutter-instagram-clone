@@ -67,7 +67,9 @@ class AppPages {
     ),
     GetPage(
       name: Paths.comments,
-      page: () => const Comments(),
+      page: () => const Comments(
+        allComments: [],
+      ),
     ),
     GetPage(
       name: Paths.explore,

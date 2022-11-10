@@ -4,16 +4,18 @@ import 'package:instagram_clone/app/model/user_model.dart';
 abstract class ListItem {}
 
 class AddItem implements ListItem {
-  final String? addName;
+  final String addImage;
+  final String addName;
   final List<String> images;
   String? addPost;
   final List<Comment> comments;
 
   AddItem({
     this.addPost,
-    this.addName,
+    required this.addName,
     required this.images,
     required this.comments,
+    required this.addImage,
   });
 }
 

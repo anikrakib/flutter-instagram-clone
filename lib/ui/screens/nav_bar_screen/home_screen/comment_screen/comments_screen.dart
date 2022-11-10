@@ -1,12 +1,10 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:instagram_clone/app/model/user_model.dart';
 import 'package:instagram_clone/ui/app_widgets/app_image.dart';
 import 'package:instagram_clone/ui/app_widgets/widgets.dart';
 import 'package:instagram_clone/ui/screens/nav_bar_screen/home_screen/component/feed_component/comment_box.dart';
 import '../../../../../app/model/comment_model.dart';
-import '../../../../../app/model/view_type.dart';
 import '../../../../../generated/assets.dart';
 import '../../../../../utils/constants.dart';
 import '../../../../../utils/utils_function.dart';
@@ -15,61 +13,20 @@ import '../component/feed_component/post_body_text.dart';
 import '../component/user_story_design.dart';
 import 'component/comments_app_bar.dart';
 
-class Comments extends StatefulWidget {
-  const Comments({Key? key}) : super(key: key);
-
-  @override
-  State<Comments> createState() => _CommentsState();
-}
-
-class _CommentsState extends State<Comments> {
-  late ListItem listItem;
-  late PostItem postItem;
-  late AddItem addItem;
-  late TextEditingController controller;
-  List<Comment> comments = [];
-  String name = '';
-  String post = '';
-  String image = '';
-  var arguments = Get.arguments;
-
-  @override
-  void initState() {
-    super.initState();
-    postItem = arguments[0] ??
-        PostItem(
-          user: const User(
-              userName: '',
-              profileImageUrl: '',
-              fullName: '',
-              bio: '',
-              stories: [],
-              verified: false),
-          postUserImage: '',
-          images: [],
-          comments: [],
-          time: DateTime.now(),
-        );
-    addItem = arguments[1] ??
-        AddItem(
-          addName: '',
-          images: [],
-          comments: [],
-        );
-    listItem = arguments[2];
-    controller = arguments[3];
-
-    if (listItem is PostItem) {
-      post = postItem.postBody ?? '';
-      image = postItem.postUserImage;
-      comments.addAll(postItem.comments);
-    } else if (listItem is AddItem) {
-      name = addItem.addName ?? '';
-      post = addItem.addPost ?? '';
-      image = addItem.images.first;
-      comments.addAll(addItem.comments);
-    }
-  }
+class Comments extends StatelessWidget {
+  const Comments(
+      {Key? key,
+      required this.allComments,
+      this.body,
+      this.userName,
+      this.userImage,
+      this.controller})
+      : super(key: key);
+  final List<Comment> allComments;
+  final String? body;
+  final String? userName;
+  final String? userImage;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
@@ -90,17 +47,17 @@ class _CommentsState extends State<Comments> {
                     children: [
                       commentScreenUserPostSection(
                         context: context,
-                        post: post,
-                        name: name,
-                        time: postItem.time,
+                        post: body ?? '',
+                        name: userName ?? '',
+                        time: DateTime.now(),
                       ),
                       ListView.builder(
                         shrinkWrap: true,
                         physics: const BouncingScrollPhysics(),
-                        itemCount: comments.length,
+                        itemCount: allComments.length,
                         itemBuilder: (context, index) => commentTileDesign(
                           context: context,
-                          comment: comments[index],
+                          comment: allComments[index],
                         ),
                       ),
                     ],
@@ -109,7 +66,7 @@ class _CommentsState extends State<Comments> {
               ),
             ),
             CommentBox(
-              textEditingController: controller,
+              textEditingController: controller ?? TextEditingController(),
             ),
           ],
         ),
@@ -231,7 +188,7 @@ class _CommentsState extends State<Comments> {
                   context: context,
                   myDayProfilePicSize: myDayProfilePicSize - 15,
                   padding: myDayPadding / 1.5,
-                  imageUrl: postItem.postUserImage,
+                  imageUrl: userImage ?? '',
                 ),
                 sizeBox(10),
                 Expanded(

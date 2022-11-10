@@ -72,7 +72,16 @@ class _PostItemWidgetState extends State<PostItemWidget> {
               },
             ),
           ),
-          likeCommentBookmarkParts(context, widget.postItem.images, activePage),
+          likeCommentBookmarkParts(
+            context: context,
+            allComments: widget.postItem.comments,
+            bodyText: widget.postItem.postBody,
+            name: widget.postItem.user.userName,
+            profileImage: widget.postItem.user.profileImageUrl,
+            controller: controller,
+            images: widget.postItem.images,
+            activePage: activePage,
+          ),
           Container(
             width: double.infinity,
             padding: const EdgeInsets.only(
@@ -90,7 +99,8 @@ class _PostItemWidgetState extends State<PostItemWidget> {
               padding: const EdgeInsets.only(
                 left: defaultPadding,
                 right: defaultPadding,
-                top: defaultPadding / 5,),
+                top: defaultPadding / 5,
+              ),
               child: SizedBox(
                 width: double.infinity,
                 child: postBodyText(
@@ -106,12 +116,22 @@ class _PostItemWidgetState extends State<PostItemWidget> {
               left: defaultPadding,
             ),
             child: GestureDetector(
-              onTap: () => goTOCommentsPageWithArguments(
+              /*onTap: () => goTOCommentsPageWithArguments(
                 path: Routes.comments,
                 postItem: widget.postItem,
                 listItem: widget.postItem,
                 controller: controller,
-              ),
+              ),*/
+              onTap: () => {
+                goTOCommentsPageWithArguments(
+                  path: Routes.comments,
+                  comments: widget.postItem.comments,
+                  bodyText: widget.postItem.postBody,
+                  name: widget.postItem.user.userName,
+                  image: widget.postItem.user.profileImageUrl,
+                  controller: controller,
+                )
+              },
               child: Visibility(
                 visible: widget.postItem.comments.isNotEmpty,
                 child: SizedBox(
@@ -131,12 +151,22 @@ class _PostItemWidgetState extends State<PostItemWidget> {
               right: defaultPadding,
             ),
             child: GestureDetector(
-              onTap: () => goTOCommentsPageWithArguments(
+              /*onTap: () => goTOCommentsPageWithArguments(
                 path: Routes.comments,
                 postItem: widget.postItem,
                 listItem: widget.postItem,
                 controller: controller,
-              ),
+              ),*/
+              onTap: () => {
+                goTOCommentsPageWithArguments(
+                  path: Routes.comments,
+                  comments: widget.postItem.comments,
+                  bodyText: widget.postItem.postBody,
+                  name: widget.postItem.user.userName,
+                  image: widget.postItem.user.profileImageUrl,
+                  controller: controller,
+                )
+              },
               child: Visibility(
                 visible: widget.postItem.comments.isNotEmpty,
                 child: comment(widget.postItem),
@@ -144,22 +174,34 @@ class _PostItemWidgetState extends State<PostItemWidget> {
             ),
           ),
           GestureDetector(
-            onTap: () => goTOCommentsPageWithArguments(
+            /*onTap: () => goTOCommentsPageWithArguments(
                 path: Routes.comments,
                 postItem:  widget.postItem,
                 listItem:  widget.postItem,
-                controller: controller),
+                controller: controller),*/
+            onTap: () => {
+              goTOCommentsPageWithArguments(
+                path: Routes.comments,
+                comments: widget.postItem.comments,
+                bodyText: widget.postItem.postBody,
+                name: widget.postItem.user.userName,
+                image: widget.postItem.user.profileImageUrl,
+                controller: controller,
+              )
+            },
             child: AddCommentPart(
               controller: controller,
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(
-                left: defaultPadding, right: defaultPadding,top: defaultPadding/4),
+                left: defaultPadding,
+                right: defaultPadding,
+                top: defaultPadding / 4),
             child: SizedBox(
               width: double.infinity,
               child: Text(
-                timeAgo( widget.postItem.time, true),
+                timeAgo(widget.postItem.time, true),
                 style: const TextStyle(color: AppColors.faded, fontSize: 10),
               ),
             ),
@@ -170,11 +212,21 @@ class _PostItemWidgetState extends State<PostItemWidget> {
   }
 }
 
+function(PostItem postItem, TextEditingController controller) {
+  goTOCommentsPageWithArguments(
+    path: Routes.comments,
+    comments: postItem.comments,
+    bodyText: postItem.postBody,
+    name: postItem.user.userName,
+    image: postItem.user.profileImageUrl,
+    controller: controller,
+  );
+}
 
-Widget comment(PostItem item){
-  if(item.comments.isNotEmpty){
+Widget comment(PostItem item) {
+  if (item.comments.isNotEmpty) {
     return showFirstComment(item.comments[0]);
-  }else{
+  } else {
     return Container();
   }
 }

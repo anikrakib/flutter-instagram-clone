@@ -63,7 +63,9 @@ abstract class AppTextStyle {
   static const reelsTextStyle = TextStyle(
       fontSize: 13, color: AppColors.light, fontWeight: FontWeight.w400);
 
-  /// A faded text style. Uses [AppColors.faded].
+  static const commentReelsTextStyle = TextStyle(
+      fontSize: 6, color: AppColors.light, fontWeight: FontWeight.w400);
+
   static const textStyleFaded = TextStyle(
       color: AppColors.faded, fontWeight: FontWeight.w400, fontSize: 20);
 

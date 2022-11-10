@@ -31,8 +31,11 @@ var postList = List<ListItem>.generate(
         }),
       );
     } else if ((index) % 2 == 0 && index != 0) {
+      String menOrWomen = random.nextBool() == true ? 'women' : 'men';
       return AddItem(
         addName: faker.company.name(),
+        addImage:
+            'https://randomuser.me/api/portraits/$menOrWomen/${random.nextInt(85)}.jpg',
         images: generateImages(),
         addPost: random.nextBool() == true ? faker.lorem.sentence() : '',
         comments: generateComments(),

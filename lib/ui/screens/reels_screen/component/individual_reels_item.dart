@@ -46,15 +46,18 @@ class _IndividualReelItemState extends State<IndividualReelItem> {
         Center(
           child: SizedBox(
             height: (videoController.value.size.height <
-                MediaQuery.of(context).size.height)
+                    MediaQuery.of(context).size.height)
                 ? videoController.value.size.height
                 : MediaQuery.of(context).size.height,
             width: (videoController.value.size.width <
-                MediaQuery.of(context).size.width)
+                    MediaQuery.of(context).size.width)
                 ? videoController.value.size.width
                 : MediaQuery.of(context).size.width,
             child: (videoController.value.isInitialized)
-                ? VideoPlayer(videoController)
+                ? Hero(
+                    tag: 'videoPlayer',
+                    child: VideoPlayer(videoController),
+                  )
                 : Container(),
           ),
         ),
@@ -92,7 +95,10 @@ class _IndividualReelItemState extends State<IndividualReelItem> {
                   flex: 2,
                   child: SizedBox(
                     height: MediaQuery.of(context).size.height * .45,
-                    child: ReelSideBar(widget: widget),
+                    child: ReelSideBar(
+                      widget: widget,
+                      controller: videoController,
+                    ),
                   ),
                 ),
                 sizeBox(defaultPadding / 2),
@@ -145,9 +151,9 @@ class _IndividualReelItemState extends State<IndividualReelItem> {
                 ),
                 child: ExpandableText(
                   '😍🍁🍂 Calm water pool with autumn leaves hidden away as the season begins to change! Filmed a few weeks ago up near Glennallen Alaska.'
-                      '\n.\n.\n.\n.\n.\n.\n.\nMore @${widget.reelItem.reelUser.userName}.'
-                      '\n.\n.\nFor more info visit www.xyz.com'
-                      '\n.\n.\n.\n#reels #calm #alaska #sunset #alaska #winter #snow #womanlifefreedom #زن_زندگی_آزادی #mahsa_amini #iraniangirl',
+                  '\n.\n.\n.\n.\n.\n.\n.\nMore @${widget.reelItem.reelUser.userName}.'
+                  '\n.\n.\nFor more info visit www.xyz.com'
+                  '\n.\n.\n.\n#reels #calm #alaska #sunset #alaska #winter #snow #womanlifefreedom #زن_زندگی_آزادی #mahsa_amini #iraniangirl',
                   expandText: '...',
                   collapseOnTextTap: true,
                   expandOnTextTap: true,

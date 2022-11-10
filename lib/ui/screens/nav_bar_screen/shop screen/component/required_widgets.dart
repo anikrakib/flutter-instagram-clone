@@ -39,9 +39,11 @@ Widget productsStaggeredGridView(List<Product> productList) {
         },
         child: Hero(
           tag: product.productUrl,
-          child: SizedBox(
+          transitionOnUserGestures: true,
+          child: Container(
             height: double.infinity,
             width: double.infinity,
+            color: Get.isDarkMode ? const Color(0xff272627) : const Color(0xffeeefee),
             child: CachedNetworkImage(
               imageUrl: product.productUrl,
               fit: BoxFit.cover,
@@ -373,8 +375,10 @@ Widget productImage({required BuildContext context, required Product product}) {
   return Center(
     child: Hero(
       tag: product.productUrl,
-      child: SizedBox(
+      transitionOnUserGestures: true,
+      child: Container(
         height: MediaQuery.of(context).size.height * 0.5,
+        color: Get.isDarkMode ? const Color(0xff272627) : const Color(0xffeeefee),
         child: CachedNetworkImage(
           imageUrl: product.productUrl,
           fit: BoxFit.cover,

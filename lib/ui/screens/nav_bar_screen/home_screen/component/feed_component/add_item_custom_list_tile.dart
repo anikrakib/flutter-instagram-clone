@@ -63,7 +63,8 @@ class _AddItemWidgetState extends State<AddItemWidget> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          postHeader(name: widget.item.addName ?? '', addOrPost: true, context: context),
+          postHeader(
+              name: widget.item.addName, addOrPost: true, context: context),
           Expanded(
             child: Stack(
               children: [
@@ -115,7 +116,16 @@ class _AddItemWidgetState extends State<AddItemWidget> {
               ],
             ),
           ),
-          likeCommentBookmarkParts(context, widget.item.images, activePage),
+          likeCommentBookmarkParts(
+            context: context,
+            allComments: widget.item.comments,
+            bodyText: widget.item.addPost,
+            name: widget.item.addName,
+            profileImage: widget.item.addImage,
+            controller: controller,
+            images: widget.item.images,
+            activePage: activePage,
+          ),
           Container(
             width: double.infinity,
             padding: const EdgeInsets.only(
@@ -149,12 +159,22 @@ class _AddItemWidgetState extends State<AddItemWidget> {
               left: defaultPadding,
             ),
             child: GestureDetector(
-              onTap: () => goTOCommentsPageWithArguments(
+              /*onTap: () => goTOCommentsPageWithArguments(
                 path: Routes.comments,
                 addItem: widget.item,
                 listItem: widget.item,
                 controller: controller,
-              ),
+              ),*/
+              onTap: () => {
+                goTOCommentsPageWithArguments(
+                  path: Routes.comments,
+                  comments: widget.item.comments,
+                  bodyText: widget.item.addPost,
+                  name: widget.item.addName,
+                  image: widget.item.images.first,
+                  controller: controller,
+                )
+              },
               child: Visibility(
                 visible: widget.item.comments.isNotEmpty,
                 child: SizedBox(
@@ -174,12 +194,19 @@ class _AddItemWidgetState extends State<AddItemWidget> {
               right: defaultPadding,
             ),
             child: GestureDetector(
-              onTap: () => goTOCommentsPageWithArguments(
+              /*onTap: () => goTOCommentsPageWithArguments(
                 path: Routes.comments,
                 addItem: widget.item,
                 listItem: widget.item,
                 controller: controller,
-              ),
+              ),*/
+              onTap: () => {
+                goTOCommentsPageWithArguments(
+                  path: Routes.comments,
+                  comments: widget.item.comments,
+                  controller: controller,
+                )
+              },
               child: Visibility(
                 visible: widget.item.comments.isNotEmpty,
                 child: comment(widget.item),
@@ -187,12 +214,19 @@ class _AddItemWidgetState extends State<AddItemWidget> {
             ),
           ),
           GestureDetector(
-            onTap: () => goTOCommentsPageWithArguments(
+            /*onTap: () => goTOCommentsPageWithArguments(
               path: Routes.comments,
               addItem: widget.item,
               listItem: widget.item,
               controller: controller,
-            ),
+            ),*/
+            onTap: () => {
+              goTOCommentsPageWithArguments(
+                path: Routes.comments,
+                comments: widget.item.comments,
+                controller: controller,
+              )
+            },
             child: AddCommentPart(
               controller: controller,
             ),

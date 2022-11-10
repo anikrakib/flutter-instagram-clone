@@ -22,6 +22,7 @@ class VideoItemWidget extends StatefulWidget {
 }
 
 class _VideoItemWidgetState extends State<VideoItemWidget> {
+  TextEditingController controller = TextEditingController();
   late VideoPlayerController _controller;
   late String videoUrl;
   late User user;
@@ -118,7 +119,14 @@ class _VideoItemWidgetState extends State<VideoItemWidget> {
               ],
             ),
           ),
-          likeCommentBookmarkParts(context),
+          likeCommentBookmarkParts(
+            context: context,
+            allComments: widget.videoItem?.comments ?? [],
+            bodyText: widget.videoItem?.videoPostBody,
+            name: widget.videoItem?.videoUser.userName ?? '',
+            profileImage: widget.videoItem?.videoUser.profileImageUrl ?? '',
+            controller: controller,
+          ),
           Container(
             width: double.infinity,
             padding: const EdgeInsets.only(

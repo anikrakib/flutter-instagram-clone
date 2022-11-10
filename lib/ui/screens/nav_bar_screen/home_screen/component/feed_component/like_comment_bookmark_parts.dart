@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/app/model/comment_model.dart';
 import 'package:instagram_clone/ui/app_widgets/app_image.dart';
 import 'package:instagram_clone/ui/app_widgets/widgets.dart';
 import 'package:instagram_clone/ui/theme.dart';
@@ -7,8 +8,16 @@ import '../../../../../../generated/assets.dart';
 import '../../../../../../routes/app_routes.dart';
 import '../../../../../../utils/utils_function.dart';
 
-Padding likeCommentBookmarkParts(BuildContext context,
-    [List<String>? images, int? activePage]) {
+Padding likeCommentBookmarkParts({
+  required BuildContext context,
+  required List<Comment> allComments,
+  String? bodyText,
+  required String name,
+  required String profileImage,
+  required TextEditingController controller,
+  List<String>? images,
+  int? activePage,
+}) {
   return Padding(
     padding: const EdgeInsets.only(
       left: defaultPadding,
@@ -26,7 +35,14 @@ Padding likeCommentBookmarkParts(BuildContext context,
                 navigationSVGImage(context, Assets.iconsIconHeart),
                 sizeBox(10),
                 GestureDetector(
-                    onTap: () => goTOAnotherPage(Routes.comments),
+                    onTap: () => goTOCommentsPageWithArguments(
+                          path: Routes.comments,
+                          comments: allComments,
+                          bodyText: bodyText,
+                          name: name,
+                          image: profileImage,
+                          controller: controller,
+                        ),
                     child:
                         navigationSVGImage(context, Assets.iconsIconComment)),
                 sizeBox(10),

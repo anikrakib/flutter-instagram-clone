@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../theme.dart';
 
-ElevatedButton followButton([Color? color]) {
+ElevatedButton followButton([Color? color, double? fontSize]) {
   return ElevatedButton(
     style: ButtonStyle(
       foregroundColor: MaterialStateProperty.all<Color>(
@@ -23,7 +23,9 @@ ElevatedButton followButton([Color? color]) {
     onPressed: () => {},
     child: Text(
       "Follow".toUpperCase(),
-      style: const TextStyle(fontSize: 12,),
+      style: TextStyle(
+        fontSize: fontSize ?? 12,
+      ),
     ),
   );
 }
