@@ -60,6 +60,10 @@ abstract class AppTextStyle {
     fontWeight: FontWeight.bold,
   );
 
+  static const textStyleNormal = TextStyle(
+    fontWeight: FontWeight.w400,
+  );
+
   static const reelsTextStyle = TextStyle(
       fontSize: 13, color: AppColors.light, fontWeight: FontWeight.w400);
 
@@ -84,23 +88,32 @@ abstract class AppTextStyle {
   static const textStyleLight = TextStyle(fontWeight: FontWeight.w300);
 
   /// Action text
-  static const textStyleActionBlue = TextStyle(
-    fontWeight: FontWeight.w700,
-    color: AppColors.secondary,
-  );
+  static const textStyleActionBlue =
+      TextStyle(fontWeight: FontWeight.w700, color: AppColors.secondary);
+
   static const textStyleActionBlueBig = TextStyle(
       fontWeight: FontWeight.w700, color: AppColors.secondary, fontSize: 16);
 
   static const textStyleBig =
       TextStyle(fontWeight: FontWeight.w600, fontSize: 16);
 
+  static const bottomSheetTextStyle =
+  TextStyle(fontWeight: FontWeight.w400, fontSize: 16);
+
+  static const profilePageLargeFontStyle =
+      TextStyle(fontSize: 18, fontWeight: FontWeight.bold);
+
+  static const profilePageMediumFontStyle =
+  TextStyle(fontSize: 15, fontWeight: FontWeight.w400);
+
+  static const profilePageSmallFontStyle =
+  TextStyle(fontSize: 13, fontWeight: FontWeight.normal);
+
   static const textStyleSmall =
       TextStyle(fontWeight: FontWeight.w500, fontSize: 13);
 
-  static const textStyleSmallBold = TextStyle(
-    fontWeight: FontWeight.bold,
-    fontSize: 12,
-  );
+  static const textStyleSmallBold =
+      TextStyle(fontWeight: FontWeight.bold, fontSize: 12);
 }
 
 /// Global reference to the application theme.

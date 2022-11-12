@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:get/get.dart';
 import '../theme.dart';
 
 ElevatedButton followButton([Color? color, double? fontSize]) {
@@ -27,5 +27,20 @@ ElevatedButton followButton([Color? color, double? fontSize]) {
         fontSize: fontSize ?? 12,
       ),
     ),
+  );
+}
+
+Container customButton({
+  required Widget widget,
+  double width = double.infinity,
+}) {
+  return Container(
+    height: 30,
+    width: width,
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(8),
+      color: Get.isDarkMode ? const Color(0xff272627) : const Color(0xffeeefee),
+    ),
+    child: widget,
   );
 }

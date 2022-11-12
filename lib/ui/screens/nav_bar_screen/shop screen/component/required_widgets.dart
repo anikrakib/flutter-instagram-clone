@@ -5,6 +5,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:instagram_clone/generated/assets.dart';
 import 'package:instagram_clone/ui/app_widgets/app_image.dart';
+import 'package:instagram_clone/ui/app_widgets/button.dart';
 import 'package:instagram_clone/ui/app_widgets/widgets.dart';
 import 'package:instagram_clone/ui/screens/nav_bar_screen/shop%20screen/screen/product_details.dart';
 import 'package:instagram_clone/utils/constants.dart';
@@ -12,18 +13,6 @@ import '../../../../../app/controller/shop_controller.dart';
 import '../../../../../app/model/product_model.dart';
 import '../../../../../routes/app_routes.dart';
 import '../../../../theme.dart';
-
-Widget productSearchBox({required Widget widget}) {
-  return Container(
-    height: 35,
-    width: double.infinity,
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(12),
-      color: Get.isDarkMode ? const Color(0xff272627) : const Color(0xffeeefee),
-    ),
-    child: widget,
-  );
-}
 
 Widget productsStaggeredGridView(List<Product> productList) {
   return StaggeredGridView.countBuilder(
@@ -43,7 +32,9 @@ Widget productsStaggeredGridView(List<Product> productList) {
           child: Container(
             height: double.infinity,
             width: double.infinity,
-            color: Get.isDarkMode ? const Color(0xff272627) : const Color(0xffeeefee),
+            color: Get.isDarkMode
+                ? const Color(0xff272627)
+                : const Color(0xffeeefee),
             child: CachedNetworkImage(
               imageUrl: product.productUrl,
               fit: BoxFit.cover,
@@ -59,7 +50,7 @@ Widget productsStaggeredGridView(List<Product> productList) {
 }
 
 Widget videoBox() {
-  return productSearchBox(
+  return customButton(
     widget: const Align(
       alignment: Alignment.center,
       child: Text(
@@ -74,7 +65,7 @@ Widget videoBox() {
 }
 
 Widget searchBox() {
-  return productSearchBox(
+  return customButton(
     widget: Row(
       children: [
         Padding(
@@ -378,7 +369,8 @@ Widget productImage({required BuildContext context, required Product product}) {
       transitionOnUserGestures: true,
       child: Container(
         height: MediaQuery.of(context).size.height * 0.5,
-        color: Get.isDarkMode ? const Color(0xff272627) : const Color(0xffeeefee),
+        color:
+            Get.isDarkMode ? const Color(0xff272627) : const Color(0xffeeefee),
         child: CachedNetworkImage(
           imageUrl: product.productUrl,
           fit: BoxFit.cover,

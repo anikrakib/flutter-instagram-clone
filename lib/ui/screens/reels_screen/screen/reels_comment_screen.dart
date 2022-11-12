@@ -21,29 +21,33 @@ class ReelsCommentScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            Align(
-              alignment: Alignment.topCenter,
-              child: Container(
-                width: MediaQuery.of(context).size.width * .33,
-                height: MediaQuery.of(context).size.height * .30,
-                color: AppColors.dark,
-                child: Stack(
-                  children: [
-                    Align(
-                      alignment: Alignment.topCenter,
-                      child: SizedBox(
-                        width: MediaQuery.of(context).size.width,
-                        height: (controller.value.size.height <
-                                MediaQuery.of(context).size.height)
-                            ? controller.value.size.height
-                            : MediaQuery.of(context).size.height,
-                        child: Hero(
-                            tag: 'videoPlayer', child: VideoPlayer(controller)),
+            Container(
+              color: AppColors.dark,
+              child: Align(
+                alignment: Alignment.topCenter,
+                child: Container(
+                  width: MediaQuery.of(context).size.width * .33,
+                  height: MediaQuery.of(context).size.height * .30,
+                  color: AppColors.dark,
+                  child: Stack(
+                    children: [
+                      Align(
+                        alignment: Alignment.center,
+                        child: SizedBox(
+                          width: MediaQuery.of(context).size.width,
+                          height: ((controller.value.size.height * .33) <
+                                  MediaQuery.of(context).size.height)
+                              ? controller.value.size.height * .33
+                              : MediaQuery.of(context).size.height,
+                          child: Hero(
+                              tag: 'videoPlayer',
+                              child: VideoPlayer(controller)),
+                        ),
                       ),
-                    ),
-                    shadowFullScreen(),
-                    reelsBottomPart(context),
-                  ],
+                      shadowFullScreen(),
+                      reelsBottomPart(context),
+                    ],
+                  ),
                 ),
               ),
             ),

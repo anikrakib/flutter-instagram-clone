@@ -7,7 +7,7 @@ import 'package:marquee/marquee.dart';
 import 'package:video_player/video_player.dart';
 import '../../../../utils/constants.dart';
 import '../../../app_widgets/app_image.dart';
-import '../../../app_widgets/follow_button.dart';
+import '../../../app_widgets/button.dart';
 import '../../../app_widgets/widgets.dart';
 
 class IndividualReelItem extends StatefulWidget {

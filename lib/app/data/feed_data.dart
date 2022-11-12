@@ -53,3 +53,14 @@ var postList = List<ListItem>.generate(
     );
   },
 );
+
+var suggestUsers = List<SuggestUser>.generate(
+  10,
+  (index) {
+    String menOrWomen = Random().nextBool() == true ? 'women' : 'men';
+    return SuggestUser(
+      userName: faker.internet.userName(),
+      userImage: 'https://randomuser.me/api/portraits/$menOrWomen/$index.jpg',
+    );
+  },
+);

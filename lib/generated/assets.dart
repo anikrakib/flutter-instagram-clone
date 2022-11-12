@@ -16,6 +16,13 @@ class Assets {
   static const String bottomNavbarIconSearchFill = 'assets/bottom_navbar/icon_search_fill.svg';
   static const String bottomNavbarIconShop = 'assets/bottom_navbar/icon_shop.svg';
   static const String bottomNavbarIconWhiteShopFill = 'assets/bottom_navbar/icon_white_shop_fill.svg';
+  static const String highLightImagesBike = 'assets/high_light_images/bike.webp';
+  static const String highLightImagesCamp = 'assets/high_light_images/camp.webp';
+  static const String highLightImagesCooking = 'assets/high_light_images/cooking.webp';
+  static const String highLightImagesNature = 'assets/high_light_images/nature.webp';
+  static const String highLightImagesPet = 'assets/high_light_images/pet.webp';
+  static const String highLightImagesSwimming = 'assets/high_light_images/swimming.webp';
+  static const String highLightImagesYoga = 'assets/high_light_images/yoga.webp';
   static const String iconsIconAdd = 'assets/icons/icon_add.svg';
   static const String iconsIconAddCircle = 'assets/icons/icon_add_circle.svg';
   static const String iconsIconAddStory = 'assets/icons/icon_add_story.svg';
@@ -24,6 +31,7 @@ class Assets {
   static const String iconsIconArrowUp = 'assets/icons/icon_arrow_up.svg';
   static const String iconsIconBack = 'assets/icons/icon_back.svg';
   static const String iconsIconBookmark = 'assets/icons/icon_bookmark.svg';
+  static const String iconsIconBookmarkThin = 'assets/icons/icon_bookmark_thin.svg';
   static const String iconsIconBoomerang = 'assets/icons/icon_boomerang.svg';
   static const String iconsIconCalender = 'assets/icons/icon_calender.svg';
   static const String iconsIconCamera = 'assets/icons/icon_camera.svg';
@@ -51,6 +59,7 @@ class Assets {
   static const String iconsIconLock = 'assets/icons/icon_lock.svg';
   static const String iconsIconMenu = 'assets/icons/icon_menu.svg';
   static const String iconsIconMessage = 'assets/icons/icon_message.svg';
+  static const String iconsIconMessenger = 'assets/icons/icon_messenger.svg';
   static const String iconsIconMultipleImage = 'assets/icons/icon_multiple_image.svg';
   static const String iconsIconMusic = 'assets/icons/icon_music.svg';
   static const String iconsIconOptionHorizontal = 'assets/icons/icon_option_horizontal.svg';
