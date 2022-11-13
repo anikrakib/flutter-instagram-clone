@@ -159,12 +159,6 @@ class _AddItemWidgetState extends State<AddItemWidget> {
               left: defaultPadding,
             ),
             child: GestureDetector(
-              /*onTap: () => goTOCommentsPageWithArguments(
-                path: Routes.comments,
-                addItem: widget.item,
-                listItem: widget.item,
-                controller: controller,
-              ),*/
               onTap: () => {
                 goTOCommentsPageWithArguments(
                   path: Routes.comments,
@@ -194,12 +188,6 @@ class _AddItemWidgetState extends State<AddItemWidget> {
               right: defaultPadding,
             ),
             child: GestureDetector(
-              /*onTap: () => goTOCommentsPageWithArguments(
-                path: Routes.comments,
-                addItem: widget.item,
-                listItem: widget.item,
-                controller: controller,
-              ),*/
               onTap: () => {
                 goTOCommentsPageWithArguments(
                   path: Routes.comments,
@@ -214,12 +202,6 @@ class _AddItemWidgetState extends State<AddItemWidget> {
             ),
           ),
           GestureDetector(
-            /*onTap: () => goTOCommentsPageWithArguments(
-              path: Routes.comments,
-              addItem: widget.item,
-              listItem: widget.item,
-              controller: controller,
-            ),*/
             onTap: () => {
               goTOCommentsPageWithArguments(
                 path: Routes.comments,

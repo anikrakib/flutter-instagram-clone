@@ -116,12 +116,6 @@ class _PostItemWidgetState extends State<PostItemWidget> {
               left: defaultPadding,
             ),
             child: GestureDetector(
-              /*onTap: () => goTOCommentsPageWithArguments(
-                path: Routes.comments,
-                postItem: widget.postItem,
-                listItem: widget.postItem,
-                controller: controller,
-              ),*/
               onTap: () => {
                 goTOCommentsPageWithArguments(
                   path: Routes.comments,
@@ -151,12 +145,6 @@ class _PostItemWidgetState extends State<PostItemWidget> {
               right: defaultPadding,
             ),
             child: GestureDetector(
-              /*onTap: () => goTOCommentsPageWithArguments(
-                path: Routes.comments,
-                postItem: widget.postItem,
-                listItem: widget.postItem,
-                controller: controller,
-              ),*/
               onTap: () => {
                 goTOCommentsPageWithArguments(
                   path: Routes.comments,
@@ -174,11 +162,6 @@ class _PostItemWidgetState extends State<PostItemWidget> {
             ),
           ),
           GestureDetector(
-            /*onTap: () => goTOCommentsPageWithArguments(
-                path: Routes.comments,
-                postItem:  widget.postItem,
-                listItem:  widget.postItem,
-                controller: controller),*/
             onTap: () => {
               goTOCommentsPageWithArguments(
                 path: Routes.comments,

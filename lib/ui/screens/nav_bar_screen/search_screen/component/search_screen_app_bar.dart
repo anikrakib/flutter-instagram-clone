@@ -47,6 +47,7 @@ AppBar searchScreenAppBar(BuildContext context) {
       iconButtonWidget(
         function: () {},
         iconPath: Assets.iconsIconScanner,
+        color: Theme.of(context).primaryColor,
       ),
     ],
   );

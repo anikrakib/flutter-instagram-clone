@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import '../../../../../app/data/feed_data.dart';
 import '../../../../../app/data/profile_highlight_data.dart';
 import '../../../../../generated/assets.dart';
+import '../../../../../routes/app_routes.dart';
 import '../../../../../utils/constants.dart';
 import '../../../../app_widgets/app_image.dart';
 import '../../../../app_widgets/custom_action_button.dart';
@@ -173,67 +174,61 @@ AppBar profileAppBar({
         function: () {
           Get.bottomSheet(
             Container(
-                decoration: BoxDecoration(
-                  color: Get.isDarkMode
-                      ? const Color(0xff272627)
-                      : const Color(0xffeeefee),
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(20),
-                    topRight: Radius.circular(20),
-                  ),
+              decoration: BoxDecoration(
+                color: Get.isDarkMode
+                    ? const Color(0xff272627)
+                    : const Color(0xffeeefee),
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(20),
+                  topRight: Radius.circular(20),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.all(defaultPadding),
-                  child: Column(
-                    children: [
-                      Container(
-                        height: 4,
-                        width: 45,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          color: Get.isDarkMode
-                              ? const Color(0xffeeefee)
-                              : AppColors.faded,
-                        ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(defaultPadding),
+                child: Column(
+                  children: [
+                    Container(
+                      height: 4,
+                      width: 45,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: Get.isDarkMode
+                            ? const Color(0xffeeefee)
+                            : AppColors.faded,
                       ),
-                      sizeBox(20),
-                      bottomSheetListTile(
-                          context, 'Settings', Assets.iconsIconSetting),
-                      sizeBox(20),
-                      bottomSheetListTile(context, 'Your activity',
-                          Assets.iconsIconYourActivity),
-                      sizeBox(20),
-                      bottomSheetListTile(
-                          context, 'Archive', Assets.iconsIconArchive),
-                      sizeBox(20),
-                      bottomSheetListTile(
-                          context, 'QR code', Assets.iconsIconScanner),
-                      sizeBox(20),
-                      bottomSheetListTile(
-                          context, 'Saved', Assets.iconsIconBookmarkThin),
-                      sizeBox(20),
-                      bottomSheetListTile(context, 'Close Friends',
-                          Assets.iconsIconCloseFriends),
-                      sizeBox(20),
-                      Row(
-                        children: [
-                          const Icon(
-                            Icons.star_border_purple500_sharp,
-                            size: 25,
-                          ),
-                          sizeBox(10),
-                          const Text(
-                            'Favorites',
-                            style: AppTextStyle.bottomSheetTextStyle,
-                          )
-                        ],
-                      ),
-                      sizeBox(20),
-                      bottomSheetListTile(context, 'Update messaging',
-                          Assets.iconsIconMessenger),
-                    ],
-                  ),
-                )),
+                    ),
+                    sizeBox(20),
+                    iconAndTextListTile(
+                      context,
+                      'Settings',
+                      path: Assets.iconsIconSetting,
+                      routesPath: Routes.settings,
+                    ),
+                    sizeBox(20),
+                    iconAndTextListTile(
+                        context, 'Your activity', path: Assets.iconsIconYourActivity),
+                    sizeBox(20),
+                    iconAndTextListTile(
+                        context, 'Archive', path: Assets.iconsIconArchive),
+                    sizeBox(20),
+                    iconAndTextListTile(
+                        context, 'QR code', path: Assets.iconsIconScanner),
+                    sizeBox(20),
+                    iconAndTextListTile(
+                        context, 'Saved', path: Assets.iconsIconBookmark),
+                    sizeBox(20),
+                    iconAndTextListTile(
+                        context, 'Close Friends', path: Assets.iconsIconCloseFriends),
+                    sizeBox(20),
+                    iconAndTextListTile(
+                        context, 'Favorites', icons: Icons.star_border_purple500_sharp),
+                    sizeBox(20),
+                    iconAndTextListTile(
+                        context, 'Update messaging', path: Assets.iconsIconMessenger),
+                  ],
+                ),
+              ),
+            ),
             enableDrag: true,
           );
         },
@@ -241,19 +236,6 @@ AppBar profileAppBar({
         color: Theme.of(context).primaryColor,
       ),
       sizeBox(10),
-    ],
-  );
-}
-
-Widget bottomSheetListTile(BuildContext context, String text, String path) {
-  return Row(
-    children: [
-      svgImageWithColor(22, 22, path, Theme.of(context).primaryColor),
-      sizeBox(10),
-      Text(
-        text,
-        style: AppTextStyle.bottomSheetTextStyle,
-      )
     ],
   );
 }

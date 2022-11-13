@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:instagram_clone/ui/app_widgets/app_image.dart';
+import '../../utils/utils_function.dart';
 import '../theme.dart';
 
 SizedBox sizeBox(double size) => SizedBox(
@@ -23,7 +25,8 @@ Container shadowFullScreen() {
   );
 }
 
-Row buildFeaturesRow({required String path, String text = '', double padding = 5.0}) {
+Row buildFeaturesRow(
+    {required String path, String text = '', double padding = 5.0}) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.center,
     crossAxisAlignment: CrossAxisAlignment.center,
@@ -47,5 +50,31 @@ Row buildFeaturesRow({required String path, String text = '', double padding = 5
         ),
       ),
     ],
+  );
+}
+
+Widget iconAndTextListTile(BuildContext context, String text,
+    {String? path, IconData? icons, String? routesPath}) {
+  return GestureDetector(
+    onTap: () {
+      routesPath != null
+          ? goTOAnotherPage(routesPath)
+          : Get.snackbar(text, 'Coming Soon...');
+    },
+    child: Row(
+      children: [
+        path != null
+            ? svgImageWithColor(22, 22, path, Theme.of(context).primaryColor)
+            : Icon(
+                icons,
+                size: 25,
+              ),
+        sizeBox(10),
+        Text(
+          text,
+          style: AppTextStyle.bottomSheetTextStyle,
+        )
+      ],
+    ),
   );
 }

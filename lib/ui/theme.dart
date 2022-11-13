@@ -91,6 +91,10 @@ abstract class AppTextStyle {
   static const textStyleActionBlue =
       TextStyle(fontWeight: FontWeight.w700, color: AppColors.secondary);
 
+  /// Action text
+  static const settingTextStyleActionBlue =
+  TextStyle(fontWeight: FontWeight.w400, color: AppColors.secondary);
+
   static const textStyleActionBlueBig = TextStyle(
       fontWeight: FontWeight.w700, color: AppColors.secondary, fontSize: 16);
 

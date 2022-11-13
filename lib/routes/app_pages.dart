@@ -6,6 +6,7 @@ import 'package:instagram_clone/ui/screens/nav_bar_screen/nav_bar_screen.dart';
 import 'package:instagram_clone/ui/screens/nav_bar_screen/new_post_screen/component/screen/user_post_screen/user_post_screen.dart';
 import 'package:instagram_clone/ui/screens/nav_bar_screen/new_post_screen/new_post_screen.dart';
 import 'package:instagram_clone/ui/screens/nav_bar_screen/shop%20screen/shop_screen.dart';
+import 'package:instagram_clone/ui/screens/settings_screen/settings_screen.dart';
 import 'package:instagram_clone/ui/screens/signin/signin_screen.dart';
 import 'package:instagram_clone/ui/screens/signin_with_existing_account/sign_in_with_existing_account.dart';
 import 'package:instagram_clone/ui/screens/signup/sign_up_with_email_and_phone/sign_up_with_email_and_phone.dart';
@@ -20,6 +21,7 @@ import '../ui/screens/explore_screen/explore_screen.dart';
 import '../ui/screens/nav_bar_screen/home_screen/home_screen.dart';
 import '../ui/screens/nav_bar_screen/shop screen/screen/search_product_screen.dart';
 import '../ui/screens/signup/signup_other_information.dart';
+import '../ui/screens/theme_change_screen/theme_change_screen.dart';
 
 class AppPages {
   AppPages._();
@@ -92,6 +94,14 @@ class AppPages {
     GetPage(
       name: Paths.searchProduct,
       page: () => const SearchProductScreen(),
+    ),
+    GetPage(
+      name: Paths.settings,
+      page: () => SettingsScreen(),
+    ),
+    GetPage(
+      name: Paths.themeChange,
+      page: () => const ThemeChangeScreen(),
     ),
   ];
 }
