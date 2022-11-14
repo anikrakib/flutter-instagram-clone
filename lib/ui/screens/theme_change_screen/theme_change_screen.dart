@@ -35,7 +35,7 @@ class _ThemeChangeScreenState extends State<ThemeChangeScreen> {
                   const Expanded(
                     child: Text(
                       'Light',
-                      style: TextStyle(fontSize: 20),
+                      style: TextStyle(fontSize: 18),
                     ),
                   ),
                   CustomRadio(
@@ -55,7 +55,7 @@ class _ThemeChangeScreenState extends State<ThemeChangeScreen> {
                   const Expanded(
                     child: Text(
                       'Dark',
-                      style: TextStyle(fontSize: 20),
+                      style: TextStyle(fontSize: 18),
                     ),
                   ),
                   CustomRadio(
@@ -101,13 +101,13 @@ class _CustomRadioState extends State<CustomRadio> {
         bool selected = widget.value != themeController.theme;
         if (selected) {
           widget.onChange!(widget.value);
-          if (Get.isDarkMode) {
-            themeController.changeTheme(AppTheme().lightTheme);
-            themeController.saveTheme(false);
-          } else {
-            themeController.changeTheme(AppTheme().darkTheme);
-            themeController.saveTheme(true);
-          }
+        }
+        if (Get.isDarkMode) {
+          themeController.changeTheme(AppTheme().lightTheme);
+          themeController.saveTheme(false);
+        } else {
+          themeController.changeTheme(AppTheme().darkTheme);
+          themeController.saveTheme(true);
         }
       },
       child: (themeController.theme == widget.value)

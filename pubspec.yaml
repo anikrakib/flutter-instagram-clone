@@ -54,9 +54,15 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-
+  # A command-line tool which simplifies the task of updating your Flutter app's launcher icon.
+  flutter_launcher_icons: ^0.10.0
   flutter_lints: ^2.0.0
 
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/app_launcher_icon.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
 
 flutter:
 

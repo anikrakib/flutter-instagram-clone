@@ -2,7 +2,7 @@
     package="com.anikrakib.example.instagram.flutter_instagram_clone">
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
-        android:label="flutter_instagram_clone"
+        android:label="Instagram Clone"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

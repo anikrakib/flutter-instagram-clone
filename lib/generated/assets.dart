@@ -3,6 +3,7 @@ class Assets {
   Assets._();
 
   static const String assetsAppIcon = 'assets/app_icon.svg';
+  static const String assetsAppLauncherIcon = 'assets/app_launcher_icon.png';
   static const String assetsAppIconWithBg = 'assets/app_icon_with_bg.svg';
   static const String assetsAppLogo = 'assets/app_logo.svg';
   static const String assetsIgtvLoading = 'assets/igtv_loading.svg';
@@ -17,6 +18,7 @@ class Assets {
   static const String bottomNavbarIconSearchFill = 'assets/bottom_navbar/icon_search_fill.svg';
   static const String bottomNavbarIconShop = 'assets/bottom_navbar/icon_shop.svg';
   static const String bottomNavbarIconWhiteShopFill = 'assets/bottom_navbar/icon_white_shop_fill.svg';
+  static const String flutterInstagramCloneAssetsAppIcon = 'assets/app_icon.svg';
   static const String highLightImagesBike = 'assets/high_light_images/bike.webp';
   static const String highLightImagesCamp = 'assets/high_light_images/camp.webp';
   static const String highLightImagesCooking = 'assets/high_light_images/cooking.webp';
